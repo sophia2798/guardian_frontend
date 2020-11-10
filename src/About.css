@@ -1,0 +1,17 @@
+.about {
+    display: flex;
+    flex-direction: column;
+}
+
+.about__title {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    font-size: 100px;
+}
+
+.about__summary {
+    display: flex;
+    justify-content: center;
+    margin: 10px 25% 10px 25%;
+}
