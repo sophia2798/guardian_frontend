@@ -1,0 +1,41 @@
+.nav {
+    position: fixed;
+    color: white;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    height: 20px;
+    z-index: 1;
+    transition-timing-function: ease-in;
+    transition: all 0.6s;
+}
+
+.nav__white {
+    background-color: rgb(255, 255, 255);
+    color: black;
+    opacity: 95%;
+}
+
+.nav__logo {
+    position: fixed;
+    left: 30px;
+    width: 150px;
+    object-fit: contain;
+}
+
+.nav__right {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+.nav__option {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.nav__option:hover {
+    cursor: pointer;
+}
