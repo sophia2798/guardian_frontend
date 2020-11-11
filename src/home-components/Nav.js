@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import './Nav.css';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import MenuIcon from '@material-ui/icons/Menu';
-import logo from './images/logo.jpeg';
+import logo from '../images/logo.jpeg';
 
 function Nav() {
     const handleLogin = () => {
