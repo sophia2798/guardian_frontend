@@ -4,6 +4,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import LockIcon from '@material-ui/icons/Lock';
 import { Button } from '@material-ui/core';
+import logo from './images/logo.jpeg';
 
 function Login() {
     return (
@@ -11,12 +12,11 @@ function Login() {
             <div className="login__header">
                 <div className="header__option">
                     <ArrowBackIcon />
-                </div>
-                <div className="header__option">
                     <h3>Return to Homepage</h3>
                 </div>
             </div>
             <div className="login__body">
+                <img className="login__logo" src={logo} alt="" />
                 <div className="login__input">
                     <PermIdentityIcon />
                     <input type="text" />
@@ -32,12 +32,9 @@ function Login() {
                     >
                         LOGIN
                     </Button>
-                    <Button
-                        className="nav__button"
-                        variant='outlined'
-                    >
-                        SIGN UP
-                    </Button>
+                </div>
+                <div className="login__footer">
+                    <p>Don't have an account? <a href="">SIGN UP</a></p>
                 </div>
             </div>
         </div>
