@@ -9,6 +9,7 @@
 .trips-header {
     display: flex;
     flex-direction: row;
+    font-family: 'Work Sans', sans-serif;
 }
 
 .trips-header button {
@@ -19,7 +20,7 @@
     width: 2rem;
     border: 1px solid white;
     background-color: rgb(0,0,0,0);
-    margin-top: 0.4rem;
+    margin-top: 0.2rem;
     color: white;
     font-size: 1.5rem;
 }
@@ -27,4 +28,10 @@
 .trips-header button:hover {
     color: #cccccc;
     border: 1px solid #cccccc;
+}
+
+.trip-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
