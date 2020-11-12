@@ -1,10 +1,11 @@
 import React from 'react';
 import './About.css';
+import Grid from "@material-ui/core/Grid";
 
 function About() {
     return (
         <div className="about">
-                <h1 className="about__title">OUR MISSION</h1>
+            <h1 className="about__title">OUR MISSION</h1>
             <p className="about__summary">Guardian Inc. is a global risk mitigation and security solutions enabler that provides executive protection agencies a platform to maintain client safety.  With increasing demands in protection, Guardian Inc. aims to consolidate decades of security, investigative, law enforcement, and risk mitigation experience. Streamlining ease of use, Guardian Inc. offers best in class solutions which exceeds industry standards and client expectations.  We tailor our platform specifically for the executive protection field and implement the latest in corporate security, executive protection tactics, and investigative methods as well as a variety of other proven techniques.
             <br />
             <br />
