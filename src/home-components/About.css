@@ -2,11 +2,6 @@
     display: flex;
     flex-direction: column;
     color: white;
-    background-image: url("../images/logo-dark.jpeg");
-    background-repeat: no-repeat;
-    background-size: 50vw;
-    background-position-x: center;
-    background-position-y: center;
 }
 
 .about__title {
