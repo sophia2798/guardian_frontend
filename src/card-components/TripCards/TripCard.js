@@ -95,7 +95,10 @@ export default function TripCard() {
       />
       <CardActions disableSpacing>
         <IconButton onClick={setComplete} aria-label="add to favorites">
-            { complete ? <CheckIcon/> : <ClearIcon/> }
+            { complete ?
+            <div className="textBlue"><CheckIcon/></div>
+            :
+            <div className="textGrey"><ClearIcon/></div>}
         </IconButton>
       </CardActions>
     </Card>

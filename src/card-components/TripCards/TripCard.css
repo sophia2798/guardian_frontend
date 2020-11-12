@@ -18,7 +18,7 @@
     letter-spacing: 0.2rem !important;
 }
 
-.MuiCardHeader-title, .MuiCardHeader-subheader, .MuiSvgIcon-root, .MuiAvatar-root {
+.MuiCardHeader-title, .MuiCardHeader-subheader, .MuiAvatar-root {
     color: white !important;
     font-family: 'Catamaran', sans-serif !important;
 }
@@ -29,5 +29,13 @@
 }
 
 .MuiSvgIcon-root:hover {
+    transform: scale(1.2);
+}
+
+.textBlue {
+    color: #1282a2 !important;
+}
+
+.textGrey {
     color: #cccccc !important;
 }
