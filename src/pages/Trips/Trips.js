@@ -12,6 +12,7 @@ function Trips() {
             <div className="trip-cards-container">
                 <Card/>
                 <Card/>
+                <Card/>
             </div>
         </div>
     )
