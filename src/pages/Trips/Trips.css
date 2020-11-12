@@ -1,0 +1,30 @@
+.trip-container {
+    color: white;
+    /* position: absolute;
+    top: 80px; */
+    margin-top: 80px;
+    padding: 1rem 30px;
+}
+
+.trips-header {
+    display: flex;
+    flex-direction: row;
+}
+
+.trips-header button {
+    padding: 0.1rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid white;
+    background-color: rgb(0,0,0,0);
+    margin-top: 0.4rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.trips-header button:hover {
+    color: #cccccc;
+    border: 1px solid #cccccc;
+}
