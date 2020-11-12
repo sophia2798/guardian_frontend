@@ -1,0 +1,62 @@
+[
+    {
+        "city": "New York",
+        "safety_rating": 82,
+        "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
+        "completed": false,
+        "itinerary": [
+            {
+                "location": "Time Square",
+                "time": "20-11-05 12:15:00"
+            },
+            {
+                "location": "Columbus Circle",
+                "time": "20-11-07 16:00:00"
+            },
+            {
+                "location": "Lion King Broadway",
+                "time": "20-11-07 19:30:00"
+            }
+        ]
+    },
+    {
+        "city": "Seoul",
+        "safety_rating": 90,
+        "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
+        "completed": false,
+        "itinerary": [
+            {
+                "location": "Yonsei University",
+                "time": "20-12-15 10:00:00"
+            },
+            {
+                "location": "KBS Building",
+                "time": "20-12-15 14:45:00"
+            },
+            {
+                "location": "DMZ",
+                "time": "20-12-16 9:30:00"
+            }
+        ]
+    },
+    {
+        "city": "Seattle",
+        "safety_rating": 86,
+        "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
+        "completed": false,
+        "itinerary": [
+            {
+                "location": "Pike Place Market",
+                "time": "21-01-23 11:20:00"
+            },
+            {
+                "location": "Showbox SoDo",
+                "time": "20-01-26 21:00:00"
+            },
+            {
+                "location": "Canlis",
+                "time": "20-01-27 18:15:00"
+            }
+        ]
+    }
+]
