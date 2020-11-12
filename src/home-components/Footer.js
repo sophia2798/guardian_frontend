@@ -38,7 +38,7 @@ function Footer() {
             </div>
 
             <div className="footer__copyright">
-                <p>GUARDIAN by Chris MacGeorge, Chris Sison, Sophia Jung, Jack Solaro, and Nick VanBaak ©</p>
+                <p>GUARDIAN by Chris MacGeorge, Chris Alexander, Sophia Jung, Jack Solaro, and Nick VanBaak ©</p>
             </div>
         </div>
     )

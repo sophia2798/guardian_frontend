@@ -4,6 +4,10 @@
 }
 
 .app {
+    background-image: url("./images/logo-dark.jpeg");
+    background-repeat: no-repeat;
+    background-size: 50vw;
+    background-position: center bottom 30%;
     background-color: rgb(17, 17, 17);
 }
 
