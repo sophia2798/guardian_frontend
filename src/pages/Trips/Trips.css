@@ -10,9 +10,28 @@
     display: flex;
     flex-direction: row;
     font-family: 'Work Sans', sans-serif;
+    position: relative;
 }
 
-.trips-header button {
+.trips-header form {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    height: 90%;
+}
+
+.trips-header input {
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: 1px solid white;
+    background: rgb(0,0,0,0);
+    border-radius: 999px;
+    color: white;
+    margin-right: 1rem;
+}
+
+#add-trip {
     padding: 0.1rem;
     margin-left: 1rem;
     border-radius: 50%;
@@ -25,7 +44,15 @@
     font-size: 1.5rem;
 }
 
-.trips-header button:hover {
+#trip-search-submit {
+    margin: 0;
+    font-size: 1rem !important;
+    background: rgb(0,0,0,0);
+    border: none;
+    color: white;
+}
+
+#add-trip button:hover {
     color: #cccccc;
     border: 1px solid #cccccc;
 }
