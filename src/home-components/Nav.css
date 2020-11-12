@@ -13,15 +13,15 @@
 }
 
 .nav__white {
-    background-color: rgb(255, 255, 255);
-    color: black;
+    background-color: rgb(17, 17, 17);
+    color: rgb(250, 250, 250);
     opacity: 95%;
 }
 
 .nav__logo {
     position: fixed;
-    left: 30px;
-    width: 150px;
+    cursor: pointer;
+    width: 100px;
     object-fit: contain;
 }
 
@@ -34,6 +34,10 @@
 .nav__option {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+.nav__option > button {
+    color: white !important;
 }
 
 .nav__option:hover {

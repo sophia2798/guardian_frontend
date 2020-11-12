@@ -1,17 +1,23 @@
 .about {
     display: flex;
     flex-direction: column;
+    color: white;
+    background-image: url("../images/logo-dark.jpeg");
+    background-repeat: no-repeat;
+    background-size: 50vw;
+    background-position-x: center;
+    background-position-y: center;
 }
 
 .about__title {
     display: flex;
     justify-content: center;
     margin-top: 200px;
-    font-size: 100px;
+    font-size: 90px;
 }
 
 .about__summary {
     display: flex;
     justify-content: center;
-    margin: 10px 25% 10px 25%;
+    margin: 10px 25% 50px 25%;
 }

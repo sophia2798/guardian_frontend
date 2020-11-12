@@ -31,6 +31,7 @@ function Nav() {
                 <div className="nav__option">
                     <Button
                         className="nav__button"
+                        variant="outlined"
                     >
                         PLAN NOW
                     </Button>
