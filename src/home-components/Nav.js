@@ -4,6 +4,7 @@ import "./Nav.css";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MenuIcon from "@material-ui/icons/Menu";
 import logo from "../images/logo-white.png";
+import Grid from "@material-ui/core/Grid";
 
 function Nav() {
   const handleLogin = () => {};
