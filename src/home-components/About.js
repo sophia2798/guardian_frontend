@@ -1,6 +1,5 @@
 import React from 'react';
 import './About.css';
-import logoDark from '../images/logo-dark.jpeg';
 
 function About() {
     return (
