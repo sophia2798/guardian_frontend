@@ -38,6 +38,7 @@
 
 .nav__option > button {
     color: white !important;
+    /* font-family: 'Work Sans', sans-serif; */
 }
 
 .nav__option:hover {
