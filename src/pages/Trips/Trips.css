@@ -29,6 +29,7 @@
     border-radius: 999px;
     color: white;
     margin-right: 1rem;
+    outline: none;
 }
 
 #add-trip {
@@ -42,6 +43,7 @@
     margin-top: 0.2rem;
     color: white;
     font-size: 1.5rem;
+    outline: none
 }
 
 #trip-search-submit {
@@ -50,11 +52,16 @@
     background: rgb(0,0,0,0);
     border: none;
     color: white;
+    outline: none;
 }
 
-#add-trip button:hover {
-    color: #cccccc;
-    border: 1px solid #cccccc;
+#trip-search-submit:hover {
+    cursor: pointer;
+}
+
+#add-trip:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 .trip-cards-container {
