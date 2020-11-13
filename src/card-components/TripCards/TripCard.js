@@ -79,7 +79,7 @@ export default function TripCard(props) {
   }
 
   return (
-    <Card className={complete ? classes.cardCurrent : classes.cardComplete }>
+    <Card className={complete ? classes.cardCurrent : classes.cardComplete } id="root-trip-card">
       <CardHeader className={classes.textColor}
         avatar={
           <Avatar aria-label="recipe" className={complete ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;
