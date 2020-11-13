@@ -5,6 +5,7 @@ import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MenuIcon from "@material-ui/icons/Menu";
 import logo from "../images/logo-white.png";
 import Grid from "@material-ui/core/Grid";
+import { Link } from "react-router-dom";
 
 function Nav() {
   const handleLogin = () => {};
@@ -28,9 +29,11 @@ function Nav() {
       </div>
       <div className="nav__right">
         <div className="nav__option">
+          <Link to="/trips" style={{color:'white'}}>
           <Button className="nav__button" variant="outlined">
             PLAN NOW
           </Button>
+          </Link>
         </div>
         <div className="nav__option">
           <PermIdentityIcon onClick={handleLogin} />

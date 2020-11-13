@@ -44,3 +44,9 @@
 .nav__option:hover {
     cursor: pointer;
 }
+
+/* SAJ added code */
+
+.nav__button {
+    color: white !important;
+}

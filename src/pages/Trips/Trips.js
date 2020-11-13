@@ -27,6 +27,7 @@ class Trips extends Component {
                         start={trip.start}
                         end={trip.end}
                         image={trip.image}
+                        key={trip.id}
                     />
                 ))}
             </div>

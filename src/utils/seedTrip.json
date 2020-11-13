@@ -1,5 +1,6 @@
 [
     {
+        "id": 1,
         "city": "New York, NY",
         "safety_rating": 82,
         "start": "01/08/2021",
@@ -23,6 +24,7 @@
         ]
     },
     {
+        "id": 2,
         "city": "Seoul, South Korea",
         "safety_rating": 90,
         "start": "03/22/2021",
@@ -46,6 +48,7 @@
         ]
     },
     {
+        "id": 3,
         "city": "Seattle, WA",
         "safety_rating": 86,
         "start": "12/14/2020",
