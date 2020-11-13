@@ -33,12 +33,12 @@
 }
 
 #add-trip {
-    padding: 0.1rem;
+    padding: 0.05rem;
     margin-left: 1rem;
     border-radius: 50%;
     height: 2rem;
     width: 2rem;
-    border: 1px solid white;
+    border: 1.5px solid white;
     background-color: rgb(0,0,0,0);
     margin-top: 0.2rem;
     color: white;
