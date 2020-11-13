@@ -16,7 +16,7 @@ class Trips extends Component {
                 <h1>TRIPS</h1>
                 <button id="add-trip">+</button>
                 <form>
-                    <input type="text" placeholder="Search Trips"/>
+                    <input type="text" placeholder="SEARCH TRIPS"/>
                     <button id="trip-search-submit"><SearchIcon/></button>
                 </form>
             </div>
