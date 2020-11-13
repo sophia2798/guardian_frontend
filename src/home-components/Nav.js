@@ -25,7 +25,7 @@ function Nav() {
   return (
     <div className={`nav ${show && "nav__white"}`}>
       <div className="nav__left">
-        <img className="nav__logo" src={logo} alt="" />
+        <Link to="/"><img className="nav__logo" src={logo} alt="" /></Link>
       </div>
       <div className="nav__right">
         <div className="nav__option">
