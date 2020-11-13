@@ -48,6 +48,7 @@
 .footer__copyright {
     display: flex;
     justify-content: center;
+    margin: 15px;
     font-size: x-small;
     color: grey;
 }
@@ -62,4 +63,14 @@ ul {
 
 li {
     list-style: none;
+}
+
+@media screen and (max-width: 375px) {
+    .footer__middle {
+        display: none;
+    }
+    .footer__copyright {
+        display: flex;
+        justify-content: center;
+    }
 }

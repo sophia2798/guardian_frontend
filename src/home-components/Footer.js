@@ -19,7 +19,6 @@ function Footer() {
                     <p>Prepare</p>
                     <p>Privacy</p>
                     <p>Security</p>
-                    <p>Thank you for visiting!</p>
                 </div>
             
                 <div className="middle__middle">

@@ -3,7 +3,7 @@ import { Button } from "@material-ui/core";
 import "./Nav.css";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MenuIcon from "@material-ui/icons/Menu";
-import logo from "../images/logo-white.png";
+import logo from "../images/logo-white.jpeg";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
 

@@ -113,3 +113,18 @@
 a {
     text-decoration: none;
 }
+
+@media screen and (max-width: 375px) {
+    .login__logo {
+        width: 150px;
+        height: 29px;
+    }
+
+    .login__input > input {
+        width: 100%;
+    }
+
+    .login__password > input {
+        width: 100%;
+    }
+}
