@@ -38,8 +38,15 @@
 
 .nav__option > button {
     color: white !important;
+    /* font-family: 'Work Sans', sans-serif; */
 }
 
 .nav__option:hover {
     cursor: pointer;
+}
+
+/* SAJ added code */
+
+.nav__button {
+    color: white !important;
 }

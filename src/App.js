@@ -22,12 +22,12 @@ function App() {
         <div>
           <Banner />
           <About />
-          <Footer />
         </div>
       )}
       </Route>
       <Route path="/trips" component={Trips}/>
       </Switch>
+      <Footer />
     </div>
     </Router>
   );
