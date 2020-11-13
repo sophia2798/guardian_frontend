@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TripCard() {
+export default function TripCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [complete, setCompleted] = React.useState(false);
@@ -85,13 +85,12 @@ export default function TripCard() {
           <Avatar aria-label="recipe" className={complete ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;
           </Avatar>
         }
-        title="SEATTLE, WA"
-        subheader="12/14/2020 - 12/20/2020"
+        title={props.title}
+        subheader={`${props.start} - ${props.end}`}
       />
       <CardMedia
         className={classes.media}
-        image="https://images.unsplash.com/photo-1502175353174-a7a70e73b362?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
-        title="Seattle Skyline"
+        image={props.image}
       />
       <CardActions disableSpacing>
         <IconButton onClick={setComplete} aria-label="add to favorites">

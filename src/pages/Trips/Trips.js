@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import "./Trips.css";
 import SearchIcon from '@material-ui/icons/Search';
 import Card from "../../card-components/TripCards/TripCard";
+import TripSeed from "../../utils/seedTrip.json";
 
-function Trips() {
+class Trips extends Component {
+    state = {
+        TripSeed
+    };
+
+    render() {
     return (
         <div className="trip-container">
             <div className="trips-header">
@@ -15,12 +21,18 @@ function Trips() {
                 </form>
             </div>
             <div className="trip-cards-container">
-                <Card/>
-                <Card/>
-                <Card/>
+                {this.state.TripSeed.map(trip => (
+                    <Card
+                        title={trip.city.toUpperCase()}
+                        start={trip.start}
+                        end={trip.end}
+                        image={trip.image}
+                    />
+                ))}
             </div>
         </div>
     )
+    }
 }
 
 export default Trips

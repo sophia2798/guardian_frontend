@@ -1,7 +1,10 @@
 [
     {
-        "city": "New York",
+        "city": "New York, NY",
         "safety_rating": 82,
+        "start": "01/08/2021",
+        "end": "01/11/2021",
+        "image": "https://cdn.theculturetrip.com/wp-content/uploads/2019/01/fda03y.jpg",
         "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
         "completed": false,
         "itinerary": [
@@ -20,8 +23,11 @@
         ]
     },
     {
-        "city": "Seoul",
+        "city": "Seoul, South Korea",
         "safety_rating": 90,
+        "start": "03/22/2021",
+        "end": "03/30/2021",
+        "image": "https://cw-gbl-gws-prod.azureedge.net/-/media/cw/apac/south-korea/office/korea-office-desktop.jpg?rev=6aa301b6aa14432b9f2850b7d84abb67",
         "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
         "completed": false,
         "itinerary": [
@@ -40,8 +46,11 @@
         ]
     },
     {
-        "city": "Seattle",
+        "city": "Seattle, WA",
         "safety_rating": 86,
+        "start": "12/14/2020",
+        "end": "12/20/2020",
+        "image": "https://images.unsplash.com/photo-1502175353174-a7a70e73b362?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
         "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
         "completed": false,
         "itinerary": [
