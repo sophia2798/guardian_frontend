@@ -35,7 +35,7 @@ function Login() {
         </div>
         <div className="login__footer">
           <p>
-            Don't have an account? <a href="">SIGN UP</a>
+            Don't have an account? <a href="/signup">SIGN UP</a>
           </p>
         </div>
       </div>
