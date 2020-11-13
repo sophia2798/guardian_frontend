@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
   },
   cardCurrent: {
     color: 'white',
-    backgroundColor: '#0a1128',
+    backgroundColor: 'rgb(25,25,25)',
     minWidth: '48%',
     border: '2px solid #1282a2'
   },
@@ -80,7 +80,7 @@ export default function TripCard(props) {
   }
 
   return (
-    <Card className={complete ? classes.cardCurrent : classes.cardComplete }>
+    <Card className={complete ? classes.cardCurrent : classes.cardComplete } id="root-trip-card">
       <CardHeader className={classes.textColor}
         avatar={
           <Avatar aria-label="recipe" className={complete ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;

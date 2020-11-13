@@ -1,0 +1,152 @@
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  background-color: rgb(17, 17, 17);
+}
+
+.signup__body {
+  display: flex;
+  color: rgb(214, 211, 211);
+  flex-direction: column;
+  background-color: rgb(10, 10, 10);
+  width: 550px;
+  padding: 40px 30px;
+  margin-top: 100px;
+  box-shadow: 0px 6px 8px -6px black;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+.signup__logo {
+  object-fit: contain;
+  align-self: center;
+  width: 200px;
+  /* height: 2vh; */
+}
+
+.signup__title {
+  align-self: center;
+  font-size: 2.5rem;
+}
+
+.signup__header {
+  display: flex;
+  position: fixed;
+  background-color: rgb(3, 3, 3);
+  color: rgb(250, 250, 250);
+  top: 0;
+  width: 100%;
+  margin-left: 20px;
+  padding: 30px;
+  height: 20px;
+  z-index: 1;
+}
+
+.header__option {
+  display: flex;
+  align-items: center;
+  transform: transform 450ms;
+}
+
+.header__option:hover {
+  cursor: pointer;
+  transform: scale(1.004);
+  opacity: 85%;
+}
+
+.signup__input {
+  display: flex;
+  background-color: rgb(17, 17, 17);
+  align-items: center;
+  flex: 1;
+  /* max-width: fit-content; */
+  padding: 10px;
+  height: 30px;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 999px;
+  margin: 10px;
+}
+
+.signup__input > input {
+  background-color: rgb(17, 17, 17);
+  color: white;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  font-size: larger;
+}
+
+.signup__password {
+  background-color: rgb(17, 17, 17);
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  flex: 1;
+  /* max-width: fit-content; */
+  padding: 10px;
+  height: 30px;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 999px;
+}
+
+.signup__password > input {
+  background-color: rgb(17, 17, 17);
+  color: white;
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 10px;
+  font-size: larger;
+}
+
+.signup__button {
+  display: flex;
+  justify-content: space-around;
+}
+
+.signup__button > button {
+  color: white !important;
+  display: flex;
+  margin: 15px;
+}
+
+.signup__footer {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 375px) {
+  /* .signup__logo {
+    width: 150px;
+    height: 29px;
+  } */
+
+  .signup__input > input {
+    width: 100%;
+  }
+
+  .signup__password > input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .signup__body {
+    width: 80vw;
+  }
+  .footer__middle {
+    display: none;
+  }
+  .footer__copyright {
+    display: flex;
+    justify-content: center;
+  }
+}
