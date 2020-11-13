@@ -10,7 +10,7 @@ import Footer from './home-components/Footer';
 import Trips from "./pages/Trips/Trips";
 
 function App() {
-  const [user, setUser] = useState(true);
+  const [user, setUser] = useState(false);
 
   return (
     <Router>
@@ -22,12 +22,12 @@ function App() {
         <div>
           <Banner />
           <About />
-          <Footer />
         </div>
       )}
       </Route>
       <Route path="/trips" component={Trips}/>
       </Switch>
+      <Footer />
     </div>
     </Router>
   );
