@@ -9,6 +9,7 @@ import Footer from "./home-components/Footer";
 import Trips from "./pages/Trips/Trips";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
+import Teams from "./pages/Teams/Teams";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           </Route>
           <Route path="/trips" component={Trips} />
           <Route path="/signup" component={Signup} />
+          <Route path="/teams" component={Teams} />
         </Switch>
         <Footer />
       </div>
