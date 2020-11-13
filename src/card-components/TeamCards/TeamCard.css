@@ -16,4 +16,54 @@
     border-bottom: 1px solid white;
     width: 100%;
     padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.member-list h3 {
+    padding-top: 0.3rem;
+}
+
+.member-avatar {
+    height: 2rem;
+    margin-right: 0.5rem;
+}
+
+.color-choices {
+    position: absolute;
+    right: 0;
+    padding-right: 2rem;
+}
+
+.color-circle {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 0 0.2rem;
+}
+
+.color-circle:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+#dark-navy {
+    background: #001f54
+}
+
+#dark-blue {
+    background: #034078
+}
+
+#teal {
+    background: #1282a2
+}
+
+#standard {
+    background: rgb(25,25,25)
+}
+
+#black-blue {
+    background: #0a1128;
 }

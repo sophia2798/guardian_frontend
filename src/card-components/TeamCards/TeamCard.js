@@ -17,6 +17,7 @@ import CheckIcon from '@material-ui/icons/Check';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import avatar from "./avatartest.png";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,12 +57,32 @@ const useStyles = makeStyles((theme) => ({
   },
   cardCurrent: {
     color: 'white',
-    backgroundColor: '#0a1128',
+    backgroundColor: 'rgb(25,25,25)',
     minWidth: '48%',
     border: '2px solid #1282a2'
   },
   textColor: {
       color: 'white'
+  },
+  navy: {
+     backgroundColor: "#001f54",
+     color: 'white' 
+  },
+  blue: {
+     backgroundColor: "#034078",
+     color: 'white' 
+  },
+  teal: {
+     backgroundColor: "#1282a2",
+     color: 'black' 
+  },
+  standard: {
+     backgroundColor: "rgb(25,25,25)",
+     color: 'white' 
+  },
+  blackBlue: {
+     backgroundColor: "#0a1128",
+     color: 'white' 
   },
 }));
 
@@ -69,6 +90,11 @@ export default function TripCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [active, setActive] = React.useState(false);
+  const [navy, setNavy] = React.useState(false);
+  const [blue, setBlue] = React.useState(false);
+  const [teal, setTeal] = React.useState(false);
+  const [standard, setStandard] = React.useState(false);
+  const [blackBlue, setBlackBlue] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -77,9 +103,45 @@ export default function TripCard(props) {
   const switchActive = () => {
       setActive(!active);
   }
+  const switchNavy = () => {
+      setNavy(!navy);
+      setBlue(false);
+      setTeal(false);
+      setStandard(false);
+      setBlackBlue(false);
+      console.log(navy);
+  }
+  const switchBlue = () => {
+      setBlue(!blue);
+      setNavy(false);
+      setTeal(false);
+      setStandard(false);
+      setBlackBlue(false);
+  }
+  const switchTeal = () => {
+      setTeal(!teal);
+      setBlue(false);
+      setNavy(false);
+      setStandard(false);
+      setBlackBlue(false);
+  }
+  const switchStandard = () => {
+      setStandard(!standard);
+      setBlue(false);
+      setTeal(false);
+      setNavy(false);
+      setBlackBlue(false);
+  }
+  const switchBlackBlue = () => {
+      setBlackBlue(!blackBlue);
+      setBlue(false);
+      setTeal(false);
+      setStandard(false);
+      setNavy(false);
+  }
 
   return (
-    <Card className={active ? classes.cardCurrent : classes.cardComplete } id="team-card">
+    <Card className={(active ? classes.cardCurrent : classes.cardComplete)} id="team-card">
       <CardHeader className={classes.textColor}
         avatar={
           <Avatar aria-label="recipe" className={active ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;
@@ -87,27 +149,38 @@ export default function TripCard(props) {
         }
         title="TEAM ALPHA"
       />
-      <CardContent id="team-card-content">
+      <CardContent id="team-card-content" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
           <div className="member-list">
+              <img className="member-avatar" src={avatar} alt="avatar"/>
               <h3>MEMBER 1 - ROLE</h3>
           </div>
           <div className="member-list">
+              <img className="member-avatar" src={avatar} alt="avatar"/>
               <h3>MEMBER 2 - ROLE</h3>
           </div>
           <div className="member-list">
+            <img className="member-avatar" src={avatar} alt="avatar"/>
               <h3>MEMBER 3 - ROLE</h3>
           </div>
           <div className="member-list">
+              <img className="member-avatar" src={avatar} alt="avatar"/>
               <h3>MEMBER 4 - ROLE</h3>
           </div>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing style={{position:'relative'}}>
         <IconButton onClick={switchActive} aria-label="add to favorites">
             { active ?
-            <div className="textBlue"><CheckIcon/></div>
+            <div className="textBlue"><ClearIcon/></div>
             :
-            <div className="textGrey"><ClearIcon/></div>}
+            <div className="textGrey"><CheckIcon/></div>}
         </IconButton>
+        <div className="color-choices">
+            <button onClick={switchStandard} className="color-circle" id="standard"></button>
+            <button onClick={switchBlackBlue} className="color-circle" id="black-blue"></button>
+            <button onClick={switchNavy} className="color-circle" id="dark-navy"></button>
+            <button onClick={switchBlue} className="color-circle" id="dark-blue"></button>
+            <button onClick={switchTeal} className="color-circle" id="teal"></button>
+        </div>
       </CardActions>
     </Card>
   );
