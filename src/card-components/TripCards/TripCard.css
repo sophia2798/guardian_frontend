@@ -3,12 +3,12 @@
     color: white !important;
     margin: 1rem 0;
     border-radius: 1rem !important;
-    transition: transform 0.2s ease-in;
+    transition: transform .15s ease-in !important;
     cursor: pointer;
 }
 
 .MuiCard-root:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .MuiCardHeader-title {
