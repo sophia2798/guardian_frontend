@@ -1,7 +1,6 @@
 .MuiCard-root {
     background-color: #0a1128;
     color: white !important;
-    font-family: 'Roboto';
     margin: 1rem 0;
     border-radius: 1rem !important;
     transition: transform 0.5s ease-in;
@@ -20,7 +19,7 @@
 
 .MuiCardHeader-title, .MuiCardHeader-subheader, .MuiAvatar-root {
     color: white !important;
-    font-family: 'Catamaran', sans-serif !important;
+    font-family: 'Work Sans', sans-serif !important;
 }
 
 .MuiAvatar-circle {
