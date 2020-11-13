@@ -20,8 +20,8 @@
     flex-direction: row;
 }
 
-.member-list h3 {
-    padding-top: 0.3rem;
+.member-list h4 {
+    padding-top: 0.4rem;
 }
 
 .member-avatar {

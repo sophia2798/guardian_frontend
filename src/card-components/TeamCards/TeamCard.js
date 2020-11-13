@@ -86,7 +86,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TripCard(props) {
+export default function TeamCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [active, setActive] = React.useState(false);
@@ -147,25 +147,15 @@ export default function TripCard(props) {
           <Avatar aria-label="recipe" className={active ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;
           </Avatar>
         }
-        title="TEAM ALPHA"
+        title={props.name}
       />
       <CardContent id="team-card-content" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
-          <div className="member-list">
+          {props.members.map(member => (
+            <div className="member-list">
               <img className="member-avatar" src={avatar} alt="avatar"/>
-              <h3>MEMBER 1 - ROLE</h3>
-          </div>
-          <div className="member-list">
-              <img className="member-avatar" src={avatar} alt="avatar"/>
-              <h3>MEMBER 2 - ROLE</h3>
-          </div>
-          <div className="member-list">
-            <img className="member-avatar" src={avatar} alt="avatar"/>
-              <h3>MEMBER 3 - ROLE</h3>
-          </div>
-          <div className="member-list">
-              <img className="member-avatar" src={avatar} alt="avatar"/>
-              <h3>MEMBER 4 - ROLE</h3>
-          </div>
+              <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
+            </div>
+          ))}
       </CardContent>
       <CardActions disableSpacing style={{position:'relative'}}>
         <IconButton onClick={switchActive} aria-label="add to favorites">

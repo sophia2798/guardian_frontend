@@ -6,6 +6,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SearchIcon from '@material-ui/icons/Search';
+import TeamSeed from "../../utils/seedTeam.json";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Teams() {
     const classes = useStyles();
+    const [teams, setTeams] = React.useState(TeamSeed);
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
   
@@ -49,10 +51,13 @@ function Teams() {
                 </form>
             </div>
             <div className="team-cards-container">
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
+                {teams.map(team => (
+                    <Card
+                        key={team.id}
+                        name={team.name.toUpperCase()}
+                        members={team.members}
+                    />
+                ))}
             </div>
             <Modal
             aria-labelledby="transition-modal-title"
