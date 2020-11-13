@@ -70,3 +70,55 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+
+#transition-modal-description form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.modal-input {
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: 1px solid white;
+    background: rgb(0,0,0,0);
+    border-radius: 999px;
+    color: white;
+    outline: none;
+}
+
+.modal-input::placeholder {
+    color: white;
+}
+
+#transition-modal-title {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.modal-label {
+    margin-bottom: 0.4rem;
+    padding-left: 0.2rem;
+}
+
+#create-submit {
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: 1px solid white;
+    background: rgb(0,0,0,0);
+    border-radius: 999px;
+    color: white;
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+
+#create-submit:hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+}
