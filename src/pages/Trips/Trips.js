@@ -47,7 +47,7 @@ function Trips() {
                 <button onClick={handleOpen} id="add-trip">+</button>
                 <form>
                     <input type="text" placeholder="SEARCH TRIPS"/>
-                    <button id="trip-search-submit"><SearchIcon/></button>
+                    <button id="trip-search-submit"><SearchIcon className="search__icon"/></button>
                 </form>
             </div>
             <div className="trip-cards-container">
