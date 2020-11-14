@@ -18,6 +18,8 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import avatar from "./avatartest.png";
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import { FilledInput } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -95,6 +97,7 @@ export default function TeamCard(props) {
   const [teal, setTeal] = React.useState(false);
   const [standard, setStandard] = React.useState(false);
   const [blackBlue, setBlackBlue] = React.useState(false);
+  const [flip, setFlip] = React.useState(0);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -147,13 +150,21 @@ export default function TeamCard(props) {
           <Avatar aria-label="recipe" className={active ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;
           </Avatar>
         }
+        action={
+            <button id="info-btn" style={{outline:'none'}} onClick={() => setFlip(1)} onAnimationEnd={() => setFlip(0)} flip={flip}>
+              <InfoOutlinedIcon />
+            </button>
+          }
         title={props.name}
       />
       <CardContent id="team-card-content">
           {props.members.map(member => (
             <div id="member-list" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
-              <img className="member-avatar" src={avatar} alt="avatar"/>
-              <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
+              <section className="name-position">
+                <img className="member-avatar" src={avatar} alt="avatar"/>
+                <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
+              </section>
+              <p className="more-info">{member.email}</p>
             </div>
           ))}
       </CardContent>

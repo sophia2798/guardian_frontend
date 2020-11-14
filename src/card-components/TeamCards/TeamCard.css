@@ -3,6 +3,7 @@
     font-family: 'Work Sans', sans-serif;
     min-width: 31%;
     max-width: 48%;
+    min-height: 23.8rem;
     /* margin-right: 1rem; */
 }
 
@@ -39,6 +40,18 @@ background-color: white;
     border-bottom: 1px solid white;
     width: 100%;
     padding: 0.53rem 1rem;
+    display: flex;
+    flex-direction: column;
+    max-height: 2rem !important;
+    overflow-y: hidden;
+    transition: 0.45s ease-in-out;
+}
+
+#member-list:hover {
+    max-height: 4rem !important;
+}
+
+.name-position {
     display: flex;
     flex-direction: row;
 }
@@ -89,6 +102,17 @@ background-color: white;
 
 #black-blue {
     background: #0a1128;
+}
+
+#info-btn {
+    background: rgb(0,0,0,0);
+    color: white;
+    border: none;
+    padding-top: 0.5rem;
+}
+
+#info-btn:hover {
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 800px) {
