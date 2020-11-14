@@ -74,7 +74,7 @@ const useStyles = makeStyles((theme) => ({
   },
   teal: {
      backgroundColor: "#1282a2",
-     color: 'black' 
+     color: 'white' 
   },
   standard: {
      backgroundColor: "rgb(25,25,25)",
@@ -142,22 +142,22 @@ export default function TeamCard(props) {
 
   return (
     <Card className={(active ? classes.cardCurrent : classes.cardComplete)} id="team-card">
-      <CardHeader className={classes.textColor}
+      <CardHeader className={classes.textColor} style={{borderBottom:'1px solid white'}}
         avatar={
           <Avatar aria-label="recipe" className={active ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;
           </Avatar>
         }
         title={props.name}
       />
-      <CardContent id="team-card-content" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
+      <CardContent id="team-card-content">
           {props.members.map(member => (
-            <div className="member-list">
+            <div id="member-list" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
               <img className="member-avatar" src={avatar} alt="avatar"/>
               <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
             </div>
           ))}
       </CardContent>
-      <CardActions disableSpacing style={{position:'relative'}}>
+      <CardActions disableSpacing style={{position:'relative', height:'3.4rem', borderTop:'1px solid white'}}>
         <IconButton onClick={switchActive} aria-label="add to favorites">
             { active ?
             <div className="textBlue"><MoreHorizIcon/></div>
@@ -165,11 +165,11 @@ export default function TeamCard(props) {
             <div className="textGrey"><CheckIcon/></div>}
         </IconButton>
         <div className="color-choices">
-            <button onClick={switchStandard} className="color-circle" id="standard"></button>
-            <button onClick={switchBlackBlue} className="color-circle" id="black-blue"></button>
-            <button onClick={switchNavy} className="color-circle" id="dark-navy"></button>
-            <button onClick={switchBlue} className="color-circle" id="dark-blue"></button>
-            <button onClick={switchTeal} className="color-circle" id="teal"></button>
+            <button style={{outline:'none'}} onClick={switchStandard} className="color-circle" id="standard"></button>
+            <button style={{outline:'none'}} onClick={switchBlackBlue} className="color-circle" id="black-blue"></button>
+            <button style={{outline:'none'}} onClick={switchNavy} className="color-circle" id="dark-navy"></button>
+            <button style={{outline:'none'}} onClick={switchBlue} className="color-circle" id="dark-blue"></button>
+            <button style={{outline:'none'}} onClick={switchTeal} className="color-circle" id="teal"></button>
         </div>
       </CardActions>
     </Card>
