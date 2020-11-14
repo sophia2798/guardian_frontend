@@ -1,4 +1,3 @@
-"google maps APIkey: AIzaSyCbwXcpuUUjcKe5ueD3ueYZmuUDP4U1GKs";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
