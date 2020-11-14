@@ -1,14 +1,15 @@
 .MuiCard-root {
     background-color: rgb(22,22,22);
-    color: white !important;
+    color: rgb(255, 255, 255) !important;
     margin: 1rem 0;
     border-radius: 1rem !important;
-    transition: transform 0.2s ease-in;
+    border-color: #3a3a3a !important;
+    transition: transform .15s ease-in !important;
     cursor: pointer;
 }
 
 .MuiCard-root:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 .MuiCardHeader-title {

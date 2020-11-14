@@ -126,3 +126,9 @@
     color: black;
     cursor: pointer;
 }
+
+@media screen and (max-width: 375px) {
+    .trips-header > h1 {
+        display: none;
+    }
+}
