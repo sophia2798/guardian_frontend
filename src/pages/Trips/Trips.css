@@ -89,6 +89,10 @@
     outline: none;
 }
 
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
 .modal-input::placeholder {
     color: white;
 }
