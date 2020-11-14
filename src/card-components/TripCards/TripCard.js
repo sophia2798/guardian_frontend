@@ -10,7 +10,6 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import IconButton from '@material-ui/core/IconButton';
 import CheckIcon from '@material-ui/icons/Check';
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: '50%',

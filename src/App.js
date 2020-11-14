@@ -1,4 +1,3 @@
-"google maps APIkey: AIzaSyCbwXcpuUUjcKe5ueD3ueYZmuUDP4U1GKs";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
@@ -26,6 +25,7 @@ function App() {
               <div>
                 <Banner />
                 <About />
+                <Footer />
               </div>
             )}
           </Route>
@@ -33,7 +33,6 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/teams" component={Teams} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );
