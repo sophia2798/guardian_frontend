@@ -17,7 +17,6 @@ import CheckIcon from '@material-ui/icons/Check';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -50,7 +49,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#cccccc',
   },
   cardComplete: {
-    border: '2px solid #cccccc',
+    border: '2px solid #3a3a3a',
     color: 'white',
     backgroundColor: 'rgb(25,25,25)',
     minWidth: '48%'
@@ -96,9 +95,9 @@ export default function TripCard(props) {
       <CardActions disableSpacing>
         <IconButton onClick={setComplete} aria-label="add to favorites">
             { complete ?
-            <div className="textBlue"><MoreHorizIcon/></div>
+            <div className="textBlue"><CheckIcon/></div>
             :
-            <div className="textGrey"><CheckIcon/></div>}
+            <div className="textGrey"><MoreHorizIcon/></div>}
         </IconButton>
       </CardActions>
     </Card>

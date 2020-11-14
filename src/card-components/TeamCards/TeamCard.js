@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#cccccc',
   },
   cardComplete: {
-    border: '2px solid #cccccc',
+    border: '2px solid #3a3a3a',
     color: 'white',
     backgroundColor: 'rgb(25,25,25)',
     minWidth: '48%'
@@ -168,9 +168,9 @@ export default function TeamCard(props) {
       <CardActions disableSpacing style={{position:'relative', height:'3.4rem', borderTop:'1px solid white'}}>
         <IconButton onClick={switchActive} aria-label="add to favorites">
             { active ?
-            <div className="textBlue"><MoreHorizIcon/></div>
+            <div className="textBlue"><CheckIcon/></div>
             :
-            <div className="textGrey"><CheckIcon/></div>}
+            <div className="textGrey"><MoreHorizIcon/></div>}
         </IconButton>
         <div className="color-choices">
             <button style={{outline:'none'}} onClick={switchStandard} className="color-circle" id="standard"></button>
