@@ -8,7 +8,7 @@
 .team-cards-container {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
@@ -120,4 +120,16 @@
     background: white;
     color: black;
     cursor: pointer;
+}
+
+@media only screen and (max-width: 1165px) {
+    .team-cards-container {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 455px) {
+    .team-header h1 {
+        display: none;
+    }
 }

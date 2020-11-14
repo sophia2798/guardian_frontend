@@ -149,6 +149,15 @@
                 "last_name": "Franklin",
                 "position": "Lead",
                 "image": "https://p7.hiclipart.com/preview/349/288/888/teacher-education-student-course-school-avatar.jpg"
+            },
+            {
+                "id": 6,
+                "email": "jwilliams@test.com",
+                "password": "covid2020",
+                "first_name": "Christina",
+                "last_name": "Gomez",
+                "position": "Agent",
+                "image": "https://p7.hiclipart.com/preview/349/288/888/teacher-education-student-course-school-avatar.jpg"
             }
         ]
     }
