@@ -15,18 +15,22 @@
 
 .trips-header form {
     display: flex;
-    flex-direction: row;
+    border: solid 1px rgb(41, 41, 41);
+    border-radius: 999px;
     position: absolute;
     right: 0;
     height: 90%;
 }
 
+.search__icon {
+    color: rgb(41, 41, 41);
+}
+
 .trips-header input {
     font-family: 'Work Sans', sans-serif;
+    border: none;
     padding-left: 1rem;
-    border: 1px solid white;
     background: rgb(0,0,0,0);
-    border-radius: 999px;
     color: white;
     margin-right: 1rem;
     outline: none;

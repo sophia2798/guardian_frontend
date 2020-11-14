@@ -19,7 +19,8 @@ function Dash() {
                     }
                     className="calendar__button"
                 >
-                    <DateRangeIcon />
+                    <DateRangeIcon
+                    />
                 </Button>
             </div>
         </div>
