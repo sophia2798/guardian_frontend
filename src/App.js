@@ -26,6 +26,7 @@ function App() {
               <div>
                 <Banner />
                 <About />
+                <Footer />
               </div>
             )}
           </Route>
@@ -33,7 +34,6 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/teams" component={Teams} />
         </Switch>
-        <Footer />
       </div>
     </Router>
   );
