@@ -9,6 +9,7 @@ import Trips from "./pages/Trips/Trips";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Teams from "./pages/Teams/Teams";
+import Dash from "./pages/Dashboard/Dash";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/trips" component={Trips} />
           <Route path="/signup" component={Signup} />
           <Route path="/teams" component={Teams} />
+          <Route path="/dashboard" component={Dash} />
         </Switch>
       </div>
     </Router>

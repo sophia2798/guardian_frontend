@@ -11,6 +11,7 @@
   display: flex;
   color: rgb(214, 211, 211);
   flex-direction: column;
+  border-color: rgb(37, 37, 37) !important;
   background-color: rgb(10, 10, 10);
   width: 550px;
   padding: 40px 30px;
