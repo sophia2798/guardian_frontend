@@ -1,8 +1,9 @@
 .MuiCard-root {
     background-color: rgb(22,22,22);
-    color: white !important;
+    color: rgb(255, 255, 255) !important;
     margin: 1rem 0;
     border-radius: 1rem !important;
+    border-color: #3a3a3a !important;
     transition: transform .15s ease-in !important;
     cursor: pointer;
 }
