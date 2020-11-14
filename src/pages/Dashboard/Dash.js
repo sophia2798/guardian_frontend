@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Dash.css';
 import DashCalendar from './DashCalendar';
 import { Button } from "@material-ui/core";
+import DateRangeIcon from '@material-ui/icons/DateRange';
 
 function Dash() {
     const [showSearch, setShowSearch] = useState(false);
@@ -17,9 +18,8 @@ function Dash() {
                         }
                     }
                     className="calendar__button"
-                    variant="outlined"
                 >
-                    Calendar
+                    <DateRangeIcon />
                 </Button>
             </div>
         </div>
