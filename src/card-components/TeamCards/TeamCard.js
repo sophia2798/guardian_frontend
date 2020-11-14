@@ -9,7 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
-import ClearIcon from '@material-ui/icons/Clear';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { red } from '@material-ui/core/colors';
@@ -17,7 +17,12 @@ import CheckIcon from '@material-ui/icons/Check';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import avatar from "./avatartest.png";
+import agent from "./avatartest.png";
+import medical from "./medical.png";
+import lead from "./leader.png";
+import advance from "./shield.png";
+// import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+// import { FilledInput } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -74,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
   },
   teal: {
      backgroundColor: "#1282a2",
-     color: 'black' 
+     color: 'white' 
   },
   standard: {
      backgroundColor: "rgb(25,25,25)",
@@ -95,6 +100,7 @@ export default function TeamCard(props) {
   const [teal, setTeal] = React.useState(false);
   const [standard, setStandard] = React.useState(false);
   const [blackBlue, setBlackBlue] = React.useState(false);
+  const [flip, setFlip] = React.useState(0);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -109,7 +115,6 @@ export default function TeamCard(props) {
       setTeal(false);
       setStandard(false);
       setBlackBlue(false);
-      console.log(navy);
   }
   const switchBlue = () => {
       setBlue(!blue);
@@ -142,34 +147,37 @@ export default function TeamCard(props) {
 
   return (
     <Card className={(active ? classes.cardCurrent : classes.cardComplete)} id="team-card">
-      <CardHeader className={classes.textColor}
+      <CardHeader className={classes.textColor} style={{borderBottom:'1px solid white'}}
         avatar={
           <Avatar aria-label="recipe" className={active ? classes.avatarCurrent : classes.avatarComplete}>&nbsp;
           </Avatar>
         }
         title={props.name}
       />
-      <CardContent id="team-card-content" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
+      <CardContent id="team-card-content">
           {props.members.map(member => (
-            <div className="member-list">
-              <img className="member-avatar" src={avatar} alt="avatar"/>
-              <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
+            <div id="member-list" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
+              <section className="name-position">
+                <img className="member-avatar" src={member.position==="Agent" ? agent : (member.position==="Lead" ? lead : (member.position==="Medic" ? medical : (member.position==="Advance Lead" ? advance : null)))} alt="avatar"/>
+                <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
+              </section>
+              <p className="more-info">{member.email}</p>
             </div>
           ))}
       </CardContent>
-      <CardActions disableSpacing style={{position:'relative'}}>
+      <CardActions disableSpacing style={{position:'relative', height:'3.4rem', borderTop:'1px solid white'}}>
         <IconButton onClick={switchActive} aria-label="add to favorites">
             { active ?
-            <div className="textBlue"><ClearIcon/></div>
+            <div className="textBlue"><MoreHorizIcon/></div>
             :
             <div className="textGrey"><CheckIcon/></div>}
         </IconButton>
         <div className="color-choices">
-            <button onClick={switchStandard} className="color-circle" id="standard"></button>
-            <button onClick={switchBlackBlue} className="color-circle" id="black-blue"></button>
-            <button onClick={switchNavy} className="color-circle" id="dark-navy"></button>
-            <button onClick={switchBlue} className="color-circle" id="dark-blue"></button>
-            <button onClick={switchTeal} className="color-circle" id="teal"></button>
+            <button style={{outline:'none'}} onClick={switchStandard} className="color-circle" id="standard"></button>
+            <button style={{outline:'none'}} onClick={switchBlackBlue} className="color-circle" id="black-blue"></button>
+            <button style={{outline:'none'}} onClick={switchNavy} className="color-circle" id="dark-navy"></button>
+            <button style={{outline:'none'}} onClick={switchBlue} className="color-circle" id="dark-blue"></button>
+            <button style={{outline:'none'}} onClick={switchTeal} className="color-circle" id="teal"></button>
         </div>
       </CardActions>
     </Card>

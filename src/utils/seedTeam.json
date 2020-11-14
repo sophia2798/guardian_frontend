@@ -69,7 +69,7 @@
                 "password": "tomRocks",
                 "first_name": "Andrea",
                 "last_name": "Cho",
-                "position": "Medic",
+                "position": "Lead",
                 "image": "https://p7.hiclipart.com/preview/980/886/491/computer-icons-icon-design-avatar-flat-face-icon.jpg"
             },
             {
@@ -80,24 +80,6 @@
                 "last_name": "Morris",
                 "position": "Agent",
                 "image": "https://p7.hiclipart.com/preview/312/283/679/avatar-computer-icons-user-profile-business-user-avatar.jpg"
-            },
-            {
-                "id": 4,
-                "email": "chloe89@yahoo.com",
-                "password": "space_needle",
-                "first_name": "Paul",
-                "last_name": "Drake",
-                "position": "Advance Lead",
-                "image": "https://p7.hiclipart.com/preview/129/94/328/computer-icons-avatar-icon-design-male-teacher.jpg"
-            },
-            {
-                "id": 5,
-                "email": "jwilliams@test.com",
-                "password": "covid2020",
-                "first_name": "Caroline",
-                "last_name": "Swanson",
-                "position": "Lead",
-                "image": "https://p7.hiclipart.com/preview/349/288/888/teacher-education-student-course-school-avatar.jpg"
             }
         ]
     },
@@ -148,6 +130,15 @@
                 "first_name": "Tina",
                 "last_name": "Franklin",
                 "position": "Lead",
+                "image": "https://p7.hiclipart.com/preview/349/288/888/teacher-education-student-course-school-avatar.jpg"
+            },
+            {
+                "id": 6,
+                "email": "jwilliams@test.com",
+                "password": "covid2020",
+                "first_name": "Christina",
+                "last_name": "Gomez",
+                "position": "Agent",
                 "image": "https://p7.hiclipart.com/preview/349/288/888/teacher-education-student-course-school-avatar.jpg"
             }
         ]
