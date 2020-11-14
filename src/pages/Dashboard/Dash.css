@@ -1,3 +1,9 @@
 .dash {
+    display: flex;
+    justify-content: center;
     margin-top: 80px;
+}
+
+.calendar__button {
+    color: white !important;
 }
