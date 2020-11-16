@@ -1,0 +1,24 @@
+.weather-container {
+    color: white;
+    font-family: 'Work Sans', sans-serif;
+    margin: 1rem 0;
+    border: 1px solid rgb(41,41,41);
+}
+
+.weather-header {
+    text-align: center;
+    padding: 1rem;
+}
+
+.weather-body {
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid rgb(41,41,41);
+}
+
+.weather-day {
+    width: 20%;
+    text-align: center;
+    border: 1px solid rgb(41,41,41);
+    padding: 1rem 0.5rem;
+}

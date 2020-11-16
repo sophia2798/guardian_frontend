@@ -17,10 +17,10 @@ import CheckIcon from '@material-ui/icons/Check';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import agent from "./avatartest.png";
-import medical from "./medical.png";
-import lead from "./leader.png";
-import advance from "./shield.png";
+import agent from "./images/avatartest.png";
+import medical from "./images/medical.png";
+import lead from "./images/leader.png";
+import advance from "./images/shield.png";
 // import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 // import { FilledInput } from '@material-ui/core';
 
