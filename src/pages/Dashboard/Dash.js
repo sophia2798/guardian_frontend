@@ -12,6 +12,10 @@ function Dash() {
   return (
     <div className="dash">
       <div className="dash__calendar">
+        <section className="dash__header">
+            <h1>SEATTLE, WA</h1>
+            <p>12/14/2020 - 12/20/2020</p>
+        </section>
         {showSearch && <DashCalendar />}
         <Button
           onClick={() => {
