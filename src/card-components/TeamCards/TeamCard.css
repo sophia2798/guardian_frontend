@@ -37,7 +37,7 @@ background-color: white;
 
 #member-list {
     /* border-top: 1px solid white; */
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid #3a3a3a;
     width: 100%;
     padding: 0.53rem 1rem;
     display: flex;
@@ -75,7 +75,7 @@ background-color: white;
     height: 1rem;
     width: 1rem;
     border-radius: 50%;
-    border: 1px solid white;
+    border: 1px solid #3a3a3a;
     margin: 0 0.2rem;
 }
 
