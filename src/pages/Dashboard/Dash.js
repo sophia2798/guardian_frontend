@@ -7,16 +7,16 @@ import Weather from "../../dash-components/Weather/Weather";
 import Map from "../../dash-components/Map/Map";
 import CrimeSaftey from "../../dash-components/CrimeSafety/CrimeSafety";
 
-function Dash() {
+function Dash(props) {
   const [showSearch, setShowSearch] = useState(false);
 
   return (
     <div className="dash">
       <div className="dash__calendar">
         <section className="dash__header">
-            <h1>SEATTLE, WA</h1>
-            <p>12/14/2020 - 12/20/2020</p>
-            <CrimeSaftey city='seattle'/>
+            <h1>{ props.location.state.title }</h1>
+            <p>{`${props.location.state.startDate} - ${props.location.state.endDate}`}</p>
+            <CrimeSaftey city={ props.location.state.city }/>
         </section>
         {showSearch && <DashCalendar />}
         <Button
@@ -28,7 +28,7 @@ function Dash() {
           <DateRangeIcon />
         </Button>
       </div>
-      <Weather />
+      <Weather city={props.location.state.cityWeather}/>
       <Map></Map>
     </div>
   );

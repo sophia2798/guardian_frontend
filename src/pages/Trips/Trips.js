@@ -8,6 +8,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import axios from "axios";
+import { Link, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -77,13 +78,25 @@ function Trips() {
             </div>
             <div className="trip-cards-container">
                 {trips.map(trip => (
-                    <Card
+                    <Link
+                    to={{
+                    pathname: "/dashboard",
+                    state: {
+                        title: trip.city.toUpperCase(),
+                        city: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '-').toLowerCase(), cityWeather: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '+').toLowerCase(),
+                        startDate: trip.start,
+                        endDate: trip.end
+                    }
+                    }}
+                    className="trip-links"
+                    ><Card
                         title={trip.city.toUpperCase()}
                         start={trip.start}
                         end={trip.end}
                         image={image[trip.id - 1]}
                         key={trip.id}
                     />
+                    </Link>
                 ))}
             </div>
             <Modal
