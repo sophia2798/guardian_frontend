@@ -47,7 +47,7 @@ function Teams() {
                 <button onClick={handleOpen} id="add-team">+</button>
                 <form>
                     <input type="text" placeholder="SEARCH TEAMS"/>
-                    <button id="team-search-submit"><SearchIcon/></button>
+                    <button id="team-search-submit"><SearchIcon style={{color:'rgb(41,41,41)'}}/></button>
                 </form>
             </div>
             <div className="team-cards-container">
