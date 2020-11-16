@@ -4,6 +4,7 @@ import DashCalendar from './DashCalendar';
 import { Button } from "@material-ui/core";
 import DateRangeIcon from '@material-ui/icons/DateRange';
 import Weather from "../../dash-components/Weather/Weather";
+import TextEditor from './TextEditor';
 
 function Dash() {
     const [showSearch, setShowSearch] = useState(false);
@@ -24,7 +25,8 @@ function Dash() {
                     />
                 </Button>
             </div>
-            <Weather/>
+            <Weather />
+            <TextEditor />
         </div>
     )
 }
