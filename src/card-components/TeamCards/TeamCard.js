@@ -21,7 +21,7 @@ import agent from "./images/avatartest.png";
 import medical from "./images/medical.png";
 import lead from "./images/leader.png";
 import advance from "./images/shield.png";
-// import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 // import { FilledInput } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -31,6 +31,9 @@ const useStyles = makeStyles((theme) => ({
   media: {
     height: 0,
     paddingTop: '56.25%', // 16:9
+  },
+  expanded_list: {
+    maxHeight: '6rem !important'
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -100,10 +103,15 @@ export default function TeamCard(props) {
   const [teal, setTeal] = React.useState(false);
   const [standard, setStandard] = React.useState(false);
   const [blackBlue, setBlackBlue] = React.useState(false);
-  const [flip, setFlip] = React.useState(0);
+  const [moreInfo, setMoreInfo] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
+  };
+
+  const toggleMoreInfo = () => {
+    setMoreInfo(!moreInfo);
+    console.log(moreInfo);
   };
 
   const switchActive = () => {
@@ -153,15 +161,23 @@ export default function TeamCard(props) {
           </Avatar>
         }
         title={props.name}
+        action={
+          <IconButton aria-label="settings">
+            <InfoOutlinedIcon style={{color:'white'}} onClick={toggleMoreInfo}/>
+          </IconButton>
+        }
       />
       <CardContent id="team-card-content">
           {props.members.map(member => (
-            <div id="member-list" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))}>
+            <div id="member-list" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null))))), (moreInfo ? classes.expanded_list : null)}>
               <section className="name-position">
                 <img className="member-avatar" src={member.position==="Agent" ? agent : (member.position==="Lead" ? lead : (member.position==="Medic" ? medical : (member.position==="Advance Lead" ? advance : null)))} alt="avatar"/>
                 <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
               </section>
-              <p className="more-info">{member.email}</p>
+              <section className="more-info">
+                <p>{member.email}</p>
+                <p>206-394-1293</p>
+              </section>
             </div>
           ))}
       </CardContent>
