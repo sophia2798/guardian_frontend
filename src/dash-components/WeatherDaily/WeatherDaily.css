@@ -30,6 +30,7 @@
     flex-direction: column;
     position: absolute;
     top: 0;
+    font-size: 0.95rem;
 }
 
 @media only screen and (max-width:1155px) {
@@ -59,7 +60,7 @@
         min-width: 47%;
     }
     .back-content {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
 }
 

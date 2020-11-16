@@ -7,7 +7,7 @@ class Weather extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            weather: [0,1,2,3,4]
+            weather: []
         }
     };
 
@@ -32,7 +32,7 @@ class Weather extends Component {
     };
 
     componentDidMount = () => {
-        // this.getWeather('Seattle');
+        this.getWeather('Seattle');
     }
 
     render() {
@@ -45,25 +45,20 @@ class Weather extends Component {
             <section className="weather-body">
                 {this.state.weather.map(day => (
                     <Day
-                    // date={day.dt}
-                    // icon={day.weather[0].icon}
-                    // main={day.weather[0].main.toUpperCase()}
-                    // f={this.toF(parseInt(day.main.temp))}
-                    // c={this.toC(parseInt(day.main.temp))}
-                    date={1605506400}
-                    icon={'04n'}
-                    main={'CLOUDS'}
-                    f={this.toF(parseInt('281.75'))}
-                    c={this.toC(parseInt('281.75'))}
-                    f2={this.toF(parseInt('278.05'))}
-                    c2={this.toC(parseInt('278.05'))}
-                    fLow={this.toF(parseInt('280.69'))}
-                    cLow={this.toC(parseInt('280.69'))}
-                    fHigh={this.toF(parseInt('281.35'))}
-                    cHigh={this.toC(parseInt('281.35'))}
-                    humidity={81}
-                    wind={3.14}
-                    windmph = {(3.14*2.237).toFixed(0)}
+                    date={day.dt}
+                    icon={day.weather[0].icon}
+                    main={day.weather[0].main.toUpperCase()}
+                    f={this.toF(parseInt(day.main.temp))}
+                    c={this.toC(parseInt(day.main.temp))}
+                    f2={this.toF(parseInt(day.main.feels_like))}
+                    c2={this.toC(parseInt(day.main.feels_like))}
+                    fLow={this.toF(parseInt(day.main.temp_min))}
+                    cLow={this.toC(parseInt(day.main.temp_min))}
+                    fHigh={this.toF(parseInt(day.main.temp_max))}
+                    cHigh={this.toC(parseInt(day.main.temp_max))}
+                    humidity={day.main.humidity}
+                    wind={day.wind.speed}
+                    windmph = {(parseInt(day.wind.speed)*2.237).toFixed(0)}
                     />
                 ))}
             </section>
