@@ -1,5 +1,5 @@
 .weather-container {
-    color: white;
+    color: #cccccc;
     font-family: 'Work Sans', sans-serif;
     margin: 1rem 0;
     border: 1px solid rgb(41,41,41);
@@ -7,7 +7,11 @@
 
 .weather-header {
     text-align: center;
+    color: white;
     padding: 1rem;
+    border-right: 1px solid rgb(41,41,41);
+    border-left: 1px solid rgb(41,41,41);
+    border-top: 1px solid rgb(41,41,41);
 }
 
 .weather-body {
