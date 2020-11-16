@@ -169,7 +169,7 @@ export default function TeamCard(props) {
       />
       <CardContent id="team-card-content">
           {props.members.map(member => (
-            <div id="member-list" className={(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null))))), (moreInfo ? classes.expanded_list : null)}>
+            <div id="member-list" className={`${(navy ? classes.navy : (blue ? classes.blue : (teal ? classes.teal : (standard ? classes.standard : (blackBlue ? classes.blackBlue : null)))))} ${(moreInfo ? classes.expanded_list : null)}`}>
               <section className="name-position">
                 <img className="member-avatar" src={member.position==="Agent" ? agent : (member.position==="Lead" ? lead : (member.position==="Medic" ? medical : (member.position==="Advance Lead" ? advance : null)))} alt="avatar"/>
                 <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
