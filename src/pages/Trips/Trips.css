@@ -20,6 +20,7 @@
     position: absolute;
     right: 0;
     height: 90%;
+    padding-right: 0.5rem;
 }
 
 .search__icon {

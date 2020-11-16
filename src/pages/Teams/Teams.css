@@ -18,14 +18,16 @@
     position: absolute;
     right: 0;
     height: 90%;
+    border: 1px solid rgb(41,41,41);
+    padding-right: 0.5rem;
+    border-radius: 999px;
 }
 
 .team-header input {
     font-family: 'Work Sans', sans-serif;
     padding-left: 1rem;
-    border: 1px solid white;
+    border: none;
     background: rgb(0,0,0,0);
-    border-radius: 999px;
     color: white;
     margin-right: 1rem;
     outline: none;
