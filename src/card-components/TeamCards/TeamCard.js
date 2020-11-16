@@ -57,12 +57,12 @@ const useStyles = makeStyles((theme) => ({
   cardComplete: {
     border: '2px solid #3a3a3a',
     color: 'white',
-    backgroundColor: 'rgb(25,25,25)',
+    backgroundColor: 'rgb(25,25,25) !important',
     minWidth: '48%'
   },
   cardCurrent: {
     color: 'white',
-    backgroundColor: 'rgb(25,25,25)',
+    backgroundColor: 'rgb(25,25,25) !important',
     minWidth: '48%',
     border: '2px solid #1282a2'
   },
