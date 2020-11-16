@@ -1,8 +1,9 @@
 .weather-container {
     color: #cccccc;
     font-family: 'Work Sans', sans-serif;
-    margin: 1rem 0;
+    margin: 1rem auto;
     border: 1px solid rgb(41,41,41);
+    width: 80%;;
 }
 
 .weather-header {
@@ -25,4 +26,5 @@
     text-align: center;
     border: 1px solid rgb(41,41,41);
     padding: 1rem 0.5rem;
+    max-height: 100%;
 }

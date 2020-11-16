@@ -55,6 +55,15 @@ class Weather extends Component {
                     main={'CLOUDS'}
                     f={this.toF(parseInt('281.75'))}
                     c={this.toC(parseInt('281.75'))}
+                    f2={this.toF(parseInt('278.05'))}
+                    c2={this.toC(parseInt('278.05'))}
+                    fLow={this.toF(parseInt('280.69'))}
+                    cLow={this.toC(parseInt('280.69'))}
+                    fHigh={this.toF(parseInt('281.35'))}
+                    cHigh={this.toC(parseInt('281.35'))}
+                    humidity={81}
+                    wind={3.14}
+                    windmph = {(3.14*2.237).toFixed(0)}
                     />
                 ))}
             </section>

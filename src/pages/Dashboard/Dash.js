@@ -23,8 +23,8 @@ function Dash() {
                     <DateRangeIcon
                     />
                 </Button>
-                <Weather/>
             </div>
+            <Weather/>
         </div>
     )
 }
