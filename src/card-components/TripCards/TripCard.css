@@ -40,8 +40,8 @@
     color: #cccccc !important;
 }
 
-@media only screen and (max-width: 735px) {
+/* @media only screen and (max-width: 735px) {
     #root-trip-card {
         width: 100%;
     }
-}
+} */

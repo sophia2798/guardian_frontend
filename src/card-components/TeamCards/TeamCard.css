@@ -42,13 +42,9 @@ background-color: white;
     padding: 0.53rem 1rem;
     display: flex;
     flex-direction: column;
-    max-height: 2rem !important;
+    max-height: 2rem;
     overflow-y: hidden;
     transition: 0.45s ease-in-out;
-}
-
-#member-list:hover {
-    max-height: 4rem !important;
 }
 
 .name-position {

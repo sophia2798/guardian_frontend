@@ -6,6 +6,16 @@
     padding: 1rem 30px;
 }
 
+.trip-links {
+    width: 48%;
+}
+
+@media only screen and (max-width: 770px) {
+    .trip-links {
+        width: 100%;
+    }
+}
+
 .trips-header {
     display: flex;
     flex-direction: row;
