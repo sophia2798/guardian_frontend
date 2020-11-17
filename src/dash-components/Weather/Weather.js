@@ -32,7 +32,7 @@ class Weather extends Component {
     };
 
     componentDidMount = () => {
-        this.getWeather(this.props.city);
+        // this.getWeather('Seattle');
     }
 
     render() {
