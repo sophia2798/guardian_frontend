@@ -7,6 +7,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -29,6 +30,7 @@ function Trips() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
+    const [image, setImage] = React.useState([]);
   
     const handleOpen = () => {
       setOpen(true);
@@ -39,6 +41,29 @@ function Trips() {
       setOpen(false);
       setBlur(false);
     };
+
+    const cityAPI = city => {
+        return axios.get(`https://api.teleport.org/api/urban_areas/slug:${city}/images/`)
+    };
+
+    const getCityImg = async () => {
+        const imageArr =[];
+        for (var i=0; i < trips.length; i++) {
+            await cityAPI(trips[i].city.substring(0, trips[i].city.indexOf(",")).replace(/\s+/g, '-').toLowerCase())
+            .then(result => {
+                // console.log(result.data.photos[0].image.web)
+                const imgURL = result.data.photos[0].image.web;
+                imageArr.push(imgURL);
+            })
+            .catch(err => console.log(err))
+        }
+        setImage(imageArr);
+    };
+
+    React.useEffect(() => {
+        getCityImg();
+        console.log(image);
+    },[trips])
 
     return (
         <div className="trip-container" style={blur ? {filter:'blur(2px)'} : null}>
@@ -56,7 +81,7 @@ function Trips() {
                         title={trip.city.toUpperCase()}
                         start={trip.start}
                         end={trip.end}
-                        image={trip.image}
+                        image={image[trip.id - 1]}
                         key={trip.id}
                     />
                 ))}
