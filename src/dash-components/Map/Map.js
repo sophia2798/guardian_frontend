@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withGoogleMap, GoogleMap, Marker } from "react-google-maps";
+import { withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import "./Map.css";
 import Pin from "./pin2.png";
 import TripSeed from "../../utils/seedTrip.json";
@@ -10,12 +10,30 @@ class Map extends Component {
     super(props);
     this.state = {
       itinerary: TripSeed[2].itinerary,
-      info: false
+      infoMarkerID: '',
+      isOpen: false
     }
   }
 
-  toggleInfo = () => {
-    this.setState({ info: !this.state.info })
+  toggleInfo = id => {
+    this.setState({
+      infoMarkerID: id
+    })
+    // console.log(this.state.infoMarkerID)
+  };
+
+  handleToggleOpen = () => {
+    this.setState({
+      isOpen: true
+    })
+    console.log(this.state.isOpen)
+  }
+
+  handleToggleClose = () => {
+    this.setState({
+      isOpen: false
+    })
+    console.log(this.state.isOpen)
   }
   
   render() {
@@ -25,12 +43,25 @@ class Map extends Component {
         defaultZoom={13}
         defaultOptions={{ styles: styles }}
       >
-        {this.state.itinerary.map(place => (
-          <div className="marker">
-          <Marker position={{lat: place.coordinates.lat, lng: place.coordinates.long}} title={place.location} icon={{url: Pin}} onClick={this.toggleInfo}/>
-          <div className="marker-info" style={this.state.info ? {display:'block'} : {display:'none'}}>sdfsdfsdf</div>
+        {console.log(this.state.infoMarkerID)};
+        {this.state.itinerary.map((place, i) => {
+          return (
+          <div key={i} className="marker">
+          <Marker position={{lat: place.coordinates.lat, lng: place.coordinates.long}} title={place.location} icon={{url: Pin}} onClick={() => this.toggleInfo(i)}>
+              {(this.state.infoMarkerID === i) &&
+              <InfoWindow
+                position={{lat: place.coordinates.lat, lng: place.coordinates.long}}
+              >
+                <div style={{background:'white'}} className="info-window">
+                  <p style={{marginTop:0}}><strong>{place.location.toUpperCase()}</strong></p>
+                  <p>{place.time}</p>
+                </div>
+              </InfoWindow>
+              }
+          </Marker>
           </div>
-        ))}
+          )
+        })}
 
       </GoogleMap>
     ));

@@ -4,8 +4,16 @@
 }
 
 .marker-info {
-  color: white;
+  color: black;
   position: absolute;
   top: 50%;
   left: 50%;
+  background: #cccccc;
+  padding: 1rem;
+  text-align: center;
+}
+
+.info-window {
+  text-align: center;
+  padding: 0.15rem;
 }
