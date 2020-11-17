@@ -1,3 +1,11 @@
 .map__container {
   margin: 1rem auto;
+  position: relative;
+}
+
+.marker-info {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }

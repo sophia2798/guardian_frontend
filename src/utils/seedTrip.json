@@ -28,7 +28,7 @@
     },
     {
         "id": 2,
-        "city": "Seoul, South Korea",
+        "city": "Kyoto, Japan",
         "safety_rating": 90,
         "start": "03/22/2021",
         "end": "03/30/2021",
@@ -37,18 +37,18 @@
         "completed": false,
         "itinerary": [
             {
-                "location": "Yonsei University",
-                "coordinates": {"lat": 37.5658, "long": 128.9386},
+                "location": "Fushimi Inari Taisha",
+                "coordinates": {"lat": 34.9671, "long": 135.7727},
                 "time": "20-12-15 10:00:00"
             },
             {
-                "location": "KBS Building",
-                "coordinates": {"lat": 37.3133, "long": 126.5455},
+                "location": "Kiyomizu-dera",
+                "coordinates": {"lat": 34.9949, "long": 135.7850},
                 "time": "20-12-15 14:45:00"
             },
             {
-                "location": "DMZ",
-                "coordinates": {"lat": 37.9536, "long": 126.6698},
+                "location": "Nishiki Market",
+                "coordinates": {"lat": 35.0050, "long": 135.7649},
                 "time": "20-12-16 9:30:00"
             }
         ]
@@ -74,8 +74,8 @@
                 "time": "20-01-26 21:00:00"
             },
             {
-                "location": "Canlis",
-                "coordinates": {"lat": 47.3835, "long": -122.2048},
+                "location": "Tacoma Dome",
+                "coordinates": {"lat": 47.2363, "long": -122.4273},
                 "time": "20-01-27 18:15:00"
             }
         ]
