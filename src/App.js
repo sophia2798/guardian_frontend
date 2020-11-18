@@ -16,21 +16,21 @@ function App() {
   const [user, setUser] = useState(true);
   const [loginFormState, setLoginFormState] = useState({
     email: "",
-    password: ""
-  })
+    password: "",
+  });
   const [profileState, setProfileState] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    position: '',
+    first_name: "",
+    last_name: "",
+    email: "",
+    position: "",
     trips: [],
-    id: '',
-    isLoggedIn: false
-  })
+    id: "",
+    isLoggedIn: false,
+  });
 
   useEffect(() => {
     const token = localStorage.getItem("token");
-    API.getProfile(token).then(profileData => {
+    API.getProfile(token).then((profileData) => {
       if (profileData) {
         setProfileState({
           first_name: profileData.first_name,
@@ -39,49 +39,49 @@ function App() {
           position: profileData.position,
           trips: profileData.trips,
           id: profileData._id,
-          isLoggedIn: true
-        })
+          isLoggedIn: true,
+        });
       } else {
         localStorage.removeItem("token");
         setProfileState({
-          first_name: '',
-          last_name: '',
-          email: '',
-          position: '',
+          first_name: "",
+          last_name: "",
+          email: "",
+          position: "",
           trips: [],
-          id: '',
-          isLoggedIn: false
-        })
+          id: "",
+          isLoggedIn: false,
+        });
       }
-    })
-  }, [])
+    });
+  }, []);
 
-  const handleInputChange = event => {
+  const handleInputChange = (event) => {
     event.preventDefault();
-    const {name,value} = event.target;
+    const { name, value } = event.target;
     setLoginFormState({
       ...loginFormState,
-      [name]: value
-    })
+      [name]: value,
+    });
   };
 
-  const handleFormSubmit = event => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
-    API.login(loginFormState).then(newToken => {
-      localStorage.setItem("token", newToken.token)
-      API.getProfile(newToken.token).then(profileData => {
+    API.login(loginFormState).then((newToken) => {
+      localStorage.setItem("token", newToken.token);
+      API.getProfile(newToken.token).then((profileData) => {
         setProfileState({
-        first_name: profileData.first_name,
-        last_name: profileData.last_name,
-        email: profileData.email,
-        position: profileData.email,
-        trips: profileData.trips,
-        id: profileData._id,
-        isLoggedIn: true
-        })
-      })
-    })
-  }
+          first_name: profileData.first_name,
+          last_name: profileData.last_name,
+          email: profileData.email,
+          position: profileData.email,
+          trips: profileData.trips,
+          id: profileData._id,
+          isLoggedIn: true,
+        });
+      });
+    });
+  };
 
   return (
     <Router>
@@ -91,9 +91,9 @@ function App() {
           <Route exact path="/">
             {!profileState.isLoggedIn ? (
               <Login
-              inputChange={handleInputChange}
-              loginFormState={loginFormState}
-              handleSubmit={handleFormSubmit}
+                inputChange={handleInputChange}
+                loginFormState={loginFormState}
+                handleSubmit={handleFormSubmit}
               />
             ) : (
               <div>
@@ -104,7 +104,7 @@ function App() {
             )}
           </Route>
           <Route path="/trips">
-            <Trips trips={profileState.trips}/>
+            <Trips trips={profileState.trips} />
           </Route>
           <Route path="/signup" component={Signup} />
           <Route path="/teams" component={Teams} />
