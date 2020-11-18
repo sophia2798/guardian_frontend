@@ -27,4 +27,9 @@
     border: 1px solid rgb(41,41,41);
     padding: 1rem 0.5rem;
     max-height: 100%;
+    overflow-y: auto;
+}
+
+.weather-day::-webkit-scrollbar {
+    display: none;
 }
