@@ -16,7 +16,6 @@ function TextEditor() {
         <h4>Whiteboard</h4>
         <form>
           <textarea
-            value=""
             onChange={(e) => setInput(e.target.value)}
             className="textEditor__input"
           />
