@@ -89,7 +89,8 @@ function Trips(props) {
                     pathname: "/dashboard",
                     state: {
                         title: trip.city.toUpperCase(),
-                        city: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '-').toLowerCase(), cityWeather: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '+').toLowerCase(),
+                        city: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '-').toLowerCase(),
+                        cityWeather: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '+').toLowerCase(),
                         startDate: trip.start_date,
                         endDate: trip.end_date
                     }
