@@ -91,15 +91,15 @@ function Trips(props) {
                         title: trip.city.toUpperCase(),
                         city: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '-').toLowerCase(),
                         cityWeather: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '+').toLowerCase(),
-                        startDate: trip.start_date,
-                        endDate: trip.end_date
+                        startDate: `${trip.start_date.substring(5,7)}/${trip.start_date.substring(8,10)}/${trip.start_date.substring(0,4)}`,
+                        endDate: `${trip.end_date.substring(5,7)}/${trip.end_date.substring(8,10)}/${trip.end_date.substring(0,4)}`
                     }
                     }}
                     className="trip-links"
                     ><Card
                         title={trip.city.toUpperCase()}
-                        start={trip.start_date}
-                        end={trip.end_date}
+                        start={`${trip.start_date.substring(5,7)}/${trip.start_date.substring(8,10)}/${trip.start_date.substring(0,4)}`}
+                        end={`${trip.end_date.substring(5,7)}/${trip.end_date.substring(8,10)}/${trip.end_date.substring(0,4)}`}
                         image={image[i]}
                         key={i}
                     />
