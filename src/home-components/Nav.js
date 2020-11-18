@@ -80,9 +80,6 @@ function Nav() {
                 <Link to="/" className="drawer__item">
                   Home
                 </Link>
-                <Link to="/dashboard" className="drawer__item">
-                  Dashboard
-                </Link>
                 <Link to="/trips" className="drawer__item">
                   Trips
                 </Link>
