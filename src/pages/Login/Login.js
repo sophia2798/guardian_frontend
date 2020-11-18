@@ -6,7 +6,7 @@ import LockIcon from "@material-ui/icons/Lock";
 import { Button } from "@material-ui/core";
 import logo from "../../images/logo-white.jpeg";
 
-function Login() {
+function Login(props) {
   return (
     <div className="login">
       <div className="login__header">
@@ -20,19 +20,22 @@ function Login() {
         <br></br>
         <hr></hr>
         <br></br>
-        <div className="login__input">
-          <PermIdentityIcon />
-          <input type="email" placeholder="email" />
-        </div>
-        <div className="login__password">
-          <LockIcon />
-          <input type="password" placeholder="password" />
-        </div>
-        <div className="login__button">
-          <Button className="nav__button" variant="outlined">
-            LOGIN
-          </Button>
-        </div>
+        <form onSubmit={props.handleSubmit}>
+          <div className="login__input">
+            <PermIdentityIcon />
+            <input type="text" name="email" onChange={props.inputChange} placeholder="email" value={props.loginFormState.email}/>
+          </div>
+          <div className="login__password">
+            <LockIcon />
+            <input type="password" name="password" onChange={props.inputChange} placeholder="password" value={props.loginFormState.password} />
+          </div>
+          <div className="login__button">
+            {/* <Button className="nav__button" variant="outlined">
+              LOGIN
+            </Button> */}
+            <input type="submit" value="LOGIN"/>
+          </div>
+        </form>
         <div className="login__footer">
           <p>
             Don't have an account? <a href="/signup">SIGN UP</a>
