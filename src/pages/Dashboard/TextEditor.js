@@ -13,7 +13,6 @@ function TextEditor() {
         <h4>Whiteboard</h4>
         <form>
           <textarea
-            input="text"
             className="textEditor__input"
           />
           <button onClick="" type="submit">
