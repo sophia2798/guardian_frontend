@@ -23,17 +23,30 @@ function Login(props) {
         <form onSubmit={props.handleSubmit}>
           <div className="login__input">
             <PermIdentityIcon />
-            <input type="text" name="email" onChange={props.inputChange} placeholder="email" value={props.loginFormState.email}/>
+            <input
+              type="text"
+              name="email"
+              onChange={props.inputChange}
+              placeholder="email"
+              value={props.loginFormState.email}
+            />
           </div>
           <div className="login__password">
             <LockIcon />
-            <input type="password" name="password" onChange={props.inputChange} placeholder="password" value={props.loginFormState.password} />
+            <input
+              type="password"
+              name="password"
+              onChange={props.inputChange}
+              placeholder="password"
+              value={props.loginFormState.password}
+            />
           </div>
           <div className="login__button">
             {/* <Button className="nav__button" variant="outlined">
               LOGIN
             </Button> */}
-            <input type="submit" value="LOGIN"/>
+
+            <input className="" type="submit" value="LOGIN" />
           </div>
         </form>
         <div className="login__footer">
