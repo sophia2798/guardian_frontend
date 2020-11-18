@@ -8,6 +8,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import axios from "axios";
+import darkLogo from "../../images/logo-dark.jpeg";
 import { Link, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Trips() {
+function Trips(props) {
     
-    const [trips, setTrips] = React.useState(TripSeed);
+    const [trips, setTrips] = React.useState(props.trips);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
@@ -52,11 +53,14 @@ function Trips() {
         for (var i=0; i < trips.length; i++) {
             await cityAPI(trips[i].city.substring(0, trips[i].city.indexOf(",")).replace(/\s+/g, '-').toLowerCase())
             .then(result => {
+                // console.log(result)
                 // console.log(result.data.photos[0].image.web)
                 const imgURL = result.data.photos[0].image.web;
                 imageArr.push(imgURL);
             })
-            .catch(err => console.log(err))
+            .catch(err => {
+                imageArr.push("/static/media/logo-dark.3594f758.jpeg")
+            })
         }
         setImage(imageArr);
     };
@@ -77,27 +81,30 @@ function Trips() {
                 </form>
             </div>
             <div className="trip-cards-container">
-                {trips.map(trip => (
+                {trips.map((trip, i) => {
+                    const index = i + 1;
+                    return (
                     <Link
                     to={{
                     pathname: "/dashboard",
                     state: {
                         title: trip.city.toUpperCase(),
                         city: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '-').toLowerCase(), cityWeather: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '+').toLowerCase(),
-                        startDate: trip.start,
-                        endDate: trip.end
+                        startDate: trip.start_date,
+                        endDate: trip.end_date
                     }
                     }}
                     className="trip-links"
                     ><Card
                         title={trip.city.toUpperCase()}
-                        start={trip.start}
-                        end={trip.end}
-                        image={image[trip.id - 1]}
-                        key={trip.id}
+                        start={trip.start_date}
+                        end={trip.end_date}
+                        image={image[i]}
+                        key={i}
                     />
                     </Link>
-                ))}
+                )
+                })}
             </div>
             <Modal
             aria-labelledby="transition-modal-title"

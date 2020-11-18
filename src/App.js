@@ -103,7 +103,9 @@ function App() {
               </div>
             )}
           </Route>
-          <Route path="/trips" component={Trips} />
+          <Route path="/trips">
+            <Trips trips={profileState.trips}/>
+          </Route>
           <Route path="/signup" component={Signup} />
           <Route path="/teams" component={Teams} />
           <Route path="/dashboard" component={Dash} />
