@@ -4,11 +4,8 @@ import VideocamIcon from "@material-ui/icons/Videocam";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 
 function TextEditor() {
-  const [input, setInput] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    setInput("");
   };
   return (
     <div className="textEditor">
@@ -16,8 +13,7 @@ function TextEditor() {
         <h4>Whiteboard</h4>
         <form>
           <textarea
-            value=""
-            onChange={(e) => setInput(e.target.value)}
+            input="text"
             className="textEditor__input"
           />
           <button onClick="" type="submit">
