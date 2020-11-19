@@ -24,6 +24,15 @@ const API =  {
                 'authorization': `Bearer ${token}`
             }
         }).then(res => res.json()).catch(err => null)
+    },
+    createTrip: (token) => {
+        return fetch(`${API_PREFIX}/trips`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": `Bearer ${token}`
+            }
+        }).then(res => res.json()).catch(err => null);
     }
 }
 

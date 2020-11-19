@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Trips.css";
 import SearchIcon from '@material-ui/icons/Search';
 import Card from "../../card-components/TripCards/TripCard";
@@ -30,10 +30,13 @@ function Trips(props) {
     
     // const [trips, setTrips] = React.useState(props.trips);
     const classes = useStyles();
-    const [open, setOpen] = React.useState(false);
-    const [blur, setBlur] = React.useState(false);
-    const [image, setImage] = React.useState([]);
-    const [profileState, setProfileState] = React.useState({
+    const [open, setOpen] = useState(false);
+    const [blur, setBlur] = useState(false);
+    const [image, setImage] = useState([]);
+    const [trip, setTrip] = useState({
+      
+    });
+    const [profileState, setProfileState] = useState({
         first_name: "",
         last_name: "",
         email: "",
@@ -42,6 +45,22 @@ function Trips(props) {
         trips: [],
         id: ""
     });
+  
+    const handleSubmit = (e, id) => {
+      e.preventDefault();
+      API.createTrip(profileState.token, id).then(() => {
+        fetchUserData();
+      })
+    }
+  
+    const handleInputChange = (event) => {
+      event.preventDefault();
+      const { name, value } = event.target;
+      setTrip({
+        ...trip,
+        [name]: value,
+      });
+    };
     
       function fetchUserData() {
         const token = localStorage.getItem("token");
@@ -160,9 +179,9 @@ function Trips(props) {
                 <div className={classes.paper} style={{fontFamily:"'Work Sans', sans-serif"}}>
                     <h2 id="transition-modal-title">CREATE A NEW TRIP</h2>
                     <div id="transition-modal-description">
-                        <form>
+                        <form  onSubmit={handleSubmit}>
                             <label className="modal-label" htmlFor="location">DESTINATION</label>
-                            <input type="text" id="location" className="modal-input" placeholder="CITY"/>
+                            <input onChange={handleInputChange} type="text" id="location" className="modal-input" placeholder="CITY"/>
                             <label className="modal-label" htmlFor="start-date">START DATE</label>
                             <input type="date" id="start-date" className="modal-input" />
                             <label className="modal-label" htmlFor="end-date">END DATE</label>
