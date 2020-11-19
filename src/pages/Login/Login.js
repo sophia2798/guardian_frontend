@@ -24,6 +24,7 @@ function Login(props) {
           <div className="login__input">
             <PermIdentityIcon />
             <input
+              className="login-email-input"
               type="text"
               name="email"
               onChange={props.inputChange}
