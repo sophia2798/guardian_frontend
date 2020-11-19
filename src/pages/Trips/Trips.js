@@ -9,7 +9,6 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import axios from "axios";
 import darkLogo from "../../images/logo-dark.jpeg";
-import { Link, useLocation } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -83,27 +82,14 @@ function Trips(props) {
             </div>
             <div className="trip-cards-container">
                 {trips.map((trip, i) => {
-                    return (
-                    <Link
-                    to={{
-                    pathname: "/dashboard",
-                    state: {
-                        title: trip.city.toUpperCase(),
-                        city: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '-').toLowerCase(),
-                        cityWeather: trip.city.substring(0, trip.city.indexOf(",")).replace(/\s+/g, '+').toLowerCase(),
-                        startDate: `${trip.start_date.substring(5,7)}/${trip.start_date.substring(8,10)}/${trip.start_date.substring(0,4)}`,
-                        endDate: `${trip.end_date.substring(5,7)}/${trip.end_date.substring(8,10)}/${trip.end_date.substring(0,4)}`
-                    }
-                    }}
-                    className="trip-links"
-                    ><Card
+                    return (<Card
+                        tripObj={trip}
                         title={trip.city.toUpperCase()}
                         start={`${trip.start_date.substring(5,7)}/${trip.start_date.substring(8,10)}/${trip.start_date.substring(0,4)}`}
                         end={`${trip.end_date.substring(5,7)}/${trip.end_date.substring(8,10)}/${trip.end_date.substring(0,4)}`}
                         image={image[i]}
                         key={i}
                     />
-                    </Link>
                 )
                 })}
             </div>
