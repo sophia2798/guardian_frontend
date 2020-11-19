@@ -123,15 +123,14 @@ function App() {
               </div>
           </Route>
           <Route path="/trips">
-            {profileState.isLoggedIn ?
+            {/* {profileState.isLoggedIn ? */}
             <Trips
             // trips={profileState.trips}
-            isLoggedIn={profileState.isLoggedIn}
             // deleteTrip={handleDeleteTrip}
             />
-            :
-            <Redirect to="/" />
-            }
+            {/* // :
+            // <Redirect to="/" />
+            // } */}
           </Route>
           <Route path="/login">
             {profileState.isLoggedIn ? 

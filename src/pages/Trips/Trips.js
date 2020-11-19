@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "./Trips.css";
 import SearchIcon from '@material-ui/icons/Search';
 import Card from "../../card-components/TripCards/TripCard";
-import TripSeed from "../../utils/seedTrip.json";
+// import TripSeed from "../../utils/seedTrip.json";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import axios from "axios";
-import darkLogo from "../../images/logo-dark.jpeg";
+// import darkLogo from "../../images/logo-dark.jpeg";
 import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
@@ -40,8 +40,7 @@ function Trips(props) {
         position: "",
         token: "",
         trips: [],
-        id: "",
-        isLoggedIn: props.isLoggedIn
+        id: ""
     });
     
       function fetchUserData() {
