@@ -1,5 +1,6 @@
 import React from "react";
 import "./Login.css";
+import { Link } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import LockIcon from "@material-ui/icons/Lock";
@@ -11,8 +12,11 @@ function Login(props) {
     <div className="login">
       <div className="login__header">
         <div className="header__option">
+          <Link to="/" style={{display:'flex',flexDirection:'row'}}>
           <ArrowBackIcon />
+          &nbsp;
           <h3>RETURN TO HOMEPAGE</h3>
+          </Link>
         </div>
       </div>
       <div className="login__body">
