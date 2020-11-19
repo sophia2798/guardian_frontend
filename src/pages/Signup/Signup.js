@@ -1,13 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Signup.css";
+import { withRouter } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import LockIcon from "@material-ui/icons/Lock";
 import { Button } from "@material-ui/core";
 import logo from "../../images/logo-white.jpeg";
 import Grid from "@material-ui/core/Grid";
+import API from "../../utils/API";
 
 function Signup() {
+  const [signUpFormState, setSignUpFormState] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleInputChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    setSignUpFormState({
+      ...signUpFormState,
+      [name]: value,
+    });
+  };
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    API.signup(signUpFormState).then((window.location = "/login"));
+  };
+
   return (
     <div className="signup">
       <div className="signup__header">
@@ -21,45 +45,75 @@ function Signup() {
         <br></br>
         <hr></hr>
         <br></br>
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6}>
-            <div className="signup__input">
-              <PermIdentityIcon />
-              <input type="text" placeholder="First Name" />
-            </div>
+        <form className="signup__form" onSubmit={handleFormSubmit}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6}>
+              <div className="signup__input">
+                <PermIdentityIcon />
+                <input
+                  name="first_name"
+                  className=""
+                  type="text"
+                  placeholder="First Name"
+                  onChange={handleInputChange}
+                />
+              </div>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <div className="signup__input">
+                <PermIdentityIcon />
+                <input
+                  name="last_name"
+                  type="text"
+                  placeholder="Last Name"
+                  onChange={handleInputChange}
+                />
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <div className="signup__input">
+                <PermIdentityIcon />
+                <input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  onChange={handleInputChange}
+                />
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <div className="signup__password">
+                <LockIcon />
+                <input
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  onChange={handleInputChange}
+                />
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <div className="signup__password">
+                <LockIcon />
+                <input
+                  name="confirm_password"
+                  type="password"
+                  placeholder="Confirm Password"
+                  onChange={handleInputChange}
+                />
+              </div>
+            </Grid>
+            <Grid item xs={12}>
+              <div className="signup__button">
+                <input
+                  className="login-submit-btn"
+                  type="submit"
+                  value="SIGN UP"
+                />
+              </div>
+            </Grid>
           </Grid>
-          <Grid item xs={12} sm={6}>
-            <div className="signup__input">
-              <PermIdentityIcon />
-              <input type="text" placeholder="Last Name" />
-            </div>
-          </Grid>
-          <Grid item xs={12}>
-            <div className="signup__input">
-              <PermIdentityIcon />
-              <input type="email" placeholder="Email" />
-            </div>
-          </Grid>
-          <Grid item xs={12}>
-            <div className="signup__password">
-              <LockIcon />
-              <input type="password" placeholder="Password" />
-            </div>
-          </Grid>
-          <Grid item xs={12}>
-            <div className="signup__password">
-              <LockIcon />
-              <input type="password" placeholder="Confirm Password" />
-            </div>
-          </Grid>
-          <Grid item xs={12}>
-            <div className="signup__button">
-              <Button className="nav__button" variant="outlined">
-                SIGN UP
-              </Button>
-            </div>
-          </Grid>
-        </Grid>
+        </form>
         <div className="signup__footer"></div>
       </div>
     </div>
