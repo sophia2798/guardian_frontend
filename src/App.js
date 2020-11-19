@@ -135,7 +135,7 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/teams">
             {profileState.isLoggedIn ?
-              <Teams/>
+              <Teams teams={profileState.trips}/>
               :
               <Redirect to="/" />
             }
