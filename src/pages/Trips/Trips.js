@@ -73,10 +73,10 @@ function Trips(props) {
         return axios.get(`https://api.teleport.org/api/urban_areas/slug:${city}/images/`)
     };
 
-    const getCityImg = async () => {
+    const getCityImg = async (tripsArr) => {
         const imageArr =[];
-        for (var i=0; i < trips.length; i++) {
-            await cityAPI(trips[i].city.substring(0, trips[i].city.indexOf(",")).replace(/\s+/g, '-').toLowerCase())
+        for (var i=0; i < tripsArr.length; i++) {
+            await cityAPI(tripsArr[i].city.substring(0, tripsArr[i].city.indexOf(",")).replace(/\s+/g, '-').toLowerCase())
             .then(result => {
                 // console.log(result)
                 // console.log(result.data.photos[0].image.web)
@@ -93,7 +93,7 @@ function Trips(props) {
     React.useEffect(() => {
         // fetchUserData();
         console.log("check useEffect");
-        getCityImg();
+        getCityImg(props.trips);
         setTrips(props.trips);
         // console.log(image);
     },[props.trips]);
