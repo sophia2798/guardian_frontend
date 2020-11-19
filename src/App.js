@@ -133,8 +133,10 @@ function App() {
           <Route path="/trips">
             {profileState.isLoggedIn ?
             <Trips
-            trips={profileState.trips}
-            deleteTrip={handleDeleteTrip}
+              trips={profileState.trips}
+              deleteTrip={handleDeleteTrip}
+              fetchData={fetchUserData}
+              token={profileState.token}
             />
             :
             <div>

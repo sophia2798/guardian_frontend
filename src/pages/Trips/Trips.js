@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./Trips.css";
 import SearchIcon from '@material-ui/icons/Search';
 import Card from "../../card-components/TripCards/TripCard";
@@ -8,6 +8,7 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import axios from "axios";
+import API from '../../utils/API';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -31,7 +32,33 @@ function Trips(props) {
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
     const [image, setImage] = React.useState([]);
+    const [trip, setTrip] = useState({
+      city: "",
+      start_date: "",
+      end_date: ""
+    });
 
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      API.createTrip(props.token, trip).then(() => {
+        setTrip({
+          city: "",
+          start_date: "",
+          end_date: ""
+        })
+        props.fetchData();
+      })
+    }
+  
+    const handleInputChange = (event) => {
+      event.preventDefault();
+      const { name, value } = event.target;
+      setTrip({
+        ...trip,
+        [name]: value,
+      });
+    };
+  
     const handleOpen = () => {
       setOpen(true);
       setBlur(true);
@@ -111,13 +138,13 @@ function Trips(props) {
                 <div className={classes.paper} style={{fontFamily:"'Work Sans', sans-serif"}}>
                     <h2 id="transition-modal-title">CREATE A NEW TRIP</h2>
                     <div id="transition-modal-description">
-                        <form>
+                        <form  onSubmit={handleSubmit}>
                             <label className="modal-label" htmlFor="location">DESTINATION</label>
-                            <input type="text" id="location" className="modal-input" placeholder="CITY"/>
+                            <input name="city" onChange={handleInputChange} type="text" id="location" className="modal-input" placeholder="CITY"/>
                             <label className="modal-label" htmlFor="start-date">START DATE</label>
-                            <input type="date" id="start-date" className="modal-input" />
+                            <input name="start_date" onChange={handleInputChange} type="date" id="start-date" className="modal-input" />
                             <label className="modal-label" htmlFor="end-date">END DATE</label>
-                            <input type="date" id="end-date" className="modal-input" />
+                            <input name="end_date" onChange={handleInputChange} type="date" id="end-date" className="modal-input" />
                             <input id="create-submit" type="submit" value="SUBMIT" />
                         </form>
                     </div>
