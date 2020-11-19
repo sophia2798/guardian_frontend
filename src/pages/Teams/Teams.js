@@ -6,8 +6,8 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SearchIcon from '@material-ui/icons/Search';
-import TeamSeed from "../../utils/seedTeam.json";
-import API from '../../utils/API';
+// import TeamSeed from "../../utils/seedTeam.json";
+// import API from '../../utils/API';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -36,6 +36,7 @@ function Teams(props) {
     const handleOpen = (e) => {
       setOpen(true);
       setBlur(true);
+      console.log("target", e.target)
       setSelectTrip(e.target.id);
       console.log("selectTrip State", selectTrip)
     };
@@ -71,12 +72,8 @@ function Teams(props) {
             <div className="team-cards-container">
                 {teams.map(team => (
                     <Card
-<<<<<<< HEAD
                         handleOpen={handleOpen}
                         tripID={team._id}
-=======
-                        handleOpen= {handleOpen}
->>>>>>> origin
                         key={team._id}
                         name={team.city.toUpperCase()}
                         members={team.users}
@@ -102,15 +99,9 @@ function Teams(props) {
                 <div className={classes.paper} style={{fontFamily:"'Work Sans', sans-serif"}}>
                     <h2 id="transition-modal-title">ADD A NEW MEMBER</h2>
                     <div id="transition-modal-description">
-<<<<<<< HEAD
-                        <form onSubmit={handleFormSubmit}>
-                            <label className="modal-label" htmlFor="team-name">TEAM NAME</label>
-                            <input type="text" id="team-name" className="modal-input" placeholder="NAME"/>
-=======
-                        <form onSubmit ={handleSubmit}>
+                        <form onSubmit ={handleFormSubmit}>
                             <label className="modal-label" htmlFor="member-email">Members Email</label>
                             <input type="text" onChange={handleInputChange} id="member-email" className="modal-input" placeholder="EMAIL"/>
->>>>>>> origin
                             <input id="create-team-submit" type="submit" value="SUBMIT" />
                         </form>
                     </div>

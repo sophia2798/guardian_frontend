@@ -219,7 +219,7 @@ export default function TeamCard(props) {
                 }
                 alt="avatar"
               />
-              {/* <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4> */}
+              <h4>{`${member.first_name.toUpperCase()} ${member.last_name.toUpperCase()} - ${member.position.toUpperCase()}`}</h4>
             </section>
             <section className="more-info">
               <p>{member.email}</p>
@@ -247,7 +247,7 @@ export default function TeamCard(props) {
             </div>
           )}
         </IconButton>
-        <AddIcon onClick={props.handleOpen} id={props.tripID}/>
+        <h2 onClick={props.handleOpen} id={props.tripID} className="add-p">+</h2>
         <div className="color-choices">
           <button
             style={{ outline: "none" }}
