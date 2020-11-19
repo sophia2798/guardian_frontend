@@ -94,8 +94,9 @@ function Trips(props) {
         // fetchUserData();
         console.log("check useEffect");
         getCityImg();
+        setTrips(props.trips);
         // console.log(image);
-    },[trips.length]);
+    },[props.trips]);
 
     return (
         <div className="trip-container" style={blur ? {filter:'blur(2px)'} : null}>
@@ -145,7 +146,7 @@ function Trips(props) {
                             <input name="start_date" onChange={handleInputChange} type="date" id="start-date" className="modal-input" />
                             <label className="modal-label" htmlFor="end-date">END DATE</label>
                             <input name="end_date" onChange={handleInputChange} type="date" id="end-date" className="modal-input" />
-                            <input id="create-submit" type="submit" value="SUBMIT" />
+                            <input id="create-submit" type="submit" value="SUBMIT" onClick={handleClose} />
                         </form>
                     </div>
                 </div>

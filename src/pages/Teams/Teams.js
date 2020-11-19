@@ -44,7 +44,7 @@ function Teams(props) {
         <div className="team-container" style={blur ? {filter:'blur(2px)'} : null}>
             <div className="team-header">
                 <h1>TEAMS</h1>
-                <button onClick={handleOpen} id="add-team">+</button>
+                {/* <button onClick={handleOpen} id="add-team">+</button> */}
                 <form>
                     <input type="text" placeholder="SEARCH TEAMS"/>
                     <button id="team-search-submit"><SearchIcon style={{color:'rgb(41,41,41)'}}/></button>
@@ -53,6 +53,7 @@ function Teams(props) {
             <div className="team-cards-container">
                 {teams.map(team => (
                     <Card
+                        handleOpen={handleOpen}
                         key={team._id}
                         name={team.city.toUpperCase()}
                         members={team.users}

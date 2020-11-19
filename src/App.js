@@ -173,7 +173,8 @@ function App() {
               </div>
             }
           </Route>
-          <Route path="/dashboard">
+          <Route path="/dashboard" component={Dash}/>
+          {/* <Route path="/dashboard">
           {profileState.isLoggedIn ?
               <Dash />
               :
@@ -183,7 +184,7 @@ function App() {
               <Footer />
               </div>
             }
-          </Route>
+          </Route> */}
         </Switch>
       </div>
     </Router>
