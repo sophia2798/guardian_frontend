@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import Nav from "./home-components/Nav";
 import Banner from "./home-components/Banner";
@@ -13,7 +13,7 @@ import Dash from "./pages/Dashboard/Dash";
 import API from "./utils/API";
 
 function App() {
-  const [user, setUser] = useState(true);
+  // const [user, setUser] = useState(true);
   const [loginFormState, setLoginFormState] = useState({
     email: "",
     password: "",
@@ -56,6 +56,24 @@ function App() {
     });
   }, []);
 
+  const handleLogout = event => {
+    event.preventDefault();
+    localStorage.removeItem("token");
+    setProfileState({
+      first_name: "",
+      last_name: "",
+      email: "",
+      position: "",
+      trips: [],
+      id: "",
+      isLoggedIn: false,
+    });
+    setLoginFormState({
+      email: "",
+      password: ""
+    })
+  };
+
   const handleInputChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -81,34 +99,48 @@ function App() {
         });
       });
     });
+    <Redirect to="/"/>
   };
 
   return (
     <Router>
       <div className="app">
-        <Nav />
+        <Nav handleLogout={handleLogout} profile={profileState}/>
         <Switch>
           <Route exact path="/">
-            {!profileState.isLoggedIn ? (
-              <Login
-                inputChange={handleInputChange}
-                loginFormState={loginFormState}
-                handleSubmit={handleFormSubmit}
-              />
-            ) : (
               <div>
                 <Banner />
                 <About />
                 <Footer />
               </div>
-            )}
           </Route>
           <Route path="/trips">
+            {profileState.isLoggedIn ?
             <Trips trips={profileState.trips} />
+            :
+            <Redirect to="/" />
+            }
+          </Route>
+          <Route path="/login">
+            {profileState.isLoggedIn ? 
+            <Redirect to="/" />
+            :
+            <Login
+            inputChange={handleInputChange}
+            loginFormState={loginFormState}
+            handleSubmit={handleFormSubmit}
+            />
+            }
           </Route>
           <Route path="/signup" component={Signup} />
-          <Route path="/teams" component={Teams} />
-          <Route path="/dashboard" component={Dash} />
+          <Route path="/teams">
+            {profileState.isLoggedIn ?
+              <Teams teams={profileState.trips}/>
+              :
+              <Redirect to="/" />
+            }
+          </Route>
+          <Route path="/dashboard" component={Dash}/>
         </Switch>
       </div>
     </Router>

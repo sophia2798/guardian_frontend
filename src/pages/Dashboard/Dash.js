@@ -10,7 +10,7 @@ import TextEditor from "./TextEditor";
 
 function Dash(props) {
   const [showSearch, setShowSearch] = useState(false);
-
+  
   return (
     <div className="dash">
       <div className="dash__calendar">

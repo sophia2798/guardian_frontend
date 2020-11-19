@@ -70,6 +70,7 @@ function Trips(props) {
         console.log(image);
     },[trips])
 
+    console.log(trips)
     return (
         <div className="trip-container" style={blur ? {filter:'blur(2px)'} : null}>
             <div className="trips-header">
@@ -82,7 +83,6 @@ function Trips(props) {
             </div>
             <div className="trip-cards-container">
                 {trips.map((trip, i) => {
-                    const index = i + 1;
                     return (
                     <Link
                     to={{

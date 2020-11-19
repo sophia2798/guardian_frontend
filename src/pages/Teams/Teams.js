@@ -23,9 +23,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Teams() {
+function Teams(props) {
     const classes = useStyles();
-    const [teams, setTeams] = React.useState(TeamSeed);
+    const [teams, setTeams] = React.useState(props.teams);
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
   
@@ -53,9 +53,11 @@ function Teams() {
             <div className="team-cards-container">
                 {teams.map(team => (
                     <Card
-                        key={team.id}
-                        name={team.name.toUpperCase()}
-                        members={team.members}
+                        key={team._id}
+                        name={team.city.toUpperCase()}
+                        members={team.users}
+                        start={`${team.start_date.substring(5,7)}/${team.start_date.substring(8,10)}/${team.start_date.substring(0,4)}`}
+                        end={`${team.end_date.substring(5,7)}/${team.end_date.substring(8,10)}/${team.end_date.substring(0,4)}`}
                     />
                 ))}
             </div>

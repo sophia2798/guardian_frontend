@@ -171,6 +171,7 @@ export default function TeamCard(props) {
           </Avatar>
         }
         title={props.name}
+        subheader={`${props.start} - ${props.end}`}
         action={
           <IconButton aria-label="settings">
             <InfoOutlinedIcon
@@ -201,6 +202,7 @@ export default function TeamCard(props) {
             <section className="name-position">
               <img
                 className="member-avatar"
+                style={{width:32}}
                 src={
                   member.position === "Agent"
                     ? agent

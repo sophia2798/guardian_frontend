@@ -55,6 +55,10 @@
   background-color: #424242 !important;
 }
 
+.drawer {
+  font-family: 'Work Sans', sans-serif;
+}
+
 .drawer__list {
   display: flex;
   flex-direction: column;

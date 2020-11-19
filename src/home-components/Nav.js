@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Nav() {
+function Nav(props) {
   const [show, handleShow] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -46,6 +46,12 @@ function Nav() {
     console.log(isExpanded);
   };
 
+  const logout = event => {
+    event.preventDefault();
+    props.handleLogout(event);
+    setIsExpanded(false);
+  }
+
   return (
     <div className={`nav ${show && "nav__white"}`}>
       <div className="nav__left">
@@ -55,11 +61,14 @@ function Nav() {
       </div>
       <div className="nav__right">
         <div className="nav__option">
+          {props.profile.isLoggedIn ?
           <Link to="/trips" style={{ color: "white" }}>
             <Button className="nav__button" variant="outlined">
               PLAN NOW
             </Button>
           </Link>
+          :
+          null }
         </div>
         <div className="nav__option">
           <PermIdentityIcon onClick={handleLogin} />
@@ -73,27 +82,47 @@ function Nav() {
             onClose={toggleDrawer("right", false)}
           >
             <div className="drawer">
-              <ul className="drawer__list">
+              {props.profile.isLoggedIn ? 
+              <ul className="drawer__list" onClick={toggleDrawer("right", false)}>
                 <Link to="/">
                   <img className="drawer__logo" src={logo} alt="" />
                 </Link>
                 <Link to="/" className="drawer__item">
-                  Home
+                  HOME
                 </Link>
                 <Link to="/trips" className="drawer__item">
-                  Trips
+                  TRIPS
                 </Link>
                 <Link to="/teams" className="drawer__item">
-                  Teams
+                  TEAMS
                 </Link>
               </ul>
-              <div className="logout__container">
-                <Link to="/logout" className="logout__button">
-                  {/* <button className="logout__button"> */}
+              :
+              <ul className="drawer__list" onClick={toggleDrawer("right", false)}>
+              <Link to="/">
+                <img className="drawer__logo" src={logo} alt="" />
+              </Link>
+              <Link to="/" className="drawer__item">
+                HOME
+              </Link>
+              <Link to="/login" className="drawer__item">
+                LOGIN
+              </Link>
+              <Link to="/signup" className="drawer__item">
+                SIGN UP
+              </Link>
+              </ul>
+              }
+              {props.profile.isLoggedIn ? 
+              <div className="logout__container" style={{textAlign:'center'}}>
+                {/* <Link to="/logout" className="logout__button"> */}
+                  <Button onClick={logout} style={{color:'white', fontFamily:"'Work Sans',sans-serif"}} className="logout__button">
                   Log Out
-                  {/* </button> */}
-                </Link>
+                  </Button>
+                {/* </Link> */}
               </div>
+              :
+              null}
             </div>
           </Drawer>
         </div>
