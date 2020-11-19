@@ -46,6 +46,12 @@ function Nav(props) {
     console.log(isExpanded);
   };
 
+  const logout = event => {
+    event.preventDefault();
+    props.handleLogout(event);
+    setIsExpanded(false);
+  }
+
   return (
     <div className={`nav ${show && "nav__white"}`}>
       <div className="nav__left">
@@ -73,7 +79,7 @@ function Nav(props) {
             onClose={toggleDrawer("right", false)}
           >
             <div className="drawer">
-              <ul className="drawer__list">
+              <ul className="drawer__list" onClick={toggleDrawer("right", false)}>
                 <Link to="/">
                   <img className="drawer__logo" src={logo} alt="" />
                 </Link>
@@ -89,7 +95,7 @@ function Nav(props) {
               </ul>
               <div className="logout__container" style={{textAlign:'center'}}>
                 {/* <Link to="/logout" className="logout__button"> */}
-                  <Button onClick={props.handleLogout} style={{color:'white', fontFamily:"'Work Sans',sans-serif"}} className="logout__button">
+                  <Button onClick={logout} style={{color:'white', fontFamily:"'Work Sans',sans-serif"}} className="logout__button">
                   Log Out
                   </Button>
                 {/* </Link> */}
