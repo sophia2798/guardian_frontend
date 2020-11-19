@@ -7,7 +7,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SearchIcon from '@material-ui/icons/Search';
 // import TeamSeed from "../../utils/seedTeam.json";
-// import API from '../../utils/API';
+import API from '../../utils/API';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -31,7 +31,7 @@ function Teams(props) {
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
     const [selectTrip, setSelectTrip] = React.useState("");
-    const [member, setMember ] = React.useState({ email: "" })
+    const [member, setMember ] = React.useState({ newMember: "" })
 
     const handleOpen = (e) => {
       setOpen(true);
@@ -48,8 +48,16 @@ function Teams(props) {
 
     const handleFormSubmit = event => {
         event.preventDefault();
-        console.log("form submit", selectTrip)
-    }
+        // console.log("form submit", selectTrip);
+        API.addMember(props.token, selectTrip, member)
+        .then(newMember => {
+            console.log("added member")
+            setMember({ email: ""});
+            props.fetchData();
+            setOpen(false);
+            setBlur(false);
+        })
+    };
     
     const handleInputChange = (event) => {
         event.preventDefault();
@@ -101,7 +109,9 @@ function Teams(props) {
                     <div id="transition-modal-description">
                         <form onSubmit ={handleFormSubmit}>
                             <label className="modal-label" htmlFor="member-email">Members Email</label>
-                            <input type="text" onChange={handleInputChange} id="member-email" className="modal-input" placeholder="EMAIL"/>
+                            <input type="text" onChange={handleInputChange} id="member-email" 
+                            name="newMember"
+                            className="modal-input" placeholder="EMAIL"/>
                             <input id="create-team-submit" type="submit" value="SUBMIT" />
                         </form>
                     </div>
