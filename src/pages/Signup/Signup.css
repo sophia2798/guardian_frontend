@@ -81,6 +81,14 @@
   font-size: larger;
 }
 
+.signup__input > input:-webkit-autofill,
+.signup__input > input:-webkit-autofill:hover,
+.signup__input > input:-webkit-autofill:focus,
+.signup__input > input:-webkit-autofill:active {
+  transition: background-color 9000s ease-in-out 0s;
+  -webkit-text-fill-color: #fff !important;
+}
+
 .signup__password {
   background-color: rgb(17, 17, 17);
   display: flex;
