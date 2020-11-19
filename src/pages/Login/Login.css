@@ -106,10 +106,30 @@
   justify-content: space-around;
 }
 
-.login__button > button {
+.login__button > input {
+  font-weight: bold;
   color: white !important;
+  background-color: #034078;
+  border-style: none;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 15px;
   display: flex;
+  cursor: pointer;
   margin: 15px;
+  padding: 10px 15px;
+}
+
+.login__button > input:hover {
+  font-weight: bold;
+  color: white !important;
+  background-color: #001f54;
+  border-style: none;
+  border: 1px solid rgb(54, 54, 54);
+  border-radius: 15px;
+  display: flex;
+  cursor: pointer;
+  margin: 15px;
+  padding: 10px 15px;
 }
 
 .login__footer {

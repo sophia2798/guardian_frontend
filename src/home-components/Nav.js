@@ -87,6 +87,13 @@ function Nav() {
                   Teams
                 </Link>
               </ul>
+              <div className="logout__container">
+                <Link to="/logout" className="logout__button">
+                  {/* <button className="logout__button"> */}
+                  Log Out
+                  {/* </button> */}
+                </Link>
+              </div>
             </div>
           </Drawer>
         </div>
