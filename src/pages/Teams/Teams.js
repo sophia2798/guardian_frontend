@@ -28,16 +28,24 @@ function Teams(props) {
     const [teams, setTeams] = React.useState(props.teams);
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
+    const [selectTrip, setSelectTrip] = React.useState("");
   
-    const handleOpen = () => {
+    const handleOpen = (e) => {
       setOpen(true);
       setBlur(true);
+      setSelectTrip(e.target.id);
+      console.log("selectTrip State", selectTrip)
     };
   
     const handleClose = () => {
       setOpen(false);
       setBlur(false);
     };
+
+    const handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("form submit", selectTrip)
+    }
 
 
     return (
@@ -54,6 +62,7 @@ function Teams(props) {
                 {teams.map(team => (
                     <Card
                         handleOpen={handleOpen}
+                        tripID={team._id}
                         key={team._id}
                         name={team.city.toUpperCase()}
                         members={team.users}
@@ -79,7 +88,7 @@ function Teams(props) {
                 <div className={classes.paper} style={{fontFamily:"'Work Sans', sans-serif"}}>
                     <h2 id="transition-modal-title">CREATE A NEW TEAM</h2>
                     <div id="transition-modal-description">
-                        <form>
+                        <form onSubmit={handleFormSubmit}>
                             <label className="modal-label" htmlFor="team-name">TEAM NAME</label>
                             <input type="text" id="team-name" className="modal-input" placeholder="NAME"/>
                             <input id="create-team-submit" type="submit" value="SUBMIT" />

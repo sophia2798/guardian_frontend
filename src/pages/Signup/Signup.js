@@ -4,10 +4,12 @@ import { withRouter } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import LockIcon from "@material-ui/icons/Lock";
+import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
 import { Button } from "@material-ui/core";
 import logo from "../../images/logo-white.jpeg";
 import Grid from "@material-ui/core/Grid";
 import API from "../../utils/API";
+import { Link } from "react-router-dom";
 
 function Signup() {
   const [signUpFormState, setSignUpFormState] = useState({
@@ -15,6 +17,7 @@ function Signup() {
     last_name: "",
     email: "",
     password: "",
+    position: ""
   });
 
   const handleInputChange = (event) => {
@@ -36,8 +39,11 @@ function Signup() {
     <div className="signup">
       <div className="signup__header">
         <div className="header__option">
+          <Link to="/" style={{display:'flex',flexDirection:'row'}}>
           <ArrowBackIcon />
-          <h3>Return to Homepage</h3>
+          &nbsp;
+          <h3>RETURN TO HOMEPAGE</h3>
+          </Link>
         </div>
       </div>
       <div className="signup__body">
@@ -69,6 +75,13 @@ function Signup() {
                   onChange={handleInputChange}
                 />
               </div>
+            </Grid>
+            <Grid item xs={12}>
+                <select name="position" className="position__select">
+                  <option style={{color:'rgb(54,54,54)'}} value="Position" selected>Position</option>
+                  <option value="Lead">Lead</option>
+                  <option value="Medic">Medic</option>
+                </select>
             </Grid>
             <Grid item xs={12}>
               <div className="signup__input">

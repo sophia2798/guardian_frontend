@@ -244,7 +244,7 @@ export default function TeamCard(props) {
             </div>
           )}
         </IconButton>
-        <AddIcon onClick={props.handleOpen} />
+        <AddIcon onClick={props.handleOpen} id={props.tripID}/>
         <div className="color-choices">
           <button
             style={{ outline: "none" }}
