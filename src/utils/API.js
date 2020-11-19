@@ -1,6 +1,8 @@
+const API_PREFIX = "http://localhost:9164/api";
+
 const API =  {
     login: function(userData) {
-        return fetch('http://localhost:9164/api/users/signin', {
+        return fetch(`${API_PREFIX}/users/signin`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -9,7 +11,15 @@ const API =  {
         }).then(res => res.json()).catch(err => null)
     },
     getProfile: function(token) {
-        return fetch('http://localhost:9164/api/userInfo', {
+        return fetch(`${API_PREFIX}/userInfo`, {
+            headers: {
+                'authorization': `Bearer ${token}`
+            }
+        }).then(res => res.json()).catch(err => null)
+    },
+    deleteTrip: function(token, TripID) {
+        return fetch(`${API_PREFIX}/trips/${TripID}`, {
+            method: 'DELETE',
             headers: {
                 'authorization': `Bearer ${token}`
             }

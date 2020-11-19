@@ -10,6 +10,7 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import IconButton from '@material-ui/core/IconButton';
 import CheckIcon from '@material-ui/icons/Check';
 import { Link } from "react-router-dom";
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TripCard(props) {
+function TripCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [complete, setCompleted] = React.useState(false);
@@ -81,6 +82,14 @@ export default function TripCard(props) {
         }
         title={props.title}
         subheader={`${props.start} - ${props.end}`}
+        action={
+          <IconButton aria-label="settings">
+            <ClearIcon
+              style={{ color: "white" }}
+              onClick={() => props.deleteTrip(props.tripObj._id)}
+            />
+          </IconButton>
+        }
       />
       <Link
       to={{
@@ -111,3 +120,5 @@ export default function TripCard(props) {
     </Card>
   );
 }
+
+export default TripCard;
