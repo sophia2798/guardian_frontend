@@ -68,6 +68,10 @@ function Teams(props) {
         });
     };
 
+    React.useEffect(() => {
+        setTeams(props.teams)
+    }, [props.teams])
+
     return (
         <div className="team-container" style={blur ? {filter:'blur(2px)'} : null}>
             <div className="team-header">
