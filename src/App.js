@@ -133,8 +133,10 @@ function App() {
           <Route path="/trips">
             {profileState.isLoggedIn ?
             <Trips
-            trips={profileState.trips}
-            deleteTrip={handleDeleteTrip}
+              trips={profileState.trips}
+              deleteTrip={handleDeleteTrip}
+              fetchData={fetchUserData}
+              token={profileState.token}
             />
             :
             <div>
@@ -174,7 +176,8 @@ function App() {
               </div>
             }
           </Route>
-          <Route path="/dashboard">
+          <Route path="/dashboard" component={Dash}/>
+          {/* <Route path="/dashboard">
           {profileState.isLoggedIn ?
               <Dash />
               :
@@ -184,7 +187,7 @@ function App() {
               <Footer />
               </div>
             }
-          </Route>
+          </Route> */}
         </Switch>
       </div>
     </Router>

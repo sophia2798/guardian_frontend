@@ -68,7 +68,6 @@ function Teams(props) {
         <div className="team-container" style={blur ? {filter:'blur(2px)'} : null}>
             <div className="team-header">
                 <h1>TEAMS</h1>
-                
                 <form>
                     <input type="text" placeholder="SEARCH TEAMS"/>
                     <button id="team-search-submit"><SearchIcon style={{color:'rgb(41,41,41)'}}/></button>
