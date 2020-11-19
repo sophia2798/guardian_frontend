@@ -68,6 +68,10 @@ function App() {
       id: "",
       isLoggedIn: false,
     });
+    setLoginFormState({
+      email: "",
+      password: ""
+    })
   };
 
   const handleInputChange = (event) => {

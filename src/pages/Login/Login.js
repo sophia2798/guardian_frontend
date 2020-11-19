@@ -12,7 +12,7 @@ function Login(props) {
       <div className="login__header">
         <div className="header__option">
           <ArrowBackIcon />
-          <h3>Return to Homepage</h3>
+          <h3>RETURN TO HOMEPAGE</h3>
         </div>
       </div>
       <div className="login__body">
@@ -20,14 +20,14 @@ function Login(props) {
         <br></br>
         <hr></hr>
         <br></br>
-        <form onSubmit={props.handleSubmit}>
+        <form className="login__form" onSubmit={props.handleSubmit}>
           <div className="login__input">
             <PermIdentityIcon />
             <input
               type="text"
               name="email"
               onChange={props.inputChange}
-              placeholder="email"
+              placeholder="EMAIL"
               value={props.loginFormState.email}
             />
           </div>
@@ -37,7 +37,7 @@ function Login(props) {
               type="password"
               name="password"
               onChange={props.inputChange}
-              placeholder="password"
+              placeholder="PASSWORD"
               value={props.loginFormState.password}
             />
           </div>
@@ -45,13 +45,12 @@ function Login(props) {
             {/* <Button className="nav__button" variant="outlined">
               LOGIN
             </Button> */}
-
-            <input className="" type="submit" value="LOGIN" />
+            <input className="login-submit-btn" type="submit" value="LOGIN" />
           </div>
         </form>
         <div className="login__footer">
           <p>
-            Don't have an account? <a href="/signup">SIGN UP</a>
+            DON'T HAVE AN ACCOUNT? <a href="/signup">SIGN UP</a>
           </p>
         </div>
       </div>
