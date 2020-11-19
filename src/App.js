@@ -23,38 +23,45 @@ function App() {
     last_name: "",
     email: "",
     position: "",
+    token: "",
     trips: [],
     id: "",
     isLoggedIn: false,
   });
 
-  useEffect(() => {
+  function fetchUserData() {
     const token = localStorage.getItem("token");
     API.getProfile(token).then((profileData) => {
+      console.log("profileData from fetchUserData:", profileData);
       if (profileData) {
         setProfileState({
           first_name: profileData.first_name,
           last_name: profileData.last_name,
           email: profileData.email,
           position: profileData.position,
+          token: token,
           trips: profileData.trips,
           id: profileData._id,
           isLoggedIn: true,
         });
       } else {
+        console.log("error check");
         localStorage.removeItem("token");
         setProfileState({
           first_name: "",
           last_name: "",
           email: "",
           position: "",
+          token: "",
           trips: [],
           id: "",
           isLoggedIn: false,
         });
       }
     });
-  }, []);
+  }
+
+  useEffect(fetchUserData, []);
 
   const handleLogout = event => {
     event.preventDefault();
@@ -65,6 +72,7 @@ function App() {
       email: "",
       position: "",
       trips: [],
+      token: "",
       id: "",
       isLoggedIn: false,
     });
@@ -115,11 +123,14 @@ function App() {
               </div>
           </Route>
           <Route path="/trips">
-            {profileState.isLoggedIn ?
-            <Trips trips={profileState.trips} />
-            :
-            <Redirect to="/" />
-            }
+            {/* {profileState.isLoggedIn ? */}
+            <Trips
+            // trips={profileState.trips}
+            // deleteTrip={handleDeleteTrip}
+            />
+            {/* // :
+            // <Redirect to="/" />
+            // } */}
           </Route>
           <Route path="/login">
             {profileState.isLoggedIn ? 

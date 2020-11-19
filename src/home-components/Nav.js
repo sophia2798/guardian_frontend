@@ -43,7 +43,7 @@ function Nav(props) {
     }
 
     setIsExpanded(!isExpanded);
-    console.log(isExpanded);
+    console.log("isExpanded:", isExpanded);
   };
 
   const logout = event => {

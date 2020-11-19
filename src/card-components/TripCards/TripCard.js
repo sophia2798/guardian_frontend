@@ -9,6 +9,8 @@ import Avatar from '@material-ui/core/Avatar';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import IconButton from '@material-ui/core/IconButton';
 import CheckIcon from '@material-ui/icons/Check';
+import { Link } from "react-router-dom";
+import ClearIcon from '@material-ui/icons/Clear';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,10 +59,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TripCard(props) {
+function TripCard(props) {
   const classes = useStyles();
   const [expanded, setExpanded] = React.useState(false);
   const [complete, setCompleted] = React.useState(false);
+  const [tripObj, setTripObj] = React.useState(props.tripObj);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -79,11 +82,33 @@ export default function TripCard(props) {
         }
         title={props.title}
         subheader={`${props.start} - ${props.end}`}
+        action={
+          <IconButton aria-label="settings">
+            <ClearIcon
+              style={{ color: "white" }}
+              onClick={() => props.deleteTrip(props.tripObj._id)}
+            />
+          </IconButton>
+        }
       />
-      <CardMedia
-        className={classes.media}
-        image={props.image}
-      />
+      <Link
+      to={{
+      pathname: "/dashboard",
+      state: {
+          title: tripObj.city.toUpperCase(),
+          city: tripObj.city.substring(0, tripObj.city.indexOf(",")).replace(/\s+/g, '-').toLowerCase(),
+          cityWeather: tripObj.city.substring(0, tripObj.city.indexOf(",")).replace(/\s+/g, '+').toLowerCase(),
+          startDate: `${tripObj.start_date.substring(5,7)}/${tripObj.start_date.substring(8,10)}/${tripObj.start_date.substring(0,4)}`,
+          endDate: `${tripObj.end_date.substring(5,7)}/${tripObj.end_date.substring(8,10)}/${tripObj.end_date.substring(0,4)}`
+      }
+      }}
+      className="trip-links"
+      >
+        <CardMedia
+          className={classes.media}
+          image={props.image}
+        />        
+      </Link>
       <CardActions disableSpacing>
         <IconButton onClick={setComplete} aria-label="add to favorites">
             { complete ?
@@ -95,3 +120,5 @@ export default function TripCard(props) {
     </Card>
   );
 }
+
+export default TripCard;
