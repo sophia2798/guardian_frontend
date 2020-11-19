@@ -91,6 +91,14 @@ function App() {
     });
   };
 
+  const handleDeleteTrip = (id) => {
+    API.deleteTrip(profileState.token, id)
+    .then(data => {
+      fetchUserData();
+    })
+    // console.log(id);
+};
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     API.login(loginFormState).then((newToken) => {
@@ -107,7 +115,7 @@ function App() {
         });
       });
     });
-    <Redirect to="/"/>
+    // <Redirect to="/"/>
   };
 
   return (
@@ -123,18 +131,28 @@ function App() {
               </div>
           </Route>
           <Route path="/trips">
-            {/* {profileState.isLoggedIn ? */}
+            {profileState.isLoggedIn ?
             <Trips
-            // trips={profileState.trips}
-            // deleteTrip={handleDeleteTrip}
+              trips={profileState.trips}
+              deleteTrip={handleDeleteTrip}
+              fetchData={fetchUserData}
+              token={profileState.token}
             />
-            {/* // :
-            // <Redirect to="/" />
-            // } */}
+            :
+            <div>
+            <Banner />
+            <About />
+            <Footer />
+            </div>
+            }
           </Route>
           <Route path="/login">
             {profileState.isLoggedIn ? 
-            <Redirect to="/" />
+            <div>
+            <Banner />
+            <About />
+            <Footer />
+            </div>
             :
             <Login
             inputChange={handleInputChange}
@@ -148,10 +166,24 @@ function App() {
             {profileState.isLoggedIn ?
               <Teams teams={profileState.trips}/>
               :
-              <Redirect to="/" />
+              <div>
+              <Banner />
+              <About />
+              <Footer />
+              </div>
             }
           </Route>
-          <Route path="/dashboard" component={Dash}/>
+          <Route path="/dashboard">
+          {profileState.isLoggedIn ?
+              <Dash />
+              :
+              <div>
+              <Banner />
+              <About />
+              <Footer />
+              </div>
+            }
+          </Route>
         </Switch>
       </div>
     </Router>
