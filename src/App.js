@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
 import "./App.css";
 import Nav from "./home-components/Nav";
 import Banner from "./home-components/Banner";
@@ -99,13 +99,8 @@ function App() {
         });
       });
     });
+    <Redirect to="/"/>
   };
-
-//   <Login
-//   inputChange={handleInputChange}
-//   loginFormState={loginFormState}
-//   handleSubmit={handleFormSubmit}
-// />
 
   return (
     <Router>
@@ -120,12 +115,38 @@ function App() {
               </div>
           </Route>
           <Route path="/trips">
+            {profileState.isLoggedIn ?
             <Trips trips={profileState.trips} />
+            :
+            <Redirect to="/" />
+            }
           </Route>
-          <Route path="/login" component={Login} />
+          <Route path="/login">
+            {profileState.isLoggedIn ? 
+            <Redirect to="/" />
+            :
+            <Login
+            inputChange={handleInputChange}
+            loginFormState={loginFormState}
+            handleSubmit={handleFormSubmit}
+            />
+            }
+          </Route>
           <Route path="/signup" component={Signup} />
-          <Route path="/teams" component={Teams} />
-          <Route path="/dashboard" component={Dash} />
+          <Route path="/teams">
+            {profileState.isLoggedIn ?
+              <Teams/>
+              :
+              <Redirect to="/" />
+            }
+          </Route>
+          <Route path="/dashboard">
+            {profileState.isLoggedIn ?
+              <Dash />
+              :
+              <Redirect to="/" />
+            }
+          </Route>
         </Switch>
       </div>
     </Router>
