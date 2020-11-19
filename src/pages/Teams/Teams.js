@@ -7,6 +7,8 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SearchIcon from '@material-ui/icons/Search';
 import TeamSeed from "../../utils/seedTeam.json";
+import API from '../../utils/API';
+
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -30,21 +32,43 @@ function Teams(props) {
     const [blur, setBlur] = React.useState(false);
   
     const handleOpen = () => {
-      setOpen(true);
-      setBlur(true);
-    };
-  
-    const handleClose = () => {
-      setOpen(false);
-      setBlur(false);
-    };
-
+        setOpen(true);
+        setBlur(true);
+      };
+    
+      const handleClose = () => {
+        setOpen(false);
+        setBlur(false);
+      };
+      const [member, setMember ] = React.useState({
+        email: "",
+      })
+    
+        const handleSubmit = (e) => {
+          e.preventDefault();
+          console.log(e.target)
+        //   API.addMember(props.token, tripID,member).then(() => {
+        //     setMember({
+        //      email: "",
+        //     })
+        //     props.fetchData();
+        //   })
+        }
+    
+        const handleInputChange = (event) => {
+          event.preventDefault();
+          const { name, value } = event.target;
+          setMember({
+            ...member,
+            [name]: value,
+          });
+        };
 
     return (
         <div className="team-container" style={blur ? {filter:'blur(2px)'} : null}>
             <div className="team-header">
                 <h1>TEAMS</h1>
-                <button onClick={handleOpen} id="add-team">+</button>
+                
                 <form>
                     <input type="text" placeholder="SEARCH TEAMS"/>
                     <button id="team-search-submit"><SearchIcon style={{color:'rgb(41,41,41)'}}/></button>
@@ -53,6 +77,7 @@ function Teams(props) {
             <div className="team-cards-container">
                 {teams.map(team => (
                     <Card
+                        handleOpen= {handleOpen}
                         key={team._id}
                         name={team.city.toUpperCase()}
                         members={team.users}
@@ -76,11 +101,11 @@ function Teams(props) {
         >
                 <Fade in={open}>
                 <div className={classes.paper} style={{fontFamily:"'Work Sans', sans-serif"}}>
-                    <h2 id="transition-modal-title">CREATE A NEW TEAM</h2>
+                    <h2 id="transition-modal-title">ADD A NEW MEMBER</h2>
                     <div id="transition-modal-description">
-                        <form>
-                            <label className="modal-label" htmlFor="team-name">TEAM NAME</label>
-                            <input type="text" id="team-name" className="modal-input" placeholder="NAME"/>
+                        <form onSubmit ={handleSubmit}>
+                            <label className="modal-label" htmlFor="member-email">Members Email</label>
+                            <input type="text" onChange={handleInputChange} id="member-email" className="modal-input" placeholder="EMAIL"/>
                             <input id="create-team-submit" type="submit" value="SUBMIT" />
                         </form>
                     </div>
