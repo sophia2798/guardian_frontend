@@ -140,13 +140,7 @@ function App() {
               <Redirect to="/" />
             }
           </Route>
-          <Route path="/dashboard">
-            {profileState.isLoggedIn ?
-              <Dash />
-              :
-              <Redirect to="/" />
-            }
-          </Route>
+          <Route path="/dashboard" component={Dash}/>
         </Switch>
       </div>
     </Router>
