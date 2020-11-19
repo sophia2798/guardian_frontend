@@ -8,8 +8,6 @@ import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import axios from "axios";
-// import darkLogo from "../../images/logo-dark.jpeg";
-import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -28,50 +26,11 @@ const useStyles = makeStyles((theme) => ({
 
 function Trips(props) {
     
-    // const [trips, setTrips] = React.useState(props.trips);
+    const [trips, setTrips] = React.useState(props.trips);
     const classes = useStyles();
     const [open, setOpen] = React.useState(false);
     const [blur, setBlur] = React.useState(false);
     const [image, setImage] = React.useState([]);
-    const [profileState, setProfileState] = React.useState({
-        first_name: "",
-        last_name: "",
-        email: "",
-        position: "",
-        token: "",
-        trips: [],
-        id: ""
-    });
-    
-      function fetchUserData() {
-        const token = localStorage.getItem("token");
-        API.getProfile(token).then((profileData) => {
-          if (profileData) {
-            setProfileState({
-              first_name: profileData.first_name,
-              last_name: profileData.last_name,
-              email: profileData.email,
-              position: profileData.position,
-              token: token,
-              trips: profileData.trips,
-              id: profileData._id,
-            });
-          } else {
-            console.log("error check");
-            localStorage.removeItem("token");
-            setProfileState({
-              first_name: "",
-              last_name: "",
-              email: "",
-              position: "",
-              token: "",
-              trips: [],
-              id: "",
-            });
-          }
-        });
-        getCityImg();
-    }
 
     const handleOpen = () => {
       setOpen(true);
@@ -83,22 +42,14 @@ function Trips(props) {
       setBlur(false);
     };
 
-    const handleDeleteTrip = (id) => {
-        API.deleteTrip(profileState.token, id)
-        .then(data => {
-          fetchUserData();
-        })
-        // console.log(id);
-    };
-
     const cityAPI = city => {
         return axios.get(`https://api.teleport.org/api/urban_areas/slug:${city}/images/`)
     };
 
     const getCityImg = async () => {
         const imageArr =[];
-        for (var i=0; i < profileState.trips.length; i++) {
-            await cityAPI(profileState.trips[i].city.substring(0, profileState.trips[i].city.indexOf(",")).replace(/\s+/g, '-').toLowerCase())
+        for (var i=0; i < trips.length; i++) {
+            await cityAPI(trips[i].city.substring(0, trips[i].city.indexOf(",")).replace(/\s+/g, '-').toLowerCase())
             .then(result => {
                 // console.log(result)
                 // console.log(result.data.photos[0].image.web)
@@ -113,11 +64,11 @@ function Trips(props) {
     };
 
     React.useEffect(() => {
-        fetchUserData();
+        // fetchUserData();
         console.log("check useEffect");
-        // getCityImg();
+        getCityImg();
         // console.log(image);
-    },[profileState.trips.length]);
+    },[trips.length]);
 
     return (
         <div className="trip-container" style={blur ? {filter:'blur(2px)'} : null}>
@@ -130,10 +81,10 @@ function Trips(props) {
                 </form>
             </div>
             <div className="trip-cards-container">
-                {profileState.trips.map((trip, i) => {
+                {trips.map((trip, i) => {
                     return (<Card
                         tripObj={trip}
-                        deleteTrip={handleDeleteTrip}
+                        deleteTrip={props.deleteTrip}
                         title={trip.city.toUpperCase()}
                         start={`${trip.start_date.substring(5,7)}/${trip.start_date.substring(8,10)}/${trip.start_date.substring(0,4)}`}
                         end={`${trip.end_date.substring(5,7)}/${trip.end_date.substring(8,10)}/${trip.end_date.substring(0,4)}`}
