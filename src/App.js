@@ -13,7 +13,7 @@ import Dash from "./pages/Dashboard/Dash";
 import API from "./utils/API";
 
 function App() {
-  const [user, setUser] = useState(true);
+  // const [user, setUser] = useState(true);
   const [loginFormState, setLoginFormState] = useState({
     email: "",
     password: "",
@@ -56,6 +56,20 @@ function App() {
     });
   }, []);
 
+  const handleLogout = event => {
+    event.preventDefault();
+    localStorage.removeItem("token");
+    setProfileState({
+      first_name: "",
+      last_name: "",
+      email: "",
+      position: "",
+      trips: [],
+      id: "",
+      isLoggedIn: false,
+    });
+  };
+
   const handleInputChange = (event) => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -86,7 +100,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Nav />
+        <Nav handleLogout={handleLogout}/>
         <Switch>
           <Route exact path="/">
             {!profileState.isLoggedIn ? (

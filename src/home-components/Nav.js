@@ -17,7 +17,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Nav() {
+function Nav(props) {
   const [show, handleShow] = useState(false);
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -78,21 +78,21 @@ function Nav() {
                   <img className="drawer__logo" src={logo} alt="" />
                 </Link>
                 <Link to="/" className="drawer__item">
-                  Home
+                  HOME
                 </Link>
                 <Link to="/trips" className="drawer__item">
-                  Trips
+                  TRIPS
                 </Link>
                 <Link to="/teams" className="drawer__item">
-                  Teams
+                  TEAMS
                 </Link>
               </ul>
-              <div className="logout__container">
-                <Link to="/logout" className="logout__button">
-                  {/* <button className="logout__button"> */}
+              <div className="logout__container" style={{textAlign:'center'}}>
+                {/* <Link to="/logout" className="logout__button"> */}
+                  <Button onClick={props.handleLogout} style={{color:'white', fontFamily:"'Work Sans',sans-serif"}} className="logout__button">
                   Log Out
-                  {/* </button> */}
-                </Link>
+                  </Button>
+                {/* </Link> */}
               </div>
             </div>
           </Drawer>
