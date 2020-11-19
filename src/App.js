@@ -101,29 +101,28 @@ function App() {
     });
   };
 
+//   <Login
+//   inputChange={handleInputChange}
+//   loginFormState={loginFormState}
+//   handleSubmit={handleFormSubmit}
+// />
+
   return (
     <Router>
       <div className="app">
-        <Nav handleLogout={handleLogout}/>
+        <Nav handleLogout={handleLogout} profile={profileState}/>
         <Switch>
           <Route exact path="/">
-            {!profileState.isLoggedIn ? (
-              <Login
-                inputChange={handleInputChange}
-                loginFormState={loginFormState}
-                handleSubmit={handleFormSubmit}
-              />
-            ) : (
               <div>
                 <Banner />
                 <About />
                 <Footer />
               </div>
-            )}
           </Route>
           <Route path="/trips">
             <Trips trips={profileState.trips} />
           </Route>
+          <Route path="/login" component={Login} />
           <Route path="/signup" component={Signup} />
           <Route path="/teams" component={Teams} />
           <Route path="/dashboard" component={Dash} />
