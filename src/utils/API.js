@@ -54,7 +54,7 @@ const API = {
       .then((res) => res.json())
       .catch((err) => null);
   },
-  addMember: function(token, tripID,newMember) {
+  addMember: function(token, tripID, newMember) {
       return fetch(`${API_PREFIX}/trips/add/${tripID}`, {
           method: `PUT`,
           headers: {

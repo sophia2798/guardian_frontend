@@ -166,6 +166,7 @@ function App() {
             {profileState.isLoggedIn ?
               <Teams teams={profileState.trips}
               fetchData={fetchUserData}
+              token={profileState.token}
               />
       
               :
