@@ -3,7 +3,7 @@ import "./TextEditor.css";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 
-function TextEditor() {
+function TextEditor(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
