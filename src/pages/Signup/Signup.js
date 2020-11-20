@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import LockIcon from "@material-ui/icons/Lock";
-import WorkOutlineIcon from '@material-ui/icons/WorkOutline';
+import PeopleAltOutlinedIcon from '@material-ui/icons/PeopleAltOutlined';
 import { Button } from "@material-ui/core";
 import logo from "../../images/logo-white.jpeg";
 import Grid from "@material-ui/core/Grid";
@@ -77,15 +77,6 @@ function Signup() {
               </div>
             </Grid>
             <Grid item xs={12}>
-                <select name="position" onChange={handleInputChange} name="position" className="position__select">
-                  <option style={{backgroundColor:'rgb(54,54,54) !important'}} value="Select a Position" selected>Select a Position</option>
-                  <option value="Lead">Lead</option>
-                  <option value="Medic">Medic</option>
-                  <option value="Advance Lead">Advance Lead</option>
-                  <option value="Agent">Agent</option>
-                </select>
-            </Grid>
-            <Grid item xs={12}>
               <div className="signup__input">
                 <PermIdentityIcon />
                 <input
@@ -117,6 +108,18 @@ function Signup() {
                   onChange={handleInputChange}
                 />
               </div>
+            </Grid>
+            <Grid item xs={12}>
+                <div className="position__menu">
+                <PeopleAltOutlinedIcon/>
+                <select required name="position" id="position" onChange={handleInputChange} name="position" className="position__select fa">
+                  <option value="" disabled selected >Select a Position</option>
+                  <option value="Lead">Lead</option>
+                  <option value="Medic">Medic</option>
+                  <option value="Advance Lead">Advance Lead</option>
+                  <option value="Agent">Agent</option>
+                </select>
+                </div>
             </Grid>
             <Grid item xs={12}>
               <div className="signup__button">

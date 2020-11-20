@@ -31,7 +31,12 @@ function Dash(props) {
       </div>
       <Weather city={props.location.state.cityWeather} />
       <Map />
-      <TextEditor/> 
+      <TextEditor
+        token={props.location.state.token}
+        // TODO: update to not hardcode
+        trip="5fb74a580f9401657c0cbe47"
+        data={props.location.state.report_doc}
+      />
     </div>
   );
 }

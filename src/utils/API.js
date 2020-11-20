@@ -54,15 +54,29 @@ const API = {
       .then((res) => res.json())
       .catch((err) => null);
   },
-  addMember: function(token, tripID, newMember) {
-      return fetch(`${API_PREFIX}/trips/add/${tripID}`, {
-          method: `PUT`,
-          headers: {
-              'authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(newMember)
-      }).then(res => res.json()).catch(err => null)
+  addMember: function (token, tripID, newMember) {
+    return fetch(`${API_PREFIX}/trips/add/${tripID}`, {
+      method: `PUT`,
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newMember),
+    })
+      .then((res) => res.json())
+      .catch((err) => null);
+  },
+  updateWhiteboard: function (token, tripID, report_doc) {
+    return fetch(`${API_PREFIX}/trips/${tripID}`, {
+      method: `PUT`,
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(report_doc),
+    })
+      .then((res) => res.json())
+      .catch((err) => null);
   },
 };
 

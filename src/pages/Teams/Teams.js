@@ -112,7 +112,7 @@ function Teams(props) {
                     <h2 id="transition-modal-title">ADD A NEW MEMBER</h2>
                     <div id="transition-modal-description">
                         <form onSubmit ={handleFormSubmit}>
-                            <label className="modal-label" htmlFor="member-email">Members Email</label>
+                            <label className="modal-label" htmlFor="member-email">MEMBER'S EMAIL</label>
                             <input type="text" onChange={handleInputChange} id="member-email" 
                             name="newMember"
                             className="modal-input" placeholder="EMAIL"/>
