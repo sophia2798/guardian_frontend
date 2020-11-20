@@ -1,0 +1,149 @@
+.trip-container {
+    color: white;
+    /* position: absolute;
+    top: 80px; */
+    margin-top: 80px;
+    padding: 1rem 30px;
+}
+
+/* .trip-links {
+    width: 48%;
+} */
+
+/* @media only screen and (max-width: 770px) {
+    .trip-links {
+        width: 100%;
+    }
+} */
+
+.trips-header {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Work Sans', sans-serif;
+    position: relative;
+}
+
+.trips-header form {
+    display: flex;
+    border: solid 1px rgb(41, 41, 41);
+    border-radius: 999px;
+    position: absolute;
+    right: 0;
+    height: 90%;
+    padding-right: 0.5rem;
+}
+
+.search__icon {
+    color: rgb(41, 41, 41);
+}
+
+.trips-header input {
+    font-family: 'Work Sans', sans-serif;
+    border: none;
+    padding-left: 1rem;
+    background: rgb(0,0,0,0);
+    color: white;
+    margin-right: 1rem;
+    outline: none;
+}
+
+#add-trip {
+    padding: 0.05rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    border: 1.5px solid white;
+    background-color: rgb(0,0,0,0);
+    margin-top: 0.2rem;
+    color: white;
+    font-size: 1.5rem;
+    outline: none
+}
+
+#trip-search-submit {
+    margin: 0;
+    font-size: 1rem !important;
+    background: rgb(0,0,0,0);
+    border: none;
+    color: white;
+    outline: none;
+}
+
+#trip-search-submit:hover {
+    cursor: pointer;
+}
+
+#add-trip:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+.trip-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+#transition-modal-description form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.modal-input {
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: 1px solid white;
+    background: rgb(0,0,0,0);
+    border-radius: 999px;
+    color: white;
+    outline: none;
+}
+
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+
+.modal-input::placeholder {
+    color: white;
+}
+
+#transition-modal-title {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.modal-label {
+    margin-bottom: 0.4rem;
+    padding-left: 0.2rem;
+}
+
+#create-submit {
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: 1px solid white;
+    background: rgb(0,0,0,0);
+    border-radius: 999px;
+    color: white;
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+
+#create-submit:hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 375px) {
+    .trips-header > h1 {
+        display: none;
+    }
+}

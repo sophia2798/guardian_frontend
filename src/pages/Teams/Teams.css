@@ -1,0 +1,137 @@
+.team-container {
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    margin-top: 80px;
+    padding: 1rem 30px;
+}
+
+.team-cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.team-header form {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    right: 0;
+    height: 90%;
+    border: 1px solid rgb(41,41,41);
+    padding-right: 0.5rem;
+    border-radius: 999px;
+}
+
+.team-header input {
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: none;
+    background: rgb(0,0,0,0);
+    color: white;
+    margin-right: 1rem;
+    outline: none;
+}
+
+#add-team {
+    padding: 0.05rem;
+    margin-left: 1rem;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    border: 1.5px solid white;
+    background-color: rgb(0,0,0,0);
+    margin-top: 0.2rem;
+    color: white;
+    font-size: 1.5rem;
+    outline: none
+}
+
+#team-search-submit {
+    margin: 0;
+    font-size: 1rem !important;
+    background: rgb(0,0,0,0);
+    border: none;
+    color: white;
+    outline: none;
+}
+
+#team-search-submit:hover {
+    cursor: pointer;
+}
+
+#add-team:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+
+#transition-modal-description form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.team-header {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Work Sans', sans-serif;
+    position: relative;
+}
+
+.modal-input {
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: 1px solid white;
+    background: rgb(0,0,0,0);
+    border-radius: 999px;
+    color: white;
+    outline: none;
+}
+
+.modal-input::placeholder {
+    color: white;
+}
+
+#transition-modal-title {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.modal-label {
+    margin-bottom: 0.4rem;
+    padding-left: 0.2rem;
+}
+
+#create-team-submit {
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+    font-family: 'Work Sans', sans-serif;
+    padding-left: 1rem;
+    border: 1px solid white;
+    background: rgb(0,0,0,0);
+    border-radius: 999px;
+    color: white;
+    outline: none;
+    font-weight: bold;
+    letter-spacing: 0.2rem;
+}
+
+#create-team-submit:hover {
+    background: white;
+    color: black;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1165px) {
+    .team-cards-container {
+        justify-content: space-between;
+    }
+}
+
+@media only screen and (max-width: 455px) {
+    .team-header h1 {
+        display: none;
+    }
+}

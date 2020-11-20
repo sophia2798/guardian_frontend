@@ -1,0 +1,25 @@
+.dash {
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  flex-direction: column;
+}
+
+.calendar__button {
+  color: white !important;
+}
+
+.dash__header {
+  text-align: center;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+
+.dash__header h1 {
+  letter-spacing: 0.2rem;
+}
+
+/* .texteditor__div {
+  margin: auto auto;
+  width: 100%;
+} */

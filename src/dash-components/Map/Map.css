@@ -1,0 +1,22 @@
+.map__container {
+  display: flex;
+  width: 50%;
+  margin: 1rem auto;
+  position: relative;
+}
+
+.marker-info {
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #cccccc;
+  padding: 1rem;
+  text-align: center;
+}
+
+.info-window {
+  text-align: center;
+  padding: 0.15rem;
+  font-family: 'Work Sans', sans-serif;
+}

@@ -1,0 +1,47 @@
+.MuiCard-root {
+    background-color: rgb(22,22,22);
+    color: rgb(255, 255, 255) !important;
+    margin: 1rem 0;
+    border-radius: 1rem !important;
+    /* border-color: #3a3a3a !important; */
+    transition: transform .15s ease-in !important;
+    cursor: pointer;
+}
+
+.MuiCard-root:hover {
+    transform: scale(1.01);
+}
+
+.MuiCardHeader-title {
+    font-weight: bold !important;
+    font-size: 1.2rem !important;
+    letter-spacing: 0.2rem !important;
+}
+
+.MuiCardHeader-title, .MuiCardHeader-subheader, .MuiAvatar-root {
+    color: white !important;
+    font-family: 'Work Sans', sans-serif !important;
+}
+
+.MuiAvatar-circle {
+    height: 0.6rem !important;
+    width: 0.6rem !important;
+}
+
+.MuiSvgIcon-root:hover {
+    transform: scale(1.2);
+}
+
+.textBlue {
+    color: #1282a2 !important;
+}
+
+.textGrey {
+    color: #cccccc !important;
+}
+
+@media only screen and (max-width: 735px) {
+    #root-trip-card {
+        width: 100%;
+    }
+}

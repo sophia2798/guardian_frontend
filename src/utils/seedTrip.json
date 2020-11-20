@@ -1,0 +1,83 @@
+[
+    {
+        "id": 1,
+        "city": "New York, NY",
+        "safety_rating": 82,
+        "start": "01/08/2021",
+        "end": "01/11/2021",
+        "image": "https://cdn.theculturetrip.com/wp-content/uploads/2019/01/fda03y.jpg",
+        "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
+        "completed": false,
+        "itinerary": [
+            {
+                "location": "Times Square",
+                "coordinates": {"lat": 40.7580, "long": -73.9855},
+                "time": "20-11-05 12:15:00"
+            },
+            {
+                "location": "Columbus Circle",
+                "coordinates": {"lat": 40.7675, "long": -73.9758},
+                "time": "20-11-07 16:00:00"
+            },
+            {
+                "location": "Lion King Broadway",
+                "coordinates": {"lat": 40.7580, "long": 73.9859},
+                "time": "20-11-07 19:30:00"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "city": "Kyoto, Japan",
+        "safety_rating": 90,
+        "start": "03/22/2021",
+        "end": "03/30/2021",
+        "image": "https://cw-gbl-gws-prod.azureedge.net/-/media/cw/apac/south-korea/office/korea-office-desktop.jpg?rev=6aa301b6aa14432b9f2850b7d84abb67",
+        "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
+        "completed": false,
+        "itinerary": [
+            {
+                "location": "Fushimi Inari Taisha",
+                "coordinates": {"lat": 34.9671, "long": 135.7727},
+                "time": "20-12-15 10:00:00"
+            },
+            {
+                "location": "Kiyomizu-dera",
+                "coordinates": {"lat": 34.9949, "long": 135.7850},
+                "time": "20-12-15 14:45:00"
+            },
+            {
+                "location": "Nishiki Market",
+                "coordinates": {"lat": 35.0050, "long": 135.7649},
+                "time": "20-12-16 9:30:00"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "city": "Seattle, WA",
+        "safety_rating": 86,
+        "start": "12/14/2020",
+        "end": "12/20/2020",
+        "image": "https://images.unsplash.com/photo-1502175353174-a7a70e73b362?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9",
+        "report_doc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut a massa eget nunc sodales aliquam volutpat ut lectus. Fusce dictum neque quis mauris vehicula, nec euismod nisi lacinia. Curabitur lacinia ligula non lectus interdum dapibus. Proin auctor leo ac luctus egestas. Nullam blandit imperdiet urna, tincidunt bibendum libero dictum vel. Sed condimentum massa neque, vitae facilisis ante mollis quis. Aenean sit amet euismod turpis. Phasellus sed ligula vitae libero ultricies dictum. Etiam varius sem eu sapien porta, eget feugiat risus venenatis. Sed mattis convallis mi, at laoreet massa elementum non. Nulla eleifend nisi vehicula condimentum commodo. Proin pellentesque felis et porttitor accumsan.",
+        "completed": false,
+        "itinerary": [
+            {
+                "location": "Pike Place Market",
+                "coordinates": {"lat": 47.6086, "long": -122.3401},
+                "time": "21-01-23 11:20:00"
+            },
+            {
+                "location": "Showbox SoDo",
+                "coordinates": {"lat": 47.5879, "long": -122.3340},
+                "time": "20-01-26 21:00:00"
+            },
+            {
+                "location": "Tacoma Dome",
+                "coordinates": {"lat": 47.2363, "long": -122.4273},
+                "time": "20-01-27 18:15:00"
+            }
+        ]
+    }
+]
