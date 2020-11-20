@@ -39,7 +39,7 @@ function Banner() {
                     <h2 className="overlay__text">TECHNOLOGIES</h2>
                 </div>
                 <div className="banner__overlay2">
-                    <h3 className="overlay__text2">Loading...</h3>
+                    <h3 className="overlay__text2">MADE WITH REACT<br/><br/>SUPPORTED BY MONGODB AND EXPRESS</h3>
                 </div>
             </div>
             <div className="banner_img_wrapper">
