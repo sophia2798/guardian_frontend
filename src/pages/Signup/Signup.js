@@ -77,10 +77,12 @@ function Signup() {
               </div>
             </Grid>
             <Grid item xs={12}>
-                <select name="position" className="position__select">
-                  <option style={{color:'rgb(54,54,54)'}} value="Position" selected>Position</option>
+                <select name="position" onChange={handleInputChange} name="position" className="position__select">
+                  <option style={{backgroundColor:'rgb(54,54,54) !important'}} value="Select a Position" selected>Select a Position</option>
                   <option value="Lead">Lead</option>
                   <option value="Medic">Medic</option>
+                  <option value="Advance Lead">Advance Lead</option>
+                  <option value="Agent">Agent</option>
                 </select>
             </Grid>
             <Grid item xs={12}>
