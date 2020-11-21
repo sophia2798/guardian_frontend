@@ -44,7 +44,9 @@ function DashCalendar(props) {
 
   return (
     <div>
-      <button onClick={handleDateUpdate}>Update</button>
+      <button className="dashCalendar__button" onClick={handleDateUpdate}>
+        Update
+      </button>
       <div className="calendar">
         <DateRangePicker ranges={[selectionRange]} onChange={handleSelect} />
       </div>
