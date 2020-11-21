@@ -28,23 +28,31 @@ function Dash(props) {
     getCenterCoordinates(props.location.state.cityWeather);
   },[])
 
+  console.log("DASH PROPS", props);
   return (
     <div className="dash">
       <div className="dash__calendar">
         <section className="dash__header">
           <h1>{props.location.state.title}</h1>
-          <p>{`${props.location.state.startDate} - ${props.location.state.endDate}`}</p>
+          <p>
+            {`${props.location.state.startDate} - ${props.location.state.endDate}`}
+          </p>
+          <Button
+            onClick={() => {
+              setShowSearch(!showSearch);
+            }}
+            className="calendar__button"
+          >
+            <DateRangeIcon />
+          </Button>
+          {showSearch && (
+            <DashCalendar
+              token={props.location.state.token}
+              trip="5fb74a580f9401657c0cbe47"
+            />
+          )}
           <CrimeSafety city={props.location.state.city} />
         </section>
-        {showSearch && <DashCalendar />}
-        <Button
-          onClick={() => {
-            setShowSearch(!showSearch);
-          }}
-          className="calendar__button"
-        >
-          <DateRangeIcon />
-        </Button>
       </div>
       <Weather city={props.location.state.cityWeather} />
       <Map

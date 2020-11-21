@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import "./App.css";
 import Nav from "./home-components/Nav";
 import Banner from "./home-components/Banner";
@@ -63,7 +68,7 @@ function App() {
 
   useEffect(fetchUserData, []);
 
-  const handleLogout = event => {
+  const handleLogout = (event) => {
     event.preventDefault();
     localStorage.removeItem("token");
     setProfileState({
@@ -78,8 +83,8 @@ function App() {
     });
     setLoginFormState({
       email: "",
-      password: ""
-    })
+      password: "",
+    });
   };
 
   const handleInputChange = (event) => {
@@ -92,12 +97,11 @@ function App() {
   };
 
   const handleDeleteTrip = (id) => {
-    API.deleteTrip(profileState.token, id)
-    .then(data => {
+    API.deleteTrip(profileState.token, id).then((data) => {
       fetchUserData();
-    })
+    });
     // console.log(id);
-};
+  };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -113,6 +117,7 @@ function App() {
           id: profileData._id,
           isLoggedIn: true,
         });
+        console.log("PROFILE DATA", profileData);
       });
     });
     // <Redirect to="/"/>
@@ -121,63 +126,63 @@ function App() {
   return (
     <Router>
       <div className="app">
-        <Nav handleLogout={handleLogout} profile={profileState}/>
+        <Nav handleLogout={handleLogout} profile={profileState} />
         <Switch>
           <Route exact path="/">
+            <div>
+              <Banner />
+              <About />
+              <Footer />
+            </div>
+          </Route>
+          <Route path="/trips">
+            {profileState.isLoggedIn ? (
+              <Trips
+                trips={profileState.trips}
+                deleteTrip={handleDeleteTrip}
+                fetchData={fetchUserData}
+                token={profileState.token}
+              />
+            ) : (
               <div>
                 <Banner />
                 <About />
                 <Footer />
               </div>
-          </Route>
-          <Route path="/trips">
-            {profileState.isLoggedIn ?
-            <Trips
-              trips={profileState.trips}
-              deleteTrip={handleDeleteTrip}
-              fetchData={fetchUserData}
-              token={profileState.token}
-            />
-            :
-            <div>
-            <Banner />
-            <About />
-            <Footer />
-            </div>
-            }
+            )}
           </Route>
           <Route path="/login">
-            {profileState.isLoggedIn ? 
-            <div>
-            <Banner />
-            <About />
-            <Footer />
-            </div>
-            :
-            <Login
-            inputChange={handleInputChange}
-            loginFormState={loginFormState}
-            handleSubmit={handleFormSubmit}
-            />
-            }
+            {profileState.isLoggedIn ? (
+              <div>
+                <Banner />
+                <About />
+                <Footer />
+              </div>
+            ) : (
+              <Login
+                inputChange={handleInputChange}
+                loginFormState={loginFormState}
+                handleSubmit={handleFormSubmit}
+              />
+            )}
           </Route>
           <Route path="/signup" component={Signup} />
           <Route path="/teams">
-            {profileState.isLoggedIn ?
-              <Teams teams={profileState.trips}
-              fetchData={fetchUserData}
-              token={profileState.token}
+            {profileState.isLoggedIn ? (
+              <Teams
+                teams={profileState.trips}
+                fetchData={fetchUserData}
+                token={profileState.token}
               />
-      
-              :
+            ) : (
               <div>
-              <Banner />
-              <About />
-              <Footer />
+                <Banner />
+                <About />
+                <Footer />
               </div>
-            }
+            )}
           </Route>
-          <Route path="/dashboard" component={Dash}/>
+          <Route path="/dashboard" component={Dash} />
           {/* <Route path="/dashboard">
           {profileState.isLoggedIn ?
               <Dash />
