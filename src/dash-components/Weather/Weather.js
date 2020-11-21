@@ -18,7 +18,7 @@ class Weather extends Component {
             const res = result.data.list;
             const resArr = [res[0],res[8],res[16],res[24],res[32]];
             this.setState({ weather: resArr });
-            console.log(this.state.weather);
+            // console.log(this.state.weather);
         })
         .catch(err => console.log(err))
     };

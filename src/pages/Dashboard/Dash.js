@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Dash.css";
 import DashCalendar from "./DashCalendar";
 import { Button } from "@material-ui/core";
@@ -7,9 +7,26 @@ import Weather from "../../dash-components/Weather/Weather";
 import Map from "../../dash-components/Map/Map";
 import CrimeSafety from "../../dash-components/CrimeSafety/CrimeSafety";
 import TextEditor from "./TextEditor";
+import API from "../../utils/weatherAPI";
 
 function Dash(props) {
   const [showSearch, setShowSearch] = useState(false);
+  const [coordinates, setCoordinates] = useState({})
+
+  const getCenterCoordinates = city => {
+    API.getCoordinates(city)
+    .then(result => {
+      setCoordinates({
+          lat: result.data.coord.lat,
+          lng: result.data.coord.lon
+      })
+    })
+    .catch(err => console.log(err))
+  };
+
+  useEffect(() => {
+    getCenterCoordinates(props.location.state.cityWeather);
+  },[])
 
   console.log("DASH PROPS", props);
   return (
@@ -38,7 +55,10 @@ function Dash(props) {
         </section>
       </div>
       <Weather city={props.location.state.cityWeather} />
-      <Map />
+      <Map
+      itinerary={props.location.state.itinerary}
+      coordinates={coordinates}
+      />
       <TextEditor
         token={props.location.state.token}
         // TODO: update to not hardcode
