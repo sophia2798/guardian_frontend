@@ -1,7 +1,8 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import "./Map.css";
 import Pin from "./pin2.png";
+import API from "../../utils/weatherAPI";
 const styles = require("./GoogleMapStyles.json");
 
 const GoogleMapExample = withGoogleMap((props) => (
@@ -34,54 +35,41 @@ const GoogleMapExample = withGoogleMap((props) => (
   </GoogleMap>
 ));
 
-class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      infoMarkerID: '',
-      isOpen: false,
-      itinerary: props.itinerary[0],
-      city: props.city,
-      coordinates: {lat: props.coordinates.coordinates.lat, lng: props.coordinates.coordinates.lng},
-    }
-  }
+function Map(props) {
+  const [infoMarkerID, setInfoMarkerID] = React.useState('');
+  const [itinerary, setItinerary] = useState(props.itinerary[0]);
+  const [coordinates, setCoordinates] = useState({
+    // lat: 40.71,
+    // lng: -74.01
+    lat: props.coordinates.lat,
+    lng: props.coordinates.lng
+  });
 
-  toggleInfo = id => {
-    this.setState({
-      infoMarkerID: id
-    })
+  const toggleInfo = id => {
+    setInfoMarkerID(id)
     // console.log(this.state.infoMarkerID)
   };
 
-  handleToggleOpen = () => {
-    this.setState({
-      isOpen: true
-    })
-    console.log(this.state.isOpen)
-  }
-
-  handleToggleClose = () => {
-    this.setState({
-      isOpen: false
-    })
-    console.log(this.state.isOpen)
-  }
-
-  render() {
-    return (
-      <div className="map__container">
-        <GoogleMapExample
-          lat={this.state.coordinates.lat}
-          lng={this.state.coordinates.lng}
-          itinerary={this.state.itinerary}
-          toggleInfo={this.toggleInfo}
-          infoMarkerID={this.state.infoMarkerID}
-          containerElement={<div style={{ height: `500px`, width: "80vw" }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-        />
-      </div>
-    );
-  }
+  useEffect(() => {
+    console.log("prop:", props.coordinates);
+    console.log("state:", coordinates)
+    setCoordinates({lat: props.coordinates.lat, lng: props.coordinates.lng});
+  },[props])
+//MAKE SEPARATE API CALL, PROTECTED, TO ACCESS TRIP INFO, THEN MAKE API CALL FOR COORDINATES AND SET STATE INSTEAD OF PASSING IN PROPS 
+  return (
+    <div className="map__container">
+      {console.log("coord 2:", coordinates)}
+      <GoogleMapExample
+        lat={coordinates.lat}
+        lng={coordinates.lng}
+        itinerary={itinerary}
+        toggleInfo={toggleInfo}
+        infoMarkerID={infoMarkerID}
+        containerElement={<div style={{ height: `500px`, width: "80vw" }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+      />
+    </div>
+  );
 }
 
 export default Map;

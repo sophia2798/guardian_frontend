@@ -17,17 +17,15 @@ function Dash(props) {
     API.getCoordinates(city)
     .then(result => {
       setCoordinates({
-        coordinates: {
           lat: result.data.coord.lat,
           lng: result.data.coord.lon
-        }
       })
     })
     .catch(err => console.log(err))
   };
 
   useEffect(() => {
-    getCenterCoordinates(props.location.state.cityWeather)
+    getCenterCoordinates(props.location.state.cityWeather);
   },[])
 
   return (
