@@ -1,9 +1,10 @@
 .weather-container {
     color: #cccccc;
     font-family: 'Work Sans', sans-serif;
+    background-color: rgb(36, 36, 36);
+    border-radius: 15px;
     margin: 1rem auto;
-    border: 1px solid rgb(41,41,41);
-    width: 50%;;
+    width: 70%;
 }
 
 .weather-header {
@@ -13,6 +14,7 @@
     border-right: 1px solid rgb(41,41,41);
     border-left: 1px solid rgb(41,41,41);
     border-top: 1px solid rgb(41,41,41);
+    border-radius: 15px;
 }
 
 .weather-body {
@@ -23,11 +25,13 @@
 
 .weather-day {
     width: 20%;
+    cursor: pointer;
     text-align: center;
     border: 1px solid rgb(41,41,41);
     padding: 1rem 0.5rem;
     max-height: 100%;
     overflow-y: auto;
+    border-radius: 15px;
 }
 
 .weather-day::-webkit-scrollbar {

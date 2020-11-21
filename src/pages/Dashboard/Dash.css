@@ -19,6 +19,18 @@
   letter-spacing: 0.2rem;
 }
 
+.component__div {
+  display: flex;
+  margin-top: 40px;
+  margin-right: auto;
+}
+
+.weather__map {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
 /* .texteditor__div {
   margin: auto auto;
   width: 100%;
