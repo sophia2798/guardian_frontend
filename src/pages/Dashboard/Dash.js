@@ -30,7 +30,10 @@ function Dash(props) {
         </Button>
       </div>
       <Weather city={props.location.state.cityWeather} />
-      <Map />
+      <Map
+      itinerary={props.location.state.itinerary}
+      city={props.location.state.cityWeather}
+      />
       <TextEditor
         token={props.location.state.token}
         // TODO: update to not hardcode

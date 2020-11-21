@@ -2,16 +2,20 @@ import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import "./Map.css";
 import Pin from "./pin2.png";
-import TripSeed from "../../utils/seedTrip.json";
+import API from "../../utils/weatherAPI";
+// import TripSeed from "../../utils/seedTrip.json";
 const styles = require("./GoogleMapStyles.json");
 
 class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      itinerary: TripSeed[2].itinerary,
+      // itinerary: TripSeed[2].itinerary,
       infoMarkerID: '',
-      isOpen: false
+      isOpen: false,
+      itinerary: props.itinerary[0],
+      city: props.city,
+      coordinates: {},
     }
   }
 
@@ -20,6 +24,19 @@ class Map extends Component {
       infoMarkerID: id
     })
     // console.log(this.state.infoMarkerID)
+  };
+
+  getCenterCoordinates = city => {
+    API.getCoordinates(city)
+    .then(result => {
+      this.setState({
+        coordinates: {
+          lat: result.data.coord.lat,
+          lng: result.data.coord.lon
+        }
+      })
+    })
+    .catch(err => console.log(err))
   };
 
   handleToggleOpen = () => {
@@ -35,11 +52,17 @@ class Map extends Component {
     })
     console.log(this.state.isOpen)
   }
+
+  componentDidMount = () => {
+    console.log(this.state.city);
+    this.getCenterCoordinates(this.state.city);
+  }
   
   render() {
     const GoogleMapExample = withGoogleMap((props) => (
       <GoogleMap
-        defaultCenter={{ lat: 47.605, lng: -122.353 }}
+      // 35.0050, "long": 135.7649
+        defaultCenter={{ lat: this.state.coordinates.lat, lng: this.state.coordinates.lng }}
         defaultZoom={13}
         defaultOptions={{ styles: styles }}
       >
@@ -47,10 +70,10 @@ class Map extends Component {
         {this.state.itinerary.map((place, i) => {
           return (
           <div key={i} className="marker">
-          <Marker position={{lat: place.coordinates.lat, lng: place.coordinates.long}} title={place.location} icon={{url: Pin}} onClick={() => this.toggleInfo(i)}>
+          <Marker position={{lat: parseFloat(place.coordinates.lat), lng: parseFloat(place.coordinates.lon)}} title={place.location} icon={{url: Pin}} onClick={() => this.toggleInfo(i)}>
               {(this.state.infoMarkerID === i) &&
               <InfoWindow
-                position={{lat: place.coordinates.lat, lng: place.coordinates.long}}
+                position={{lat: parseFloat(place.coordinates.lat), lng: parseFloat(place.coordinates.lon)}}
               >
                 <div style={{background:'white'}} className="info-window">
                   <p style={{marginTop:0}}><strong>{place.location.toUpperCase()}</strong></p>
