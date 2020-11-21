@@ -78,6 +78,20 @@ const API = {
       .then((res) => res.json())
       .catch((err) => null);
   },
+  updateTripDates: function (token, tripID, start_date, end_date) {
+    return fetch(`${API_PREFIX}/trips/${tripID}`, {
+      method: `PUT`,
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        start_date: start_date,
+      }),
+    })
+      .then((res) => res.json())
+      .catch((err) => null);
+  },
 };
 
 module.exports = API;
