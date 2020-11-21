@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from "../../card-components/TeamCards/TeamCard";
 import "./Teams.css";
 import { makeStyles } from '@material-ui/core/styles';
@@ -7,6 +7,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import SearchIcon from '@material-ui/icons/Search';
 import TeamSeed from "../../utils/seedTeam.json";
+import API from '../../utils/API';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -23,20 +24,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Teams(props) {
     const classes = useStyles();
-    const [teams, setTeams] = React.useState(props.teams);
-    const [open, setOpen] = React.useState(false);
-    const [blur, setBlur] = React.useState(false);
-  
+    const [team, setTeam] = useState(props.teams);
+    const [open, setOpen] = useState(false);
+    const [blur, setBlur] = useState(false);
+
     const handleOpen = () => {
-      setOpen(true);
-      setBlur(true);
+        setOpen(true);
+        setBlur(true);
     };
-  
+
     const handleClose = () => {
-      setOpen(false);
-      setBlur(false);
+        setOpen(false);
+        setBlur(false);
     };
 
 
@@ -44,14 +46,13 @@ function Teams(props) {
         <div className="team-container" style={blur ? {filter:'blur(2px)'} : null}>
             <div className="team-header">
                 <h1>TEAMS</h1>
-                <button onClick={handleOpen} id="add-team">+</button>
                 <form>
                     <input type="text" placeholder="SEARCH TEAMS"/>
                     <button id="team-search-submit"><SearchIcon style={{color:'rgb(41,41,41)'}}/></button>
                 </form>
             </div>
             <div className="team-cards-container">
-                {teams.map(team => (
+                {team.map(team => (
                     <Card
                         key={team._id}
                         name={team.city.toUpperCase()}

@@ -164,7 +164,9 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/teams">
             {profileState.isLoggedIn ?
-              <Teams teams={profileState.trips}/>
+              <Teams
+                teams={profileState.trips}
+              />
               :
               <div>
               <Banner />

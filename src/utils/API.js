@@ -34,7 +34,18 @@ const API =  {
             },
             body: JSON.stringify(tripData)
         }).then(res => res.json()).catch(err => null);
+    },
+    addTeamMember: (token, teamData) => {
+        return fetch(`${API_PREFIX}/teams`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(teamData)
+        }).then(() => res => res.json()).catch(err => null);
     }
+
 }
 
 module.exports = API;
