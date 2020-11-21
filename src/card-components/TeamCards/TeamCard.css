@@ -111,6 +111,10 @@ background-color: white;
     cursor: pointer;
 }
 
+.add-p:hover {
+    transform: scale(1.2);
+}
+
 @media only screen and (max-width: 800px) {
     #team-card {
         min-width: 100%;

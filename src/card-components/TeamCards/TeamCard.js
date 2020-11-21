@@ -23,6 +23,8 @@ import lead from "./images/leader.png";
 import advance from "./images/shield.png";
 import InfoOutlinedIcon from "@material-ui/icons/InfoOutlined";
 import AddIcon from "@material-ui/icons/Add";
+import API from '../../utils/API';
+
 // import { FilledInput } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -105,10 +107,10 @@ export default function TeamCard(props) {
   const [standard, setStandard] = React.useState(false);
   const [blackBlue, setBlackBlue] = React.useState(false);
   const [moreInfo, setMoreInfo] = React.useState(false);
-
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+ 
 
   const toggleMoreInfo = () => {
     setMoreInfo(!moreInfo);
@@ -153,6 +155,7 @@ export default function TeamCard(props) {
     setStandard(false);
     setNavy(false);
   };
+
 
   return (
     <Card
@@ -244,7 +247,7 @@ export default function TeamCard(props) {
             </div>
           )}
         </IconButton>
-        <AddIcon></AddIcon>
+        <h2 onClick={props.handleOpen} id={props.tripID} className="add-p">+</h2>
         <div className="color-choices">
           <button
             style={{ outline: "none" }}

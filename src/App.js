@@ -164,9 +164,11 @@ function App() {
           <Route path="/signup" component={Signup} />
           <Route path="/teams">
             {profileState.isLoggedIn ?
-              <Teams
-                teams={profileState.trips}
+              <Teams teams={profileState.trips}
+              fetchData={fetchUserData}
+              token={profileState.token}
               />
+      
               :
               <div>
               <Banner />
@@ -175,7 +177,8 @@ function App() {
               </div>
             }
           </Route>
-          <Route path="/dashboard">
+          <Route path="/dashboard" component={Dash}/>
+          {/* <Route path="/dashboard">
           {profileState.isLoggedIn ?
               <Dash />
               :
@@ -185,7 +188,7 @@ function App() {
               <Footer />
               </div>
             }
-          </Route>
+          </Route> */}
         </Switch>
       </div>
     </Router>
