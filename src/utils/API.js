@@ -79,7 +79,7 @@ const API = {
       .catch((err) => null);
   },
   updateTripDates: function (token, tripID, start_date, end_date) {
-    return fetch(`${API_PREFIX}/trips/${tripID}`, {
+    return fetch(`${API_PREFIX}/trips/dates/${tripID}`, {
       method: `PUT`,
       headers: {
         authorization: `Bearer ${token}`,
@@ -87,6 +87,7 @@ const API = {
       },
       body: JSON.stringify({
         start_date: start_date,
+        end_date: end_date,
       }),
     })
       .then((res) => res.json())
