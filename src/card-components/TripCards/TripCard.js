@@ -130,6 +130,7 @@ function TripCard(props) {
             )}/${tripObj.end_date.substring(0, 4)}`,
             token: props.tripProps.token,
             report_doc: props.tripObj.report_doc,
+            itinerary: props.tripObj.itinerary
           },
         }}
         className="trip-links"
