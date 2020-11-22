@@ -28,7 +28,11 @@ function Nav(props) {
       } else handleShow(false);
     });
     return () => {
-      window.removeEventListener("scroll");
+      window.removeEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          handleShow(true);
+        } else handleShow(false);
+      });
     };
   }, []);
 
