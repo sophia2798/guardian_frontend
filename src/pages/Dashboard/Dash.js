@@ -11,6 +11,12 @@ import API from "../../utils/API";
 
 function Dash(props) {
   const [showSearch, setShowSearch] = useState(false);
+  const [itineraryForm, setItineraryForm] = useState({
+    location: "",
+    time: "",
+    lat: "",
+    lon: ""
+  });
   const [tripInfo, setTripInfo] = useState({
     city: "",
     completed: false,
@@ -37,6 +43,30 @@ function Dash(props) {
     })
     .catch(err => console.log(err))
   }
+
+  const handleInputChange = (event) => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    setItineraryForm({
+      ...itineraryForm,
+      [name]: value
+    });
+  };
+
+  const handleItinerarySubmit = event => {
+    event.preventDefault();
+    const token = localStorage.getItem("token");
+    API.addItinerary(token, tripInfo.id, itineraryForm).then(newEvent => {
+      console.log("added event");
+      setItineraryForm({
+        location: "",
+        time: "",
+        lat: "",
+        lon: ""
+      });
+      getTripInfo(props.match.params.cityID);
+    })
+  };
 
   useEffect(() => {
     getTripInfo(props.match.params.cityID)
@@ -99,6 +129,36 @@ function Dash(props) {
             data={tripInfo.report_doc}
           />
       </div>
+      <section className="itinerary_form_wrapper">
+        <div className="itinerary-content">
+        <h1>ADD EVENT TO ITINERARY</h1>
+        <form className="itinerary_form" onSubmit={handleItinerarySubmit}>
+          <section className="location-date" style={{marginBottom: '1.25rem'}}>
+          <div className="itinerary-input-group">
+          <label htmlFor="itinerary-location">LOCATION NAME</label>
+          <input onChange={handleInputChange} type="text" name="location" id="itinerary-location" placeholder="LOCATION"/>
+          </div>
+          <div className="itinerary-input-group">
+          <label htmlFor="itinerary-date">DATE AND TIME OF EVENT</label>
+          <input onChange={handleInputChange} type="text" name="time" id="itinerary-date" placeholder="MM/DD/YYYY - HH:MM"/>
+          </div>
+          </section>
+          <section className="lon-lng">
+          <div className="itinerary-input-group">
+          <label htmlFor="itinerary-lat">LATITUDE</label>
+          <input onChange={handleInputChange} type="number" step="any" name="lat" id="itinerary-lat" placeholder="LATITUDE"/>
+          </div>
+          <div className="itinerary-input-group">
+          <label htmlFor="itinerary-lng">LONGITUDE</label>
+          <input onChange={handleInputChange} type="number" step="any" name="lon" id="itinerary-lng" placeholder="LONGITUDE"/>
+          </div>
+          </section>
+          <section style={{textAlign: 'center'}}>
+          <input type="submit" id="itinerary_submit" value="SUBMIT"/>
+          </section>
+        </form>
+        </div>
+      </section>
     </div>
   );
 }
