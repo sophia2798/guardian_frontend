@@ -93,6 +93,23 @@ const API = {
       .then((res) => res.json())
       .catch((err) => null);
   },
+  getOneTrip: function(token, tripID) {
+      return fetch(`${API_PREFIX}/trips/${tripID}`, {
+            headers: {
+                authorization: `Bearer ${token}`
+            },
+      }).then(res => res.json()).catch(err => null)
+  },
+  addItinerary: function(token, tripID, itineraryObj) {
+      return fetch(`${API_PREFIX}/trips/event/${tripID}`, {
+          method: 'PUT',
+          headers: {
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(itineraryObj),
+      }).then(res => res.json()).catch(err => null)
+  }
 };
 
 module.exports = API;

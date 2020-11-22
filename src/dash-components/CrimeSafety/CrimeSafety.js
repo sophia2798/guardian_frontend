@@ -22,7 +22,7 @@ function CrimeSafety(props) {
 
     useEffect(() => {
         getRating(props.city);
-        console.log(safety);
+        // console.log(safety);
     })
 
     return (
