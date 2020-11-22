@@ -182,7 +182,7 @@ function App() {
               </div>
             )}
           </Route>
-          <Route path="/dashboard" component={Dash} />
+          <Route path="/dashboard/:cityID" component={Dash} />
           {/* <Route path="/dashboard">
           {profileState.isLoggedIn ?
               <Dash />

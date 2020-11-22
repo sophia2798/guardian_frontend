@@ -101,38 +101,39 @@ function TripCard(props) {
           </IconButton>
         }
       />
-      <Link
-        to={{
-          pathname: "/dashboard",
-          state: {
-            title: tripObj.city.toUpperCase(),
-            city: tripObj.city
-              .substring(0, tripObj.city.indexOf(","))
-              .replace(/\s+/g, "-")
-              .toLowerCase(),
-            cityWeather: tripObj.city
-              .substring(0, tripObj.city.indexOf(","))
-              .replace(/\s+/g, "+")
-              .toLowerCase(),
-            startDate: `${tripObj.start_date.substring(
-              5,
-              7
-            )}/${tripObj.start_date.substring(
-              8,
-              10
-            )}/${tripObj.start_date.substring(0, 4)}`,
-            endDate: `${tripObj.end_date.substring(
-              5,
-              7
-            )}/${tripObj.end_date.substring(
-              8,
-              10
-            )}/${tripObj.end_date.substring(0, 4)}`,
-            token: props.tripProps.token,
-            report_doc: props.tripObj.report_doc,
-            itinerary: props.tripObj.itinerary
-          },
-        }}
+      <Link to={`/dashboard/${tripObj._id}`}
+        // to={{
+        //   pathname: "/dashboard",
+        //   state: {
+        //     title: tripObj.city.toUpperCase(),
+        //     id: tripObj._id,
+            // city: tripObj.city
+            //   .substring(0, tripObj.city.indexOf(","))
+            //   .replace(/\s+/g, "-")
+            //   .toLowerCase(),
+        //     cityWeather: tripObj.city
+        //       .substring(0, tripObj.city.indexOf(","))
+        //       .replace(/\s+/g, "+")
+        //       .toLowerCase(),
+            // startDate: `${tripObj.start_date.substring(
+            //   5,
+            //   7
+            // )}/${tripObj.start_date.substring(
+            //   8,
+            //   10
+            // )}/${tripObj.start_date.substring(0, 4)}`,
+        //     endDate: `${tripObj.end_date.substring(
+        //       5,
+        //       7
+        //     )}/${tripObj.end_date.substring(
+        //       8,
+        //       10
+        //     )}/${tripObj.end_date.substring(0, 4)}`,
+        //     token: props.tripProps.token,
+        //     report_doc: props.tripObj.report_doc,
+        //     itinerary: props.tripObj.itinerary
+        //   },
+        // }}
         className="trip-links"
       >
         <CardMedia className={classes.media} image={props.image} />

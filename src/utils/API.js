@@ -93,6 +93,13 @@ const API = {
       .then((res) => res.json())
       .catch((err) => null);
   },
+  getOneTrip: function(token, tripID) {
+      return fetch(`${API_PREFIX}/trips/${tripID}`, {
+            headers: {
+                authorization: `Bearer ${token}`
+            },
+      }).then(res => res.json()).catch(err => null)
+  }
 };
 
 module.exports = API;

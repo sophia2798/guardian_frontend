@@ -2,24 +2,23 @@ import React, { useState, useEffect } from "react";
 import { withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
 import "./Map.css";
 import Pin from "./pin2.png";
-import API from "../../utils/weatherAPI";
+import weatherAPI from "../../utils/weatherAPI";
 const styles = require("./GoogleMapStyles.json");
 
 const GoogleMapExample = withGoogleMap((props) => (
   <GoogleMap
-  // 35.0050, "long": 135.7649
     defaultCenter={{ lat: props.lat, lng: props.lng}}
     defaultZoom={12}
     defaultOptions={{ styles: styles }}
   >
-    {/* {console.log(this.state.infoMarkerID)}; */}
+    {/* {console.log("ITINERARY PROPS:", props.itinerary)}
     {props.itinerary.map((place, i) => {
       return (
       <div key={i} className="marker">
-      <Marker position={{lat: parseFloat(place.coordinates.lat), lng: parseFloat(place.coordinates.lon)}} title={place.location} icon={{url: Pin}} onClick={() => props.toggleInfo(i)}>
+      <Marker position={{lat: parseFloat(place.coordinates.lat), lng: parseFloat(place.coordinates.lng)}} title={place.location} icon={{url: Pin}} onClick={() => props.toggleInfo(i)}>
           {(props.infoMarkerID === i) &&
           <InfoWindow
-            position={{lat: parseFloat(place.coordinates.lat), lng: parseFloat(place.coordinates.lon)}}
+            position={{lat: parseFloat(place.coordinates.lat), lng: parseFloat(place.coordinates.lng)}}
           >
             <div style={{background:'white'}} className="info-window">
               <p style={{marginTop:0}}><strong>{place.location.toUpperCase()}</strong></p>
@@ -30,38 +29,58 @@ const GoogleMapExample = withGoogleMap((props) => (
       </Marker>
       </div>
       )
-    })}
+    })} */}
 
   </GoogleMap>
 ));
 
 function Map(props) {
   const [infoMarkerID, setInfoMarkerID] = React.useState('');
-  const [itinerary, setItinerary] = useState(props.itinerary[0]);
   const [coordinates, setCoordinates] = useState({
-    // lat: 40.71,
-    // lng: -74.01
-    lat: props.coordinates.lat,
-    lng: props.coordinates.lng
+    lat: "",
+    lng: ""
   });
+  const [itinerary, setItinerary] = useState({
+    location: "",
+    time: "",
+    coordinates: {lat: "", lng: ""}
+  })
 
   const toggleInfo = id => {
     setInfoMarkerID(id)
-    // console.log(this.state.infoMarkerID)
+    console.log(infoMarkerID)
+  };
+
+  const getCenterCoordinates = city => {
+    weatherAPI.getCoordinates(city)
+    .then(result => {
+      setCoordinates({
+          lat: result.data.coord.lat,
+          lng: result.data.coord.lon
+      });
+      console.log("FUNCTION CHECK STATE:", coordinates)
+    })
+    .catch(err => console.log(err))
   };
 
   useEffect(() => {
-    console.log("prop:", props.coordinates);
-    console.log("state:", coordinates)
-    setCoordinates({lat: props.coordinates.lat, lng: props.coordinates.lng});
-  },[props])
-//MAKE SEPARATE API CALL, PROTECTED, TO ACCESS TRIP INFO, THEN MAKE API CALL FOR COORDINATES AND SET STATE INSTEAD OF PASSING IN PROPS 
+    console.log("USE EFFECT CHECK", props.tripInfo)
+    // setItinerary(props.itinerary.map(element => (
+    //   {
+    //     location: element.location,
+    //     time: element.time,
+    //     coordinates: {lat: element.coordinates.lat, lng: element.coordinates.lon}
+    //   }
+    // )));
+    // getCenterCoordinates(props.city);
+    // console.log(coordinates)
+  },[]);
+
   return (
     <div className="map__container">
-      {console.log("coord 2:", coordinates)}
       <GoogleMapExample
-        lat={coordinates.lat}
-        lng={coordinates.lng}
+        lat={35.012}
+        lng={135.768}
         itinerary={itinerary}
         toggleInfo={toggleInfo}
         infoMarkerID={infoMarkerID}
