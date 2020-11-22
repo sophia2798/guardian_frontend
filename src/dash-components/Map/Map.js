@@ -25,12 +25,13 @@ function Map(props) {
   };
 
   useEffect(() => {
-    // console.log("USE EFFECT CHECK", props.tripInfo);
-    // console.log("CHECK CITY:", props.city);
-    setItinerary(props.tripInfo.itinerary[0]);
-    // console.log("CHECK ITINERARY:", itinerary[0]);
+    const arr = [];
+    props.tripInfo.itinerary.map(element => {
+      arr.push(element[0]);
+      console.log(arr);
+      setItinerary(arr);
+    });
     getCenterCoordinates(props.tripInfo.city.substring(0, props.tripInfo.city.indexOf(",")).replace(/\s+/g, "+").toLowerCase());
-    // handleMain(props.tripInfo.itinerary[0], props.city)
   },[props.tripInfo, props.city]);
 
   return (

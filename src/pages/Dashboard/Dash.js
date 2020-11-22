@@ -69,7 +69,7 @@ function Dash(props) {
   };
 
   useEffect(() => {
-    getTripInfo(props.match.params.cityID)
+    getTripInfo(props.match.params.cityID);
   },[props.match.params.cityID])
 
   // console.log("DASH PROPS", props);

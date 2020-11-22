@@ -82,6 +82,7 @@
   padding: 1rem 0 1rem 0.75rem;
   border-radius: 999px;
   border: 1px solid rgb(54, 54, 54);
+  font-family: 'Work Sans', sans-serif;
 }
 
 #itinerary_submit {
