@@ -136,21 +136,21 @@ function Dash(props) {
           <section className="location-date" style={{marginBottom: '1.25rem'}}>
           <div className="itinerary-input-group">
           <label htmlFor="itinerary-location">LOCATION NAME</label>
-          <input onChange={handleInputChange} type="text" name="location" id="itinerary-location" placeholder="LOCATION"/>
+          <input onChange={handleInputChange} type="text" name="location" id="itinerary-location" placeholder="LOCATION" value={itineraryForm.location}/>
           </div>
           <div className="itinerary-input-group">
           <label htmlFor="itinerary-date">DATE AND TIME OF EVENT</label>
-          <input onChange={handleInputChange} type="text" name="time" id="itinerary-date" placeholder="MM/DD/YYYY - HH:MM"/>
+          <input onChange={handleInputChange} type="text" name="time" id="itinerary-date" placeholder="MM/DD/YYYY - HH:MM" value={itineraryForm.time}/>
           </div>
           </section>
           <section className="lon-lng">
           <div className="itinerary-input-group">
           <label htmlFor="itinerary-lat">LATITUDE</label>
-          <input onChange={handleInputChange} type="number" step="any" name="lat" id="itinerary-lat" placeholder="LATITUDE"/>
+          <input onChange={handleInputChange} type="number" step="any" name="lat" id="itinerary-lat" placeholder="LATITUDE" value={itineraryForm.lat}/>
           </div>
           <div className="itinerary-input-group">
           <label htmlFor="itinerary-lng">LONGITUDE</label>
-          <input onChange={handleInputChange} type="number" step="any" name="lon" id="itinerary-lng" placeholder="LONGITUDE"/>
+          <input onChange={handleInputChange} type="number" step="any" name="lon" id="itinerary-lng" placeholder="LONGITUDE" value={itineraryForm.lon}/>
           </div>
           </section>
           <section style={{textAlign: 'center'}}>

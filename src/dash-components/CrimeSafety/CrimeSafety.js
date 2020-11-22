@@ -27,7 +27,7 @@ function CrimeSafety(props) {
 
     return (
         <p className="crime-safety-container ">
-            CRIME SAFTEY RATING: <span className="rating_num" style={{border:`2px solid ${color}`}}>{safety}</span>
+            CRIME SAFETY RATING: <span className="rating_num" style={{border:`2px solid ${color}`}}>{safety}</span>
         </p>
     )
 }
