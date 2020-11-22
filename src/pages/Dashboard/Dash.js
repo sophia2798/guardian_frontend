@@ -90,9 +90,9 @@ function Dash(props) {
                 .toLowerCase()} />
             <Map
               tripInfo={tripInfo}
-              city={tripInfo.city.substring(0, tripInfo.city.indexOf(","))
-                .replace(/\s+/g, "+")
-                .toLowerCase()}
+              // city={tripInfo.city.substring(0, tripInfo.city.indexOf(","))
+              //   .replace(/\s+/g, "+")
+              //   .toLowerCase()}
              />
           </div>
       <TextEditor

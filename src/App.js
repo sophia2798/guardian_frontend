@@ -37,7 +37,7 @@ function App() {
   function fetchUserData() {
     const token = localStorage.getItem("token");
     API.getProfile(token).then((profileData) => {
-      console.log("profileData from fetchUserData:", profileData);
+      // console.log("profileData from fetchUserData:", profileData);
       if (profileData) {
         setProfileState({
           first_name: profileData.first_name,
