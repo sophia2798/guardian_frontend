@@ -36,6 +36,7 @@ function Trips(props) {
     start_date: "",
     end_date: "",
     report_doc: "",
+    completed: false
   });
 
   const handleSubmit = (e) => {
@@ -46,11 +47,12 @@ function Trips(props) {
         start_date: "",
         end_date: "",
         report_doc: "",
+        completed: false
       });
       props.fetchData();
     });
   };
-  console.log("TRIPS PROPS", props);
+  // console.log("TRIPS PROPS", props);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -128,6 +130,7 @@ function Trips(props) {
         {trips.map((trip, i) => {
           return (
             <Card
+              fetchData={props.fetchData}
               tripObj={trip}
               tripProps={props}
               deleteTrip={props.deleteTrip}

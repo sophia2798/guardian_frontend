@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CheckIcon from "@material-ui/icons/Check";
 import { Link } from "react-router-dom";
 import ClearIcon from "@material-ui/icons/Clear";
+import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,12 +71,23 @@ function TripCard(props) {
   };
 
   const setComplete = () => {
+    const token = localStorage.getItem("token");
     setCompleted(!complete);
+    console.log("pre", complete);
+    API.toggleComplete(token, tripObj._id, complete).then(result => {
+      console.log(`switched completed boolean to ${complete}`);
+      props.fetchData();
+      console.log("new state", tripObj.completed)
+    });
   };
+
+  React.useEffect(() => {
+    setTripObj(props.tripObj);
+  },[props.tripObj])
 
   return (
     <Card
-      className={complete ? classes.cardCurrent : classes.cardComplete}
+      className={tripObj.completed ? classes.cardCurrent : classes.cardComplete}
       id="root-trip-card"
     >
       <CardHeader
@@ -84,7 +96,7 @@ function TripCard(props) {
           <Avatar
             aria-label="recipe"
             className={
-              complete ? classes.avatarCurrent : classes.avatarComplete
+              tripObj.completed ? classes.avatarCurrent : classes.avatarComplete
             }
           >
             &nbsp;
@@ -140,7 +152,7 @@ function TripCard(props) {
       </Link>
       <CardActions disableSpacing>
         <IconButton onClick={setComplete} aria-label="add to favorites">
-          {complete ? (
+          {tripObj.completed ? (
             <div className="textBlue">
               <CheckIcon />
             </div>
