@@ -39,7 +39,7 @@
   }
 }
 
-@media screen and (max-width: 700) {
+@media screen and (max-width: 500) {
   .component__div {
     display: flex;
     flex-direction: column;
