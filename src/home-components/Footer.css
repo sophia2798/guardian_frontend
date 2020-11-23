@@ -18,7 +18,8 @@
 
 .footer__icon:hover {
     cursor: pointer;
-    opacity: 90%;
+    /* opacity: 90%; */
+    color: white;
 }
 
 .footer__middle {
