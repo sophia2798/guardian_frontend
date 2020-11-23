@@ -223,7 +223,6 @@ export default function TeamCard(props) {
             </section>
             <section className="more-info">
               <p>{member.email}</p>
-              <p>206-394-1293</p>
             </section>
           </div>
         ))}

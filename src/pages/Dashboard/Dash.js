@@ -156,8 +156,7 @@ function Dash(props) {
       <div className="editer">
       <TextEditor
             // token={props.location.state.token}
-            // TODO: update to not hardcode
-            trip="5fb74a580f9401657c0cbe47"
+            trip={tripInfo.id}
             data={tripInfo.report_doc}
           />
           </div>

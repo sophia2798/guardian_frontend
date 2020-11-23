@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./TextEditor.css";
-import VideocamIcon from "@material-ui/icons/Videocam";
-import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import API from "../../utils/API";
 
 function TextEditor(props) {
@@ -13,7 +11,8 @@ function TextEditor(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    API.updateWhiteboard(props.token,props.trip,reportDoc).then(console.log(`API REQ with token ${props.token}, to trip id ${props.trip} with text ${reportDoc.report_doc}`))
+    const token = localStorage.getItem("token");
+    API.updateWhiteboard(token,props.trip,reportDoc).then(console.log(`API REQ with token ${props.token}, to trip id ${props.trip} with text ${reportDoc.report_doc}`))
   };
 
   function handleInputChange(event) {

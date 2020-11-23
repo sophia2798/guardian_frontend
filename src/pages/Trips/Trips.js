@@ -121,12 +121,12 @@ function Trips(props) {
         <button onClick={handleOpen} id="add-trip">
           +
         </button>
-        <form>
+        {/* <form>
           <input type="text" placeholder="SEARCH TRIPS" />
           <button id="trip-search-submit">
             <SearchIcon className="search__icon" />
           </button>
-        </form>
+        </form> */}
       </div>
       <div className="trip-cards-container">
         {trips.map((trip, i) => {
