@@ -49,7 +49,8 @@ function Teams(props) {
 
     const handleFormSubmit = event => {
         event.preventDefault();
-        API.addMember(props.token, selectTrip, member)
+        const token = localStorage.getItem("token");
+        API.addMember(token, selectTrip, member)
         .then(newMember => {
             console.log("added member")
             setMember({ email: ""});

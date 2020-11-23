@@ -32,7 +32,7 @@ function Signup() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
-    API.signup(signUpFormState).then((window.location = "/login"));
+    API.signup(signUpFormState).then((rest) => window.location = "/login");
   };
 
   return (
