@@ -1,80 +1,52 @@
-import React, { Component } from "react";
-import { withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps";
+import React, { useState, useEffect } from "react";
 import "./Map.css";
-import Pin from "./pin2.png";
-import TripSeed from "../../utils/seedTrip.json";
-const styles = require("./GoogleMapStyles.json");
+import weatherAPI from "../../utils/weatherAPI";
+import GoogleMapExample from "./GoogleMap";
 
-class Map extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      itinerary: TripSeed[2].itinerary,
-      infoMarkerID: '',
-      isOpen: false
-    }
-  }
+function Map(props) {
+  const [infoMarkerID, setInfoMarkerID] = React.useState('');
+  const [lat, setLat] = useState("");
+  const [lng, setLng] = useState("");
+  const [itinerary, setItinerary] = useState([]);
 
-  toggleInfo = id => {
-    this.setState({
-      infoMarkerID: id
-    })
-    // console.log(this.state.infoMarkerID)
+  const toggleInfo = id => {
+    setInfoMarkerID(id)
+    console.log(infoMarkerID)
   };
 
-  handleToggleOpen = () => {
-    this.setState({
-      isOpen: true
+  const getCenterCoordinates = city => {
+    weatherAPI.getCoordinates(city)
+    .then(result => {
+        console.log(result.data.coord.lat, result.data.coord.lon)
+        setLat(result.data.coord.lat);
+        setLng(result.data.coord.lon);
     })
-    console.log(this.state.isOpen)
-  }
+    .catch(err => console.log(err))
+  };
 
-  handleToggleClose = () => {
-    this.setState({
-      isOpen: false
-    })
-    console.log(this.state.isOpen)
-  }
-  
-  render() {
-    const GoogleMapExample = withGoogleMap((props) => (
-      <GoogleMap
-        defaultCenter={{ lat: 47.605, lng: -122.353 }}
-        defaultZoom={13}
-        defaultOptions={{ styles: styles }}
-      >
-        {console.log(this.state.infoMarkerID)};
-        {this.state.itinerary.map((place, i) => {
-          return (
-          <div key={i} className="marker">
-          <Marker position={{lat: place.coordinates.lat, lng: place.coordinates.long}} title={place.location} icon={{url: Pin}} onClick={() => this.toggleInfo(i)}>
-              {(this.state.infoMarkerID === i) &&
-              <InfoWindow
-                position={{lat: place.coordinates.lat, lng: place.coordinates.long}}
-              >
-                <div style={{background:'white'}} className="info-window">
-                  <p style={{marginTop:0}}><strong>{place.location.toUpperCase()}</strong></p>
-                  <p>{place.time}</p>
-                </div>
-              </InfoWindow>
-              }
-          </Marker>
-          </div>
-          )
-        })}
+  useEffect(() => {
+    const arr = [];
+    props.tripInfo.itinerary.map(element => {
+      arr.push(element[0]);
+      console.log(arr);
+      setItinerary(arr);
+    });
+    getCenterCoordinates(props.tripInfo.city.substring(0, props.tripInfo.city.indexOf(",")).replace(/\s+/g, "+").toLowerCase());
+  },[props.tripInfo, props.city]);
 
-      </GoogleMap>
-    ));
-
-    return (
-      <div className="map__container">
-        <GoogleMapExample
-          containerElement={<div style={{ height: `500px`, width: "80vw" }} />}
-          mapElement={<div style={{ height: `100%` }} />}
-        />
-      </div>
-    );
-  }
+  return (
+    <div className="map__container">
+      <GoogleMapExample
+        lat={lat}
+        lng={lng}
+        itinerary={itinerary}
+        toggleInfo={toggleInfo}
+        infoMarkerID={infoMarkerID}
+        containerElement={<div style={{ height: `500px`, width: "100%" }} />}
+        mapElement={<div style={{ height: `100%` }} />}
+      />
+    </div>
+  );
 }
 
 export default Map;

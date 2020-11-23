@@ -78,6 +78,48 @@ const API = {
       .then((res) => res.json())
       .catch((err) => null);
   },
+  updateTripDates: function (token, tripID, start_date, end_date) {
+    return fetch(`${API_PREFIX}/trips/dates/${tripID}`, {
+      method: `PUT`,
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        start_date: start_date,
+        end_date: end_date,
+      }),
+    })
+      .then((res) => res.json())
+      .catch((err) => null);
+  },
+  getOneTrip: function(token, tripID) {
+      return fetch(`${API_PREFIX}/trips/${tripID}`, {
+            headers: {
+                authorization: `Bearer ${token}`
+            },
+      }).then(res => res.json()).catch(err => null)
+  },
+  addItinerary: function(token, tripID, itineraryObj) {
+      return fetch(`${API_PREFIX}/trips/event/${tripID}`, {
+          method: 'PUT',
+          headers: {
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify(itineraryObj),
+      }).then(res => res.json()).catch(err => null)
+  },
+  toggleComplete: function(token, tripID, bool) {
+      return fetch(`${API_PREFIX}/trips/complete/${tripID}`, {
+          method: 'PUT', 
+          headers: {
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({completed: bool})
+      }).then(res => res.json()).catch(err => null)
+  }
 };
 
 module.exports = API;

@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import CheckIcon from "@material-ui/icons/Check";
 import { Link } from "react-router-dom";
 import ClearIcon from "@material-ui/icons/Clear";
+import API from "../../utils/API";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -70,12 +71,23 @@ function TripCard(props) {
   };
 
   const setComplete = () => {
+    const token = localStorage.getItem("token");
     setCompleted(!complete);
+    console.log("pre", complete);
+    API.toggleComplete(token, tripObj._id, complete).then(result => {
+      console.log(`switched completed boolean to ${complete}`);
+      props.fetchData();
+      console.log("new state", tripObj.completed)
+    });
   };
+
+  React.useEffect(() => {
+    setTripObj(props.tripObj);
+  },[props.tripObj])
 
   return (
     <Card
-      className={complete ? classes.cardCurrent : classes.cardComplete}
+      className={tripObj.completed ? classes.cardCurrent : classes.cardComplete}
       id="root-trip-card"
     >
       <CardHeader
@@ -84,7 +96,7 @@ function TripCard(props) {
           <Avatar
             aria-label="recipe"
             className={
-              complete ? classes.avatarCurrent : classes.avatarComplete
+              tripObj.completed ? classes.avatarCurrent : classes.avatarComplete
             }
           >
             &nbsp;
@@ -101,44 +113,46 @@ function TripCard(props) {
           </IconButton>
         }
       />
-      <Link
-        to={{
-          pathname: "/dashboard",
-          state: {
-            title: tripObj.city.toUpperCase(),
-            city: tripObj.city
-              .substring(0, tripObj.city.indexOf(","))
-              .replace(/\s+/g, "-")
-              .toLowerCase(),
-            cityWeather: tripObj.city
-              .substring(0, tripObj.city.indexOf(","))
-              .replace(/\s+/g, "+")
-              .toLowerCase(),
-            startDate: `${tripObj.start_date.substring(
-              5,
-              7
-            )}/${tripObj.start_date.substring(
-              8,
-              10
-            )}/${tripObj.start_date.substring(0, 4)}`,
-            endDate: `${tripObj.end_date.substring(
-              5,
-              7
-            )}/${tripObj.end_date.substring(
-              8,
-              10
-            )}/${tripObj.end_date.substring(0, 4)}`,
-            token: props.tripProps.token,
-            report_doc: props.tripObj.report_doc,
-          },
-        }}
+      <Link to={`/dashboard/${tripObj._id}`}
+        // to={{
+        //   pathname: "/dashboard",
+        //   state: {
+        //     title: tripObj.city.toUpperCase(),
+        //     id: tripObj._id,
+            // city: tripObj.city
+            //   .substring(0, tripObj.city.indexOf(","))
+            //   .replace(/\s+/g, "-")
+            //   .toLowerCase(),
+        //     cityWeather: tripObj.city
+        //       .substring(0, tripObj.city.indexOf(","))
+        //       .replace(/\s+/g, "+")
+        //       .toLowerCase(),
+            // startDate: `${tripObj.start_date.substring(
+            //   5,
+            //   7
+            // )}/${tripObj.start_date.substring(
+            //   8,
+            //   10
+            // )}/${tripObj.start_date.substring(0, 4)}`,
+        //     endDate: `${tripObj.end_date.substring(
+        //       5,
+        //       7
+        //     )}/${tripObj.end_date.substring(
+        //       8,
+        //       10
+        //     )}/${tripObj.end_date.substring(0, 4)}`,
+        //     token: props.tripProps.token,
+        //     report_doc: props.tripObj.report_doc,
+        //     itinerary: props.tripObj.itinerary
+        //   },
+        // }}
         className="trip-links"
       >
         <CardMedia className={classes.media} image={props.image} />
       </Link>
       <CardActions disableSpacing>
         <IconButton onClick={setComplete} aria-label="add to favorites">
-          {complete ? (
+          {tripObj.completed ? (
             <div className="textBlue">
               <CheckIcon />
             </div>

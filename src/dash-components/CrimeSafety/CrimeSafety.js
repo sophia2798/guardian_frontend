@@ -22,12 +22,12 @@ function CrimeSafety(props) {
 
     useEffect(() => {
         getRating(props.city);
-        console.log(safety);
+        // console.log(safety);
     })
 
     return (
         <p className="crime-safety-container ">
-            CRIME SAFTEY RATING: <span className="rating_num" style={{border:`2px solid ${color}`}}>{safety}</span>
+            CRIME SAFETY RATING: <span className="rating_num" style={{border:`2px solid ${color}`}}>{safety}</span>
         </p>
     )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from "../../card-components/TeamCards/TeamCard";
 import "./Teams.css";
 import { makeStyles } from '@material-ui/core/styles';
@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Teams(props) {
     const classes = useStyles();
     const [teams, setTeams] = React.useState(props.teams);
@@ -40,10 +41,10 @@ function Teams(props) {
       setSelectTrip(e.target.id);
       console.log("selectTrip State", selectTrip)
     };
-  
+
     const handleClose = () => {
-      setOpen(false);
-      setBlur(false);
+        setOpen(false);
+        setBlur(false);
     };
 
     const handleFormSubmit = event => {
