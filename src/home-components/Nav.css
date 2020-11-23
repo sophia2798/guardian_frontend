@@ -13,9 +13,8 @@
 }
 
 .nav__white {
-  background-color: rgb(17, 17, 17);
+  background-color: rgb(17, 17, 17, 0.9);
   color: rgb(250, 250, 250);
-  opacity: 95%;
 }
 
 .nav__logo {

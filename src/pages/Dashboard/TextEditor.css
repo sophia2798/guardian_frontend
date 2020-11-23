@@ -2,7 +2,7 @@
   display: flex;
   margin-top: 30px;
   flex-direction: column;
-  background-color: rgb(36, 36, 36);
+  background-color: rgb(41, 41, 41);
   border-radius: 15px;
   box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
   width: 100%;
@@ -71,4 +71,11 @@
 .textEditor__option:hover {
   background-color: #3f3f3f;
   border-radius: 20px;
+}
+
+@media screen and (max-width: 2700px) {
+  .textEditor__input {
+    flex: 1;
+    height: 460px;
+  }
 }
