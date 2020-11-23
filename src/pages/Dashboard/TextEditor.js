@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TextEditor.css";
 import VideocamIcon from "@material-ui/icons/Videocam";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import API from "../../utils/API";
 
 function TextEditor(props) {
-  const [reportDoc, setReportDoc] = React.useState({
+  const [reportDoc, setReportDoc] = useState({
     report_doc: props.data,
   });
 
-  const handleSubmit = (e) => {
+  console.log("texteditor props",props)
+
+  function handleSubmit(e) {
     e.preventDefault();
-    API.updateWhiteboard(props.token, props.trip, reportDoc).then(() => {
-      console.log("successfully saved", reportDoc);
-    });
+    API.updateWhiteboard(props.token,props.trip,reportDoc).then(console.log(`API REQ with token ${props.token}, to trip id ${props.trip} with text ${reportDoc.report_doc}`))
   };
 
-  const handleInputChange = (event) => {
+  function handleInputChange(event) {
     setReportDoc({ report_doc: event.target.value });
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     setReportDoc({ report_doc: props.data });
   }, [props.data]);
 

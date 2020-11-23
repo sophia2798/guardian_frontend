@@ -38,6 +38,8 @@ function Trips(props) {
     report_doc: "",
   });
 
+  console.log(props)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     API.createTrip(props.token, trip).then(() => {

@@ -72,7 +72,6 @@ function Dash(props) {
     getTripInfo(props.match.params.cityID);
   },[props.match.params.cityID])
 
-  // console.log("DASH PROPS", props);
   return (
     <div className="dash">
       <div className="dash__calendar">
@@ -103,8 +102,10 @@ function Dash(props) {
           </Button>
           {showSearch && (
             <DashCalendar
-              // token={props.location.state.token}
-              trip="5fb74a580f9401657c0cbe47"
+              trip={tripInfo.id}
+              startDate={tripInfo.start_date}
+              endDate={tripInfo.end_date}
+              getTripInfo={getTripInfo}
             />
           )}
           <CrimeSafety city={tripInfo.city
@@ -123,9 +124,8 @@ function Dash(props) {
              />
           </div>
       <TextEditor
-            // token={props.location.state.token}
-            // TODO: update to not hardcode
-            trip="5fb74a580f9401657c0cbe47"
+            token={localStorage.getItem("token")}
+            trip={tripInfo.id}
             data={tripInfo.report_doc}
           />
       </div>
