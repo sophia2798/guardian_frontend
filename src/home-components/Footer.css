@@ -19,6 +19,7 @@
 .footer__icon:hover {
     cursor: pointer;
     color: rgba(39, 39, 39, 0.9);
+    /* opacity: 90%; */
 }
 
 .footer__middle {
