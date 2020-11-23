@@ -109,6 +109,16 @@ const API = {
           },
           body: JSON.stringify(itineraryObj),
       }).then(res => res.json()).catch(err => null)
+  },
+  toggleComplete: function(token, tripID, bool) {
+      return fetch(`${API_PREFIX}/trips/complete/${tripID}`, {
+          method: 'PUT', 
+          headers: {
+              authorization: `Bearer ${token}`,
+              "Content-Type": "application/json"
+          },
+          body: JSON.stringify({completed: bool})
+      }).then(res => res.json()).catch(err => null)
   }
 };
 

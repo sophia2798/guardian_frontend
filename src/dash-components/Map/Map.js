@@ -42,7 +42,7 @@ function Map(props) {
         itinerary={itinerary}
         toggleInfo={toggleInfo}
         infoMarkerID={infoMarkerID}
-        containerElement={<div style={{ height: `500px`, width: "80vw" }} />}
+        containerElement={<div style={{ height: `500px`, width: "100%" }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
     </div>

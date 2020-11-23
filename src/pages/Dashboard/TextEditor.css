@@ -5,8 +5,14 @@
   background-color: rgb(41, 41, 41);
   border-radius: 15px;
   box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
-  width: 45%;
+  width: 100%;
   margin: auto auto;
+
+}
+.login-submit-btn {
+  background-color:black;
+  margin-top: 1rem;
+  width: 100%;
 }
 
 .textEditor__top {
@@ -29,9 +35,8 @@
   outline-width: 0;
   border: none;
   padding: 15px 20px;
-  margin: 0 10px;
   border-radius: 10px;
-  background-color: #eff2f5;
+  background-color: transparent;
 }
 
 .textEditor__top > form > button {
@@ -40,7 +45,8 @@
 
 .textEditor__input {
   flex: 1;
-  height: 700px;
+  min-height: 700px;
+  border-radius: 15px;
 }
 
 .textEditor__bottom {

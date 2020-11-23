@@ -3,6 +3,7 @@
   justify-content: center;
   margin-top: 80px;
   flex-direction: column;
+  padding: 1rem;
 }
 
 .calendar__button {
@@ -23,12 +24,23 @@
   display: flex;
   margin-top: 40px;
   margin-right: auto;
+  width:100%;
+  flex-direction: column;
 }
 
 .weather__map {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
+}
+
+.map_itinerary {
+  display: flex;
+  flex-direction: row;
+}
+
+.map__container {
+  width: 60% !important;
 }
 
 @media screen and (max-width: 2700px) {
@@ -50,26 +62,35 @@
 
 .itinerary_form {
   color: white;
+  /* flex-direction: column; */
+  width: 100%;
 }
 
 .itinerary-content {
   width: 90%;
+  /* flex-direction: column; */
   margin: 0 auto;
   background-color: rgb(36,36,36);
   border-radius: 15px;
   padding: 1rem;
+  height: 94%;
+  margin-bottom: 1rem !important;
 }
 
 .itinerary_form_wrapper {
   margin: 1rem 0 !important;
   color: white;
   font-family: 'Work Sans', sans-serif;
-  width: 100%;
+  width: 40%;
+  flex-direction: column;
 }
 
 .itinerary_form_wrapper h1 {
-  text-align: center;
+  text-align: center; 
   margin-bottom: 1.5rem;
+  /* flex-direction: column; */
+  width: 100%;
+  margin-top: 18%;
 }
 
 .itinerary_form label {
@@ -139,7 +160,27 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/* .texteditor__div {
-  margin: auto auto;
+
+.editer {
   width: 100%;
-} */
+  flex-direction: column;
+}
+
+@media only screen and (max-width: 940px) {
+  .map_itinerary {
+    flex-direction: column;
+  }
+  .map__container {
+    width: 100% !important;
+  }
+  .itinerary_form_wrapper {
+    width: 100%;
+  }
+  .itinerary_form_wrapper h1 {
+    margin-top: 1rem !important;
+  }
+  .itinerary-content {
+    width: 96%;
+    height: auto;
+  }
+}

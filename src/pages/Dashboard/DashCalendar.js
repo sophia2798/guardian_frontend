@@ -6,39 +6,42 @@ import { DateRangePicker } from "react-date-range";
 import API from "../../utils/API";
 
 function DashCalendar(props) {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  console.log("CALENDAR PROPS", props)
+  // Set states for start and end date using current trip dates
+  const [startDate, setStartDate] = useState(new Date(props.startDate));
+  const [endDate, setEndDate] = useState(new Date(props.endDate));
 
-  const [tripDates, setTripDates] = useState({
-    start_Date: "",
-    end_Date: "",
-  });
-
+  // Calendar Selection Range, default to current trip dates
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
     key: "selection",
   };
 
+  // State managmenet, when calendar date is selected, update state
   function handleSelect(ranges) {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
-
-    setTripDates({
-      start_Date: ranges.selection.startDate,
-      end_Date: ranges.selection.endDate,
-    });
   }
 
+  
+  useEffect(() => {
+    setStartDate(new Date(props.startDate))
+    setEndDate(new Date(props.endDate))
+  }, [props.startDate,props.endDate])
+
+  
+
+  // When Update button is selected, API request for updating the dates in database
   function handleDateUpdate() {
-    console.log("Schwooop", startDate, endDate);
     API.updateTripDates(
       localStorage.getItem("token"),
       props.trip,
       startDate,
       endDate
     ).then(() => {
-      console.log("successfully saved");
+      console.log(`successfully saved: token=${localStorage.getItem("token")}, tripID: ${props.trip}, startdate ${startDate}`);
+      props.getTripInfo(props.trip);
     });
   }
 
