@@ -46,7 +46,8 @@
 .banner__overlay {
     width: 100%;
     height: 100%;
-    background: rgb(17,17,17,0.4);
+    /* background: rgb(17,17,17,0.4); */
+    background: rgb(192,13,53, 0.4);
     position: absolute;
     top: 0;
     color: white;
