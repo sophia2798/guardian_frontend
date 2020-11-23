@@ -28,7 +28,7 @@ function TextEditor(props) {
     <div className="textEditor">
       <div className="textEditor__top">
         <h4>Whiteboard</h4>
-        <form>
+        <form style={{display:'flex', flexDirection:'column'}}>
           <textarea
             className="textEditor__input"
             defaultValue={reportDoc.report_doc}
