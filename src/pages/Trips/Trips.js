@@ -36,6 +36,7 @@ function Trips(props) {
     start_date: "",
     end_date: "",
     report_doc: "",
+    completed: false
   });
 
   console.log(props)
@@ -48,11 +49,12 @@ function Trips(props) {
         start_date: "",
         end_date: "",
         report_doc: "",
+        completed: false
       });
       props.fetchData();
     });
   };
-  console.log("TRIPS PROPS", props);
+  // console.log("TRIPS PROPS", props);
 
   const handleInputChange = (event) => {
     event.preventDefault();
@@ -130,6 +132,7 @@ function Trips(props) {
         {trips.map((trip, i) => {
           return (
             <Card
+              fetchData={props.fetchData}
               tripObj={trip}
               tripProps={props}
               deleteTrip={props.deleteTrip}
@@ -181,7 +184,7 @@ function Trips(props) {
                   type="text"
                   id="location"
                   className="modal-input"
-                  placeholder="CITY"
+                  placeholder="CITY (e.g. Seattl)"
                 />
                 <label className="modal-label" htmlFor="start-date">
                   START DATE
