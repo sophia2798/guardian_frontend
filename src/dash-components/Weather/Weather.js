@@ -28,7 +28,7 @@ function Weather(props) {
 
     useEffect(() => {
         getWeather(props.city)
-    },[])
+    },[props.city])
 
     return (
         <div className="weather-container">
