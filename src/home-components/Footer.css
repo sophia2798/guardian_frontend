@@ -12,13 +12,13 @@
 .footer__icon {
     font-size: 35px !important;
     margin-right: 20px;
-    color: rgb(54, 54, 54);
+    color: rgba(54, 54, 54);
     margin-bottom: 15px;
 }
 
 .footer__icon:hover {
     cursor: pointer;
-    opacity: 90%;
+    color: rgba(39, 39, 39, 0.9);
 }
 
 .footer__middle {
