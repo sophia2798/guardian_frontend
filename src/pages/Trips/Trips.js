@@ -39,6 +39,8 @@ function Trips(props) {
     completed: false
   });
 
+  console.log(props)
+
   const handleSubmit = (e) => {
     e.preventDefault();
     API.createTrip(props.token, trip).then(() => {
