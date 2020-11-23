@@ -42,17 +42,6 @@ function TextEditor(props) {
           />
         </form>
       </div>
-
-      <div className="textEditor__bottom">
-        <div className="textEditor__option">
-          <VideocamIcon style={{ color: "red" }} />
-          <h3>Upload Video</h3>
-        </div>
-        <div className="textEditor__option">
-          <PhotoLibraryIcon style={{ color: "green" }} />
-          <h3>Upload Image</h3>
-        </div>
-      </div>
     </div>
   );
 }

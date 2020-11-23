@@ -23,20 +23,25 @@
   display: flex;
   margin-top: 40px;
   margin-right: auto;
+  width:100%;
+  flex-direction: column;
 }
 
 .weather__map {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
 }
 
 .itinerary_form {
   color: white;
+  /* flex-direction: column; */
+  width: 100%;
 }
 
 .itinerary-content {
   width: 90%;
+  /* flex-direction: column; */
   margin: 0 auto;
   background-color: rgb(36,36,36);
   border-radius: 15px;
@@ -48,11 +53,17 @@
   color: white;
   font-family: 'Work Sans', sans-serif;
   width: 100%;
+  flex-direction: column;
+
+
+  /* flex-direction: column; */
 }
 
 .itinerary_form_wrapper h1 {
-  text-align: center;
+  text-align: center; 
   margin-bottom: 1.5rem;
+  /* flex-direction: column; */
+  width: 100%;
 }
 
 .itinerary_form label {
@@ -122,7 +133,8 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-/* .texteditor__div {
-  margin: auto auto;
+
+.editer {
   width: 100%;
-} */
+  flex-direction: column;
+}

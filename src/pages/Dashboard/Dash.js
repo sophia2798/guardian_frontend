@@ -123,12 +123,7 @@ function Dash(props) {
               tripInfo={tripInfo}
              />
           </div>
-      <TextEditor
-            token={localStorage.getItem("token")}
-            trip={tripInfo.id}
-            data={tripInfo.report_doc}
-          />
-      </div>
+ 
       <section className="itinerary_form_wrapper">
         <div className="itinerary-content">
         <h1>ADD EVENT TO ITINERARY</h1>
@@ -139,8 +134,8 @@ function Dash(props) {
           <input onChange={handleInputChange} type="text" name="location" id="itinerary-location" placeholder="LOCATION" value={itineraryForm.location}/>
           </div>
           <div className="itinerary-input-group">
-          <label htmlFor="itinerary-date">DATE AND TIME OF EVENT</label>
-          <input onChange={handleInputChange} type="text" name="time" id="itinerary-date" placeholder="MM/DD/YYYY - HH:MM" value={itineraryForm.time}/>
+          <label htmlFor="itinerary-date">DATE AND TIME</label>
+          <input onChange={handleInputChange} type="text" name="time" id="itinerary-date" placeholder="MM/DD/YYYY - HH:MM"/>
           </div>
           </section>
           <section className="lon-lng">
@@ -159,6 +154,16 @@ function Dash(props) {
         </form>
         </div>
       </section>
+      <div className="editer">
+      <TextEditor
+            // token={props.location.state.token}
+            // TODO: update to not hardcode
+            trip="5fb74a580f9401657c0cbe47"
+            data={tripInfo.report_doc}
+          />
+          </div>
+      
+      </div>
     </div>
   );
 }

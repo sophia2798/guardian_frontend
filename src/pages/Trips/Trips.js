@@ -184,7 +184,7 @@ function Trips(props) {
                   type="text"
                   id="location"
                   className="modal-input"
-                  placeholder="CITY (e.g. Seattl)"
+                  placeholder="CITY (e.g. Seattle, WA)"
                 />
                 <label className="modal-label" htmlFor="start-date">
                   START DATE
