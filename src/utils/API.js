@@ -1,4 +1,4 @@
-const API_PREFIX = "http://localhost:9164/api";
+const API_PREFIX = "https://guardian-api.herokuapp.com/api";
 
 const API = {
   login: function (userData) {
