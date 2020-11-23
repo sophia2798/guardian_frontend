@@ -5,8 +5,12 @@
   background-color: rgb(36, 36, 36);
   border-radius: 15px;
   box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
-  width: 45%;
+  width: 100%;
   margin: auto auto;
+
+}
+.login-submit-btn {
+  background-color:black;
 }
 
 .textEditor__top {

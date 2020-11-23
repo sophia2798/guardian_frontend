@@ -4,7 +4,8 @@
     background-color: rgb(36, 36, 36);
     border-radius: 15px;
     margin: 1rem auto;
-    width: 70%;
+    width: 100%;
+    flex-direction: column;
 }
 
 .weather-header {
