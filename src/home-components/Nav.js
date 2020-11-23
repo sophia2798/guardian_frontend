@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Drawer from "@material-ui/core/Drawer";
 import { Button } from "@material-ui/core";
 import "./Nav.css";
-import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MenuIcon from "@material-ui/icons/Menu";
 import logo from "../images/logo-white.jpeg";
 import { Link } from "react-router-dom";
@@ -73,9 +72,6 @@ function Nav(props) {
           </Link>
           :
           null }
-        </div>
-        <div className="nav__option">
-          <PermIdentityIcon onClick={handleLogin} />
         </div>
         <div className="nav__option">
           {/* <React.Fragment key={anchor}> */}
