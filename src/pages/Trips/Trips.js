@@ -43,7 +43,8 @@ function Trips(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    API.createTrip(props.token, trip).then(() => {
+    const token = localStorage.getItem("token");
+    API.createTrip(token, trip).then(() => {
       setTrip({
         city: "",
         start_date: "",
