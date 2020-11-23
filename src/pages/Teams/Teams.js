@@ -49,7 +49,6 @@ function Teams(props) {
 
     const handleFormSubmit = event => {
         event.preventDefault();
-        // console.log("form submit", selectTrip);
         API.addMember(props.token, selectTrip, member)
         .then(newMember => {
             console.log("added member")
@@ -77,10 +76,10 @@ function Teams(props) {
         <div className="team-container" style={blur ? {filter:'blur(2px)'} : null}>
             <div className="team-header">
                 <h1>TEAMS</h1>
-                <form>
+                {/* <form>
                     <input type="text" placeholder="SEARCH TEAMS"/>
                     <button id="team-search-submit"><SearchIcon style={{color:'rgb(41,41,41)'}}/></button>
-                </form>
+                </form> */}
             </div>
             <div className="team-cards-container">
                 {teams.map(team => (
